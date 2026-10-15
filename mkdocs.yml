@@ -55,6 +55,20 @@ nav:
   - Textbook:
     - textbook/index.md
     # BEGIN textbook-nav (written by textbook-outline; do not edit by hand)
+    - "1. Polyhedra, arrangements and piecewise-linear maps": textbook/polyhedral-foundations.md
+    - "2. The region complex of a ReLU network": textbook/relu-network-geometry.md
+    - "3. Counting linear regions": textbook/counting-regions.md
+    - "4. Space folding and folding neurons": textbook/space-folding.md
+    - "5. Deep networks as splines": textbook/spline-networks.md
+    - "6. Tropical geometry of ReLU networks": textbook/tropical-geometry.md
+    - "7. Topology of regions and of data": textbook/region-topology.md
+    - "8. Exact enumeration, preimages and verification": textbook/verification-and-preimages.md
+    - "9. Information geometry": textbook/information-geometry.md
+    - "10. Manifold learning and intrinsic dimension": textbook/manifold-learning.md
+    - "11. Riemannian and Finsler geometry of latent spaces": textbook/latent-geometry.md
+    - "12. Metric flows with neural networks": textbook/metric-flows.md
+    - "13. Symmetry and geometric deep learning": textbook/symmetry-and-gdl.md
+    - "14. Implicit and geometry-informed representations": textbook/implicit-geometry.md
     # END textbook-nav
   - Comparison:
     - comparison/index.md
@@ -63,6 +77,46 @@ nav:
   - Papers:
     - papers/index.md
     # BEGIN papers-nav (written by paper-manifest; do not edit by hand)
+    - "Montúfar et al. 2014: On the Number of Linear Regions of Deep Neural Networks": papers/NIPS2014_fa6f2a46.md
+    - "Alfarra et al. 2023: On the Decision Boundaries of Neural Networks": papers/alfarraDecisionBoundariesNeural2023.md
+    - "Arvanitidis et al. 2020: Geometrically Enriched Latent Spaces": papers/arvanitidisGeometricallyEnrichedLatent2020.md
+    - "Arvanitidis et al. 2022: Pulling Back Information Geometry": papers/arvanitidisPullingBackInformation2022.md
+    - "Averkov et al. 2025: ON THE EXPRESSIVENESS OF RATIONAL RELU NEURAL NETWORKS WITH BOUNDED DEPTH": papers/averkovEXPRESSIVENESSRATIONALRELU2025.md
+    - "Balestriero and baraniuk 2018: A Spline Theory of Deep Learning": papers/balestrieroSplineTheoryDeep2018.md
+    - "Berzins et al. 2024: Geometry-Informed Neural Networks": papers/berzinsGeometryInformedNeuralNetworks2024.md
+    - "Berzins 2023: Polyhedral Complex Extraction from ReLU Networks Using Edge Subdivision": papers/berzinsPolyhedralComplexExtraction2023.md
+    - "Brandenburg et al. 2024: Decomposition Polyhedra of Piecewise Linear Functions": papers/brandenburgDecompositionPolyhedraPiecewise2024.md
+    - "Bronstein et al. n.d.: Geometric Deep Learning Grids, Groups, Graphs, Geodesics, and Gauges": papers/bronsteinGeometricDeepLearning.md
+    - "Bronstein et al. 2017: Geometric Deep Learning": papers/bronsteinGeometricDeepLearning2017.md
+    - "Carlsson et al. 2017: THE PREIMAGE OF RECTIFIER NETWORK ACTIVITIES": papers/carlssonPREIMAGERECTIFIERNETWORK2017.md
+    - "Chazal and Michel 2021: An Introduction to Topological Data Analysis": papers/chazalIntroductionTopologicalData2021.md
+    - "Combe et al. 2025: Exploring Information Geometry": papers/combeExploringInformationGeometry2025.md
+    - "Fu and Lapata 2022: Latent Topology Induction for Understanding Contextualized Representations": papers/fuLatentTopologyInduction2022.md
+    - "Gagneux et al. 2025: How to Improve Expressivity of Convex ReLU Neural Networks?": papers/gagneuxHowImproveExpressivity2025.md
+    - "Goujon et al. 2023: On the Number of Regions of Piecewise Linear Neural Networks": papers/goujonNumberRegionsPiecewise2023.md
+    - "Grigsby et al. n.d.: Hidden Symmetries of ReLU Networks": papers/grigsbyHiddenSymmetriesReLU.md
+    - "Halverson and Ruehle 2024: Metric Flows with Neural Networks": papers/halversonMetricFlowsNeural2024.md
+    - "Hanin and Rolnick 2019: Complexity of Linear Regions in Deep Networks": papers/haninComplexityLinearRegions2019.md
+    - "Hanin and Rolnick 2019: Deep ReLU Networks Have Surprisingly Few Activation Patterns": papers/haninDeepReLUNetworks2019.md
+    - "Humayun et al. 2024: SplineCam": papers/humayunSplineCamExactVisualization2024.md
+    - "Keup and Helias 2022: Origami in N Dimensions": papers/keupOrigamiDimensionsHow2022.md
+    - "Lewandowski et al. 2026: Exploiting Space Folding by Neural Networks": papers/lewandowskiExploitingSpaceFolding2026.md
+    - "Lewandowski et al. 2024: On Space Folds of ReLU Neural Networks": papers/lewandowskiSpaceFoldsReLU2024.md
+    - "Liu et al. 2023: Integrating Geometries of ReLU Feedforward Neural Networks": papers/liuIntegratingGeometriesReLU2023a.md
+    - "Liu et al. 2023: ReLU Neural Networks, Polyhedral Decompositions, and Persistent Homology": papers/liuReLUNeuralNetworks2023.md
+    - "Masden 2022: Algorithmic Determination of the Combinatorial Structure of the Linear Regions of ReLU Neural Networks": papers/masdenAlgorithmicDeterminationCombinatorial2022.md
+    - "Meil\\u a and Zhang 2023: Manifold Learning": papers/meilaManifoldLearningWhat2023.md
+    - "Nielsen 2020: An Elementary Introduction to Information Geometry": papers/nielsenElementaryIntroductionInformation2020.md
+    - "Pak n.d.: Lectures on Discrete and Polyhedral Geometry": papers/pakLecturesDiscretePolyhedral.md
+    - "Pascanu et al. 2013: On the Number of Response Regions of Deep Feed Forward Networks with Piece-Wise Linear Activations": papers/pascanuNumberResponseRegions2013.md
+    - "Phuong and Lampert 2019: Functional vs. Parametric Equivalence of ReLU Networks": papers/phuongFunctionalVsParametric2019.md
+    - "Pouplin et al. 2023: Identifying Latent Distances with Finslerian Geometry": papers/pouplinIdentifyingLatentDistances2023.md
+    - "Raghu et al. 2017: On the Expressive Power of Deep Neural Networks": papers/raghuExpressivePowerDeep2017.md
+    - "Sattelberg et al. 2023: Locally Linear Attributes of ReLU Neural Networks": papers/sattelbergLocallyLinearAttributes2023.md
+    - "Serra et al. 2018: Bounding and Counting Linear Regions of Deep Neural Networks": papers/serraBoundingCountingLinear2018.md
+    - "Villar et al. 2023: Towards Fully Covariant Machine Learning": papers/villarFullyCovariantMachine2023.md
+    - "Vincent and Schwager 2021: Reachable Polyhedral Marching (RPM)": papers/vincentReachablePolyhedralMarching2021.md
+    - "Zhang et al. n.d.: Tropical Geometry of Deep Neural Networks": papers/zhangTropicalGeometryDeep.md
     # END papers-nav
   - Notation: notation.md
   - References: references.md

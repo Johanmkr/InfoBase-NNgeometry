@@ -1,0 +1,1444 @@
+built_from:
+  NIPS2014_fa6f2a46: 74ce28c3ceac
+  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
+  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
+  arvanitidisPullingBackInformation2022: d5884ab455cc
+  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
+  balestrieroSplineTheoryDeep2018: 5784cc65e030
+  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
+  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
+  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
+  bronsteinGeometricDeepLearning: b1bdc405eedd
+  bronsteinGeometricDeepLearning2017: 303af41ca265
+  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
+  chazalIntroductionTopologicalData2021: cef80f43dbc4
+  combeExploringInformationGeometry2025: 415b5fcd4364
+  fuLatentTopologyInduction2022: fc105aa1f4de
+  gagneuxHowImproveExpressivity2025: 22e23b06014b
+  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
+  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
+  halversonMetricFlowsNeural2024: 699fded4f825
+  haninComplexityLinearRegions2019: 5631df3a9bd2
+  haninDeepReLUNetworks2019: 3f3cf93f5eda
+  humayunSplineCamExactVisualization2024: 9589eff7767b
+  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
+  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
+  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
+  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
+  liuReLUNeuralNetworks2023: 7069ff27d8f7
+  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
+  meilaManifoldLearningWhat2023: 009a25e9883c
+  nielsenElementaryIntroductionInformation2020: 84c18077962c
+  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  pascanuNumberResponseRegions2013: 3fae3832ff4c
+  phuongFunctionalVsParametric2019: c7324e1a5cb1
+  pouplinIdentifyingLatentDistances2023: 002a4b56f697
+  raghuExpressivePowerDeep2017: b62868fb88f1
+  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
+  serraBoundingCountingLinear2018: e57c5f62b98c
+  villarFullyCovariantMachine2023: 20a7c0430350
+  vincentReachablePolyhedralMarching2021: c4988156c5b8
+  zhangTropicalGeometryDeep: f99703ad8890
+concepts:
+- id: relu-unit
+  name: ReLU unit
+  aliases:
+  - rectified linear unit
+  - relu
+  - relu activation
+  - rectifier unit
+  - monotonic activation function
+  - hard tanh activation
+  - absolute-value rectifier construction
+  summary: The activation $\sigma(x)=\max(0,x)$, the atomic nonlinearity of the networks studied here.
+  background: true
+  prerequisites: []
+  introduced_in:
+  - pascanuNumberResponseRegions2013
+  used_in:
+  - NIPS2014_fa6f2a46
+  - balestrieroSplineTheoryDeep2018
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - humayunSplineCamExactVisualization2024
+  - lewandowskiExploitingSpaceFolding2026
+  - pascanuNumberResponseRegions2013
+  - raghuExpressivePowerDeep2017
+  - serraBoundingCountingLinear2018
+- id: relu-network
+  name: ReLU network
+  aliases:
+  - relu network
+  - relu neural network
+  - relu feedforward neural network
+  - general relu network
+  - transparent relu network
+  - supertransversal network
+  - supertransversal neural network
+  - multilayer perceptron
+  - fully connected layer
+  - generic neural network
+  - piecewise linear network
+  - continuous piecewise-linear networks
+  - full rank weight matrix
+  - he initialization
+  - neural network initialization
+  - max-pooling
+  - radial basis function network
+  summary: A feedforward network $f:\R^{n_0}\to\R^{n_L}$ with $f(x)=W^{(L)}\sigma(\cdots\sigma(W^{(1)}x+b^{(1)}))$
+    built from ReLU units.
+  background: true
+  prerequisites:
+  - relu-unit
+  introduced_in:
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - phuongFunctionalVsParametric2019
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - balestrieroSplineTheoryDeep2018
+  - berzinsPolyhedralComplexExtraction2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - goujonNumberRegionsPiecewise2023
+  - grigsbyHiddenSymmetriesReLU
+  - haninComplexityLinearRegions2019
+  - haninDeepReLUNetworks2019
+  - humayunSplineCamExactVisualization2024
+  - keupOrigamiDimensionsHow2022
+  - lewandowskiSpaceFoldsReLU2024
+  - liuIntegratingGeometriesReLU2023a
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - pascanuNumberResponseRegions2013
+  - phuongFunctionalVsParametric2019
+  - raghuExpressivePowerDeep2017
+  - zhangTropicalGeometryDeep
+- id: piecewise-linear-function
+  name: Continuous piecewise-linear function
+  aliases:
+  - continuous piecewise linear function
+  - continuous piecewise-linear function
+  - piecewise linear function
+  - piecewise-linear function
+  - piecewise affine function
+  - piecewise-affine function
+  - piecewise linear activation
+  - piecewise linear activation function
+  - piecewise linear representation
+  - piece-wise linear surface
+  - canonical representation of a piece-wise linear surface
+  - dependency graph of a piece-wise linear surface
+  - difference-of-convex function
+  - convex function
+  - convex relu network characterization
+  - input convex neural network
+  - linear separability
+  summary: A function $\R^n\to\R^m$ that is affine on each cell of a finite polyhedral partition of its
+    domain.
+  background: false
+  prerequisites: []
+  introduced_in:
+  - gagneuxHowImproveExpressivity2025
+  - phuongFunctionalVsParametric2019
+  used_in:
+  - NIPS2014_fa6f2a46
+  - balestrieroSplineTheoryDeep2018
+  - berzinsPolyhedralComplexExtraction2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - gagneuxHowImproveExpressivity2025
+  - goujonNumberRegionsPiecewise2023
+  - haninComplexityLinearRegions2019
+  - keupOrigamiDimensionsHow2022
+  - liuIntegratingGeometriesReLU2023a
+  - pascanuNumberResponseRegions2013
+  - sattelbergLocallyLinearAttributes2023
+  - serraBoundingCountingLinear2018
+  - vincentReachablePolyhedralMarching2021
+  - zhangTropicalGeometryDeep
+- id: hyperplane-arrangement
+  name: Hyperplane arrangement
+  aliases:
+  - hyperplane arrangement
+  - folded hyperplane arrangement
+  - arrangement of convex partitions
+  - piece-wise hyperplane
+  - hyperplane function
+  - nullspace hyperplane
+  - reciprocal nullspace basis of the weight matrix
+  - upper envelope of linear functions
+  - affine map
+  - affine transformation
+  summary: A finite set $\{H_i\}$ of affine hyperplanes, subdividing $\R^n$ into open cells; the local
+    model of a piecewise-linear map.
+  background: true
+  prerequisites: []
+  introduced_in:
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - goujonNumberRegionsPiecewise2023
+  used_in:
+  - NIPS2014_fa6f2a46
+  - berzinsPolyhedralComplexExtraction2023
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - goujonNumberRegionsPiecewise2023
+  - haninComplexityLinearRegions2019
+  - haninDeepReLUNetworks2019
+  - humayunSplineCamExactVisualization2024
+  - keupOrigamiDimensionsHow2022
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - pascanuNumberResponseRegions2013
+  - phuongFunctionalVsParametric2019
+  - raghuExpressivePowerDeep2017
+  - serraBoundingCountingLinear2018
+- id: zaslavsky-theorem
+  name: Zaslavsky's theorem
+  aliases:
+  - zaslavsky's theorem
+  summary: An arrangement of $N$ hyperplanes in general position in $\R^d$ has $\sum_{k=0}^{d}\binom{N}{k}$
+    regions.
+  background: true
+  prerequisites:
+  - hyperplane-arrangement
+  introduced_in: []
+  used_in:
+  - goujonNumberRegionsPiecewise2023
+  - pascanuNumberResponseRegions2013
+- id: maxout-unit
+  name: Rank-$k$ maxout unit
+  aliases:
+  - rank-k maxout unit
+  - maxout unit
+  - maxout network
+  - voronoi partition of a maxout layer
+  - k-th order statistic
+  summary: A unit computing the maximum of $k$ affine functions, $x\mapsto\max_i(a_i^\top x+b_i)$; a ReLU
+    is the case $k=2$ with a zero branch.
+  background: false
+  prerequisites:
+  - relu-unit
+  introduced_in:
+  - NIPS2014_fa6f2a46
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  used_in:
+  - NIPS2014_fa6f2a46
+  - goujonNumberRegionsPiecewise2023
+  - serraBoundingCountingLinear2018
+- id: activation-pattern
+  name: Activation pattern
+  aliases:
+  - activation pattern
+  - activation region
+  - activation regions
+  - sign sequence
+  - sign-vector
+  - observable activation pattern
+  - neighboring activation pattern
+  - path-activations
+  - perturbation of sign-vectors
+  - binary vector of a relu network
+  - binary vector representation of polyhedra
+  - identification of input neighborhoods
+  - activation complexity
+  - active bit
+  summary: The sign vector $\mathbf{1}[W^{(l)}x+b^{(l)}>0]$ of a layer at input $x$; the combinatorial
+    label of a linear region.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - NIPS2014_fa6f2a46
+  - berzinsPolyhedralComplexExtraction2023
+  - goujonNumberRegionsPiecewise2023
+  - haninDeepReLUNetworks2019
+  - lewandowskiSpaceFoldsReLU2024
+  - liuIntegratingGeometriesReLU2023a
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - raghuExpressivePowerDeep2017
+  - vincentReachablePolyhedralMarching2021
+  used_in:
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - gagneuxHowImproveExpressivity2025
+  - grigsbyHiddenSymmetriesReLU
+  - lewandowskiExploitingSpaceFolding2026
+  - lewandowskiSpaceFoldsReLU2024
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - sattelbergLocallyLinearAttributes2023
+  - serraBoundingCountingLinear2018
+  - vincentReachablePolyhedralMarching2021
+- id: activation-complex
+  name: Activation-pattern complex
+  aliases:
+  - sign sequence cubical complex
+  - hamming activation space
+  - hamming distance between binary vectors
+  - hamming distance
+  - hamming distance between polyhedra
+  - neighbor constraint
+  - neuron transition
+  - type 1, 2, 3 neurons
+  - stably unactivated neuron
+  - never coactive neurons
+  - isolated neuron
+  - transverse pairwise intersection condition
+  - activation space convexity
+  - reduced decomposition
+  - traversal-and-pruning method
+  summary: The abstract complex of activation patterns, with adjacency measured by Hamming distance.
+  background: false
+  prerequisites:
+  - activation-pattern
+  introduced_in:
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - gagneuxHowImproveExpressivity2025
+  - grigsbyHiddenSymmetriesReLU
+  - lewandowskiSpaceFoldsReLU2024
+  - liuIntegratingGeometriesReLU2023a
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - raghuExpressivePowerDeep2017
+  - vincentReachablePolyhedralMarching2021
+  used_in:
+  - lewandowskiExploitingSpaceFolding2026
+  - lewandowskiSpaceFoldsReLU2024
+- id: linear-region
+  name: Linear region
+  aliases:
+  - linear region
+  - linear regions
+  - linear regions of relu networks
+  - region of linearity
+  - partial activation region
+  - convex linear region
+  - dual space of linear regions
+  - input space partition into linear regions
+  - convex partition
+  - region replication across layers
+  - affine map between network linear regions
+  - response region
+  - linear regions assumption
+  summary: A maximal connected set on which a piecewise-linear network is affine; a cell of its input-space
+    polyhedral decomposition.
+  background: false
+  prerequisites:
+  - piecewise-linear-function
+  - relu-network
+  introduced_in:
+  - NIPS2014_fa6f2a46
+  - goujonNumberRegionsPiecewise2023
+  - haninDeepReLUNetworks2019
+  - pascanuNumberResponseRegions2013
+  - sattelbergLocallyLinearAttributes2023
+  used_in:
+  - balestrieroSplineTheoryDeep2018
+  - berzinsPolyhedralComplexExtraction2023
+  - goujonNumberRegionsPiecewise2023
+  - grigsbyHiddenSymmetriesReLU
+  - humayunSplineCamExactVisualization2024
+  - lewandowskiExploitingSpaceFolding2026
+  - lewandowskiSpaceFoldsReLU2024
+  - liuIntegratingGeometriesReLU2023a
+  - liuReLUNeuralNetworks2023
+  - phuongFunctionalVsParametric2019
+  - raghuExpressivePowerDeep2017
+  - sattelbergLocallyLinearAttributes2023
+  - serraBoundingCountingLinear2018
+  - zhangTropicalGeometryDeep
+- id: polyhedral-complex
+  name: Polyhedral complex
+  aliases:
+  - polyhedral complex
+  - polyhedral decomposition
+  - polyhedral decomposition of the input space
+  - canonical polyhedral complex
+  - canonical polyhedral complex duality
+  - balanced polyhedral complex
+  - polyhedral complex extraction
+  - edge subdivision
+  - exact spline partition
+  - decomposition polyhedron
+  - dual graph of the polyhedral decomposition
+  summary: A finite family of polyhedra closed under taking faces and intersecting in common faces.
+  background: true
+  prerequisites:
+  - piecewise-linear-function
+  introduced_in:
+  - berzinsPolyhedralComplexExtraction2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - humayunSplineCamExactVisualization2024
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  used_in:
+  - berzinsPolyhedralComplexExtraction2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - gagneuxHowImproveExpressivity2025
+  - grigsbyHiddenSymmetriesReLU
+  - liuIntegratingGeometriesReLU2023a
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - vincentReachablePolyhedralMarching2021
+- id: bent-hyperplane
+  name: Bent hyperplane
+  aliases:
+  - bent hyperplane
+  summary: The preimage of a layer hyperplane under the map to that layer; its pieces are the boundaries
+    between linear regions.
+  background: false
+  prerequisites:
+  - linear-region
+  introduced_in:
+  - haninDeepReLUNetworks2019
+  used_in:
+  - grigsbyHiddenSymmetriesReLU
+  - masdenAlgorithmicDeterminationCombinatorial2022
+- id: space-folding
+  name: Space folding
+  aliases:
+  - space folding
+  - space folding measure
+  - space folding pseudo-metric
+  - global folding measure
+  - fold-set
+  - folding in unoccupied dimensions
+  - progressive folding / n-dimensional origami
+  - separability generation by shear (compressive folding)
+  - fold-and-cut analogy to universal approximation
+  - representation dimensionality as a fold observable
+  - sparsity of folding
+  - minimal aggregation measure
+  - bimodal tuning curves as a signature of folds
+  - bottleneck effect
+  summary: The many-to-one folding of input space onto the piecewise-linear image of the network; neurons
+    that fold space without adding separability.
+  background: false
+  prerequisites:
+  - linear-region
+  introduced_in:
+  - NIPS2014_fa6f2a46
+  - berzinsGeometryInformedNeuralNetworks2024
+  - keupOrigamiDimensionsHow2022
+  - lewandowskiExploitingSpaceFolding2026
+  - lewandowskiSpaceFoldsReLU2024
+  - phuongFunctionalVsParametric2019
+  - serraBoundingCountingLinear2018
+  used_in: []
+- id: number-of-linear-regions
+  name: Counting linear regions
+  aliases:
+  - exact counting of linear regions
+  - exact maximal number of regions for one-dimensional input
+  - maximal number of linear regions of a deep rectifier network
+  - upper bound on linear regions
+  - upper bound for multi-layer maxout networks
+  - average number of linear regions along a line
+  - upper bound on number of activation patterns
+  - compositional bound on the maximal number of linear regions
+  - deep-shallow separation by region counting
+  - modular volume obstruction for depth separation
+  - lattice-polytope depth lower bound
+  - mixed-integer linear formulation of rectifier networks
+  - expected number of activation regions
+  summary: Bounds and exact counts of $\mathcal{N}(f)$, the number of linear regions of a piecewise-linear
+    network, as a function of depth, width and input dimension.
+  background: false
+  prerequisites:
+  - linear-region
+  - hyperplane-arrangement
+  - zaslavsky-theorem
+  introduced_in:
+  - NIPS2014_fa6f2a46
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - goujonNumberRegionsPiecewise2023
+  - haninComplexityLinearRegions2019
+  - haninDeepReLUNetworks2019
+  - pascanuNumberResponseRegions2013
+  - raghuExpressivePowerDeep2017
+  - serraBoundingCountingLinear2018
+  used_in: []
+- id: depth-width-tradeoff
+  name: Depth–width expressivity trade-off
+  aliases:
+  - depth–width expressivity trade-off
+  - depth-width expressiveness
+  - depth-width expressivity
+  - expressivity of depth
+  - memorization capacity
+  - practical versus theoretical expressivity
+  - functional dimension
+  - universal approximation
+  summary: How depth and width trade off in the number of linear regions, the standard proxy for the expressivity
+    of a piecewise-linear architecture.
+  background: false
+  prerequisites:
+  - number-of-linear-regions
+  introduced_in:
+  - haninComplexityLinearRegions2019
+  used_in:
+  - NIPS2014_fa6f2a46
+  - goujonNumberRegionsPiecewise2023
+  - grigsbyHiddenSymmetriesReLU
+  - haninComplexityLinearRegions2019
+  - haninDeepReLUNetworks2019
+  - keupOrigamiDimensionsHow2022
+- id: function-equivalence
+  name: Functional equivalence of ReLU networks
+  aliases:
+  - functional equivalence of relu networks
+  - input equivalence class
+  - sign sequence product
+  - identifiability
+  summary: When two parametrisations compute the same function on the data domain, as opposed to being
+    equal up to symmetry.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - lewandowskiExploitingSpaceFolding2026
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - phuongFunctionalVsParametric2019
+  used_in:
+  - arvanitidisPullingBackInformation2022
+- id: tropical-semiring
+  name: Tropical semiring
+  aliases:
+  - tropical semiring
+  - max-plus algebra
+  summary: The semiring $(\R\cup\{-\infty\},\oplus,\odot)$ with $a\oplus b=\max(a,b)$ and $a\odot b=a+b$.
+  background: true
+  prerequisites: []
+  introduced_in: []
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+  - zhangTropicalGeometryDeep
+- id: tropical-polynomial
+  name: Tropical polynomial
+  aliases:
+  - tropical polynomial
+  summary: A function $x\mapsto\max_i\langle a_i,x\rangle+b_i$, a polynomial in the tropical semiring.
+  background: true
+  prerequisites:
+  - tropical-semiring
+  introduced_in: []
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+- id: tropical-rational-function
+  name: Tropical rational function
+  aliases:
+  - tropical rational function
+  - tropical rational map
+  - tropical characterization of relu networks
+  - tropical geometry
+  summary: A quotient $p\oslash q$ of tropical polynomials, i.e. a difference of max-affine functions;
+    the exact tropical form of a ReLU network.
+  background: false
+  prerequisites:
+  - tropical-polynomial
+  introduced_in:
+  - zhangTropicalGeometryDeep
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - sattelbergLocallyLinearAttributes2023
+- id: newton-polytope
+  name: Newton polytope
+  aliases:
+  - newton polytope
+  - newton polygon
+  - lattice polytope
+  - normalized volume
+  - mixed volume
+  - dual subdivision of the newton polygon
+  summary: The convex hull of the exponent vectors of a polynomial, encoding the tropical hypersurface's
+    combinatorics.
+  background: true
+  prerequisites:
+  - tropical-polynomial
+  introduced_in:
+  - zhangTropicalGeometryDeep
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - zhangTropicalGeometryDeep
+- id: tropical-hypersurface
+  name: Tropical hypersurface
+  aliases:
+  - tropical hypersurface
+  - zero-level set
+  - positive-axis hyperplane
+  summary: The set where a tropical polynomial is attained at least twice; its complement's cells correspond
+    to linear regions.
+  background: false
+  prerequisites:
+  - tropical-polynomial
+  introduced_in:
+  - grigsbyHiddenSymmetriesReLU
+  - zhangTropicalGeometryDeep
+  used_in:
+  - phuongFunctionalVsParametric2019
+- id: dual-subdivision
+  name: Dual subdivision
+  aliases:
+  - dual subdivision
+  - convex hull of two zonotopes as dual subdivision
+  summary: The subdivision of a Newton polytope dual to a tropical hypersurface.
+  background: false
+  prerequisites:
+  - newton-polytope
+  introduced_in:
+  - alfarraDecisionBoundariesNeural2023
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+- id: zonotope
+  name: Zonotope
+  aliases:
+  - zonotope
+  - zonotope characterization of shallow relu networks
+  - minkowski sum
+  - convex hull
+  - convex polytope
+  summary: The Minkowski sum of segments $\sum_i[-v_i,v_i]$; the Newton polytope of a ReLU network built
+    from unit vectors.
+  background: true
+  prerequisites:
+  - newton-polytope
+  introduced_in:
+  - zhangTropicalGeometryDeep
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - keupOrigamiDimensionsHow2022
+  - pakLecturesDiscretePolyhedral
+  - sattelbergLocallyLinearAttributes2023
+  - zhangTropicalGeometryDeep
+- id: decision-boundary
+  name: Decision boundary of a ReLU network
+  aliases:
+  - decision boundaries polytope
+  - tropical superset of decision boundaries
+  - decision boundary sampling
+  - distance to the nearest region boundary
+  - volume density of linear region boundaries
+  - decision boundary cochain complex
+  summary: The level set $\{x:f(x)=0\}$ of a network, and its tropical description as part of a polytope.
+  background: false
+  prerequisites:
+  - linear-region
+  introduced_in:
+  - alfarraDecisionBoundariesNeural2023
+  - haninComplexityLinearRegions2019
+  - humayunSplineCamExactVisualization2024
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  used_in: []
+- id: tropical-network-pruning
+  name: Tropical network pruning
+  aliases:
+  - tropical network pruning
+  - mixed norm group sparsity
+  - lottery ticket hypothesis
+  - convex regularisation
+  summary: Pruning ReLU networks by the tropical rational function's structure rather than by weight magnitude.
+  background: false
+  prerequisites:
+  - tropical-rational-function
+  - relu-network
+  introduced_in:
+  - alfarraDecisionBoundariesNeural2023
+  - gagneuxHowImproveExpressivity2025
+  used_in:
+  - alfarraDecisionBoundariesNeural2023
+- id: tropical-adversarial-attack
+  name: Tropical adversarial attack
+  aliases:
+  - tropical adversarial attack
+  - adversarial examples
+  summary: Adversarial perturbations constructed from the tropical representation of a ReLU network.
+  background: false
+  prerequisites:
+  - tropical-rational-function
+  introduced_in:
+  - alfarraDecisionBoundariesNeural2023
+  used_in:
+  - lewandowskiExploitingSpaceFolding2026
+- id: polyhedral-combinatorics
+  name: Polyhedral combinatorics
+  aliases:
+  - euler's formula
+  - dehn–sommerville equations
+  - essential and redundant constraints
+  - redundant inequality
+  - 1-skeleton
+  - intersecting edge
+  - general position
+  - triangulation
+  - delaunay triangulation and flip connectivity
+  - intersection-poset
+  - sum-union closure
+  - subspace coordinates
+  - support function
+  - chebyshev center of a polyhedron
+  - projection region
+  - polyhedral projection
+  - h-representation
+  - v-representation
+  - polytope evolution during training
+  - fractional helly theorem
+  - legendre–fenchel duality
+  - lovász extension
+  - submodular function
+  summary: Face lattices, Euler-type relations, general position, triangulations and the linear descriptions
+    (H and V) of polytopes.
+  background: true
+  prerequisites: []
+  introduced_in:
+  - berzinsPolyhedralComplexExtraction2023
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - goujonNumberRegionsPiecewise2023
+  - liuIntegratingGeometriesReLU2023a
+  - pakLecturesDiscretePolyhedral
+  - sattelbergLocallyLinearAttributes2023
+  used_in:
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - berzinsPolyhedralComplexExtraction2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - liuIntegratingGeometriesReLU2023a
+  - nielsenElementaryIntroductionInformation2020
+  - pakLecturesDiscretePolyhedral
+  - pascanuNumberResponseRegions2013
+  - vincentReachablePolyhedralMarching2021
+- id: polytope-rigidity
+  name: Rigidity and realization of polytopes
+  aliases:
+  - steinitz theorem
+  - cauchy rigidity theorem
+  - legendre–cauchy lemma
+  - rigidity and realization space
+  - minkowski and alexandrov theorems
+  - gauss–bonnet theorem for polyhedra
+  - bellows conjecture
+  - polytope algebra and scissor congruence
+  - brunn–minkowski inequality
+  summary: 'Rigidity, realization and congruence results for polytopes: Cauchy, Steinitz, Minkowski, Alexandrov
+    and their descendants.'
+  background: true
+  prerequisites:
+  - polyhedral-combinatorics
+  introduced_in:
+  - pakLecturesDiscretePolyhedral
+  used_in:
+  - pakLecturesDiscretePolyhedral
+- id: linear-programming
+  name: Linear and mixed-integer programming
+  aliases:
+  - linear programming
+  - mixed-integer linear programming
+  - augmented lagrangian method
+  summary: Linear and mixed-integer linear programs, used to encode ReLU networks' activation patterns
+    and reachable sets.
+  background: true
+  prerequisites: []
+  introduced_in: []
+  used_in:
+  - berzinsGeometryInformedNeuralNetworks2024
+  - liuIntegratingGeometriesReLU2023a
+  - liuReLUNeuralNetworks2023
+  - serraBoundingCountingLinear2018
+- id: topological-data-analysis
+  name: Topological data analysis
+  aliases:
+  - topological data analysis
+  - deformation stability
+  summary: Multiscale invariants of point clouds and functions, stable under perturbation of the data.
+  background: false
+  prerequisites: []
+  introduced_in:
+  - bronsteinGeometricDeepLearning
+  - chazalIntroductionTopologicalData2021
+  used_in: []
+- id: simplicial-complex
+  name: Simplicial complex
+  aliases:
+  - simplicial complex
+  - nerve theorem
+  - simplicial homology
+  summary: An abstract complex with a homology theory; the combinatorial substrate of persistent homology.
+  background: true
+  prerequisites:
+  - topological-data-analysis
+  introduced_in:
+  - chazalIntroductionTopologicalData2021
+  used_in:
+  - chazalIntroductionTopologicalData2021
+  - pakLecturesDiscretePolyhedral
+- id: persistent-homology
+  name: Persistent homology
+  aliases:
+  - persistent homology
+  - filtration
+  - vietoris–rips filtration
+  - betti number
+  - barcode
+  - persistence diagram
+  - persistence landscape
+  - bottleneck distance
+  summary: The barcode of a filtered complex, recording when homology classes are born and die, summarised
+    by diagrams and landscapes.
+  background: false
+  prerequisites:
+  - simplicial-complex
+  introduced_in:
+  - chazalIntroductionTopologicalData2021
+  used_in:
+  - berzinsGeometryInformedNeuralNetworks2024
+  - chazalIntroductionTopologicalData2021
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+- id: distance-to-measure
+  name: Distance to measure
+  aliases:
+  - distance to measure
+  summary: The function $d_{\mu,m}(x)$ measuring how far $x$ is from a measure $\mu$; robust in the TDA
+    sense.
+  background: false
+  prerequisites:
+  - persistent-homology
+  introduced_in:
+  - chazalIntroductionTopologicalData2021
+  used_in: []
+- id: mapper
+  name: Mapper algorithm
+  aliases:
+  - mapper algorithm
+  - batched feature clustering
+  - k-means clustering
+  - hierarchical vector quantization by a network
+  summary: A TDA graph summary of a point cloud obtained by clustering the preimages of a filter function.
+  background: false
+  prerequisites:
+  - persistent-homology
+  introduced_in:
+  - balestrieroSplineTheoryDeep2018
+  - chazalIntroductionTopologicalData2021
+  - halversonMetricFlowsNeural2024
+  used_in:
+  - sattelbergLocallyLinearAttributes2023
+- id: manifold-learning
+  name: Manifold learning
+  aliases:
+  - manifold assumption
+  - intrinsic dimension
+  - isometric embedding
+  - spectral embedding
+  - t-sne
+  - diffusion maps
+  - gaussian process latent variable model
+  - principal component analysis
+  - metric learning
+  - embedding algorithm
+  - one-shot embedding algorithm
+  - hartigan dip statistic
+  - manifold learning
+  - random forest
+  - attraction-repulsion algorithm
+  summary: Recovering a low-dimensional structure from high-dimensional data without labels.
+  background: false
+  prerequisites: []
+  introduced_in:
+  - meilaManifoldLearningWhat2023
+  used_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - chazalIntroductionTopologicalData2021
+  - fuLatentTopologyInduction2022
+  - keupOrigamiDimensionsHow2022
+  - meilaManifoldLearningWhat2023
+  - pouplinIdentifyingLatentDistances2023
+- id: participation-patterns
+  name: Function and content states
+  aliases:
+  - function states and content states
+  - latent state network
+  summary: The pattern with which latent units participate in the generative process, and the function
+    states it encodes.
+  background: false
+  prerequisites:
+  - manifold-learning
+  introduced_in:
+  - fuLatentTopologyInduction2022
+  used_in: []
+- id: information-geometry
+  name: Information geometry
+  aliases:
+  - information manifold
+  - manifold of probability distributions
+  - statistical manifold
+  - dually flat manifold
+  - conjugate connection manifold
+  - information monotonicity
+  - exponential family
+  - mixture family
+  - markov morphism
+  - frobenius manifold
+  - pre-frobenius manifold
+  - semisimple frobenius structure
+  - frobenius manifold structure
+  - gromov–witten invariants
+  - gromov–witten invariants for statistical manifolds
+  - wdvv equations
+  - m-pairs
+  - paracomplex numbers
+  - structure connection
+  - klein geometry
+  - fiber bundle
+  summary: 'The differential geometry of families of probability distributions: statistical manifolds,
+    Frobenius structures and invariants.'
+  background: false
+  prerequisites: []
+  introduced_in:
+  - combeExploringInformationGeometry2025
+  - nielsenElementaryIntroductionInformation2020
+  used_in:
+  - arvanitidisPullingBackInformation2022
+  - combeExploringInformationGeometry2025
+  - nielsenElementaryIntroductionInformation2020
+- id: fisher-rao-metric
+  name: Fisher–Rao metric
+  aliases:
+  - fisher information metric
+  - fisher-rao metric
+  - fisher–rao metric
+  - pullback fisher-rao metric
+  - fisher–rao distance
+  - amari–chentsov tensor
+  - amari–chentsov cubic tensor
+  summary: The Riemannian metric $g_{ij}(\theta)=\E[\partial_i\log p_\theta\,\partial_j\log p_\theta]$
+    on a statistical manifold.
+  background: false
+  prerequisites:
+  - information-geometry
+  introduced_in:
+  - arvanitidisPullingBackInformation2022
+  - combeExploringInformationGeometry2025
+  - nielsenElementaryIntroductionInformation2020
+  used_in:
+  - arvanitidisPullingBackInformation2022
+  - combeExploringInformationGeometry2025
+- id: divergence
+  name: Divergence
+  aliases:
+  - f-divergence
+  - kullback-leibler divergence
+  - kullback–leibler divergence
+  - bregman divergence
+  - cross-entropy loss
+  - kl-based curve energy
+  - jensen's inequality
+  summary: A directed discrepancy between distributions; induced f-divergences, the Kullback-Leibler and
+    Bregman divergences, and their local quadratic forms.
+  background: true
+  prerequisites:
+  - information-geometry
+  introduced_in:
+  - arvanitidisPullingBackInformation2022
+  - nielsenElementaryIntroductionInformation2020
+  used_in:
+  - arvanitidisPullingBackInformation2022
+  - balestrieroSplineTheoryDeep2018
+  - nielsenElementaryIntroductionInformation2020
+  - pouplinIdentifyingLatentDistances2023
+- id: alpha-connection
+  name: $\alpha$-connections
+  aliases:
+  - alpha-connection
+  - α-connections
+  - affine connection
+  - affine flat connection
+  - curvature and torsion
+  - ricci calculus
+  - gauge freedom
+  summary: The one-parameter family of affine connections $\nabla^{(\alpha)}$ on a statistical manifold,
+    with its torsion and dual structure.
+  background: false
+  prerequisites:
+  - information-geometry
+  introduced_in:
+  - nielsenElementaryIntroductionInformation2020
+  used_in:
+  - combeExploringInformationGeometry2025
+  - nielsenElementaryIntroductionInformation2020
+  - villarFullyCovariantMachine2023
+- id: natural-gradient
+  name: Natural gradient descent
+  aliases:
+  - natural gradient descent
+  summary: Gradient descent in the Fisher-Rao metric, $g^{-1}\nabla\mathcal{L}$, invariant to reparametrisation.
+  background: false
+  prerequisites:
+  - fisher-rao-metric
+  introduced_in:
+  - nielsenElementaryIntroductionInformation2020
+  used_in: []
+- id: riemannian-geometry
+  name: Riemannian geometry
+  aliases:
+  - riemannian manifold
+  - riemannian metric
+  - ambient riemannian metric
+  - metric space
+  - geodesic
+  - geodesic distance
+  - shortest path (geodesic)
+  - hausdorff distance
+  - gromov-hausdorff distance
+  - wasserstein distance
+  - laplace-beltrami operator
+  - laplace–beltrami operator
+  - heat kernel
+  - co-area formula
+  - eikonal equation
+  - morse function
+  - spherical geometry
+  - monge–ampère equation
+  - principal curvature
+  - tensor
+  - differential geometry
+  summary: Manifolds with a smoothly varying inner product, their geodesics, distances and curvature.
+  background: true
+  prerequisites: []
+  introduced_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  used_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - arvanitidisPullingBackInformation2022
+  - berzinsGeometryInformedNeuralNetworks2024
+  - bronsteinGeometricDeepLearning
+  - bronsteinGeometricDeepLearning2017
+  - chazalIntroductionTopologicalData2021
+  - combeExploringInformationGeometry2025
+  - haninComplexityLinearRegions2019
+  - meilaManifoldLearningWhat2023
+  - nielsenElementaryIntroductionInformation2020
+  - pakLecturesDiscretePolyhedral
+  - pouplinIdentifyingLatentDistances2023
+  - villarFullyCovariantMachine2023
+- id: pullback-metric
+  name: Pullback metric
+  aliases:
+  - pullback metric
+  - pull-back metric
+  - push-forward riemannian metric
+  - data-support-based riemannian metric
+  - cost-based riemannian metric
+  - information geometric latent metric
+  summary: 'A metric on a latent space obtained by pulling back an ambient one through the decoder: $G(z)=J_\phi(z)^\top
+    G(\phi(z)) J_\phi(z)$.'
+  background: false
+  prerequisites:
+  - riemannian-geometry
+  introduced_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - arvanitidisPullingBackInformation2022
+  - meilaManifoldLearningWhat2023
+  used_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - pouplinIdentifyingLatentDistances2023
+- id: latent-space-geometry
+  name: Latent space geometry
+  aliases:
+  - geometrically enriched latent space
+  - black-box random geometry
+  - bisection method along shortest euclidean path
+  - trajectory length
+  - trajectory regularization
+  - scale separation prior
+  - path-lifting
+  summary: Choosing and exploiting a metric on the latent space of a generative model so that paths, length
+    and interpolation are meaningful.
+  background: false
+  prerequisites:
+  - pullback-metric
+  - manifold-learning
+  introduced_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - arvanitidisPullingBackInformation2022
+  - bronsteinGeometricDeepLearning
+  - liuIntegratingGeometriesReLU2023a
+  - raghuExpressivePowerDeep2017
+  used_in:
+  - gagneuxHowImproveExpressivity2025
+- id: finsler-geometry
+  name: Finsler geometry
+  aliases:
+  - finsler indicatrix
+  - finsler metric of the expected norm
+  - busemann-hausdorff volume measure
+  - expected norm on random manifolds
+  - stochastic immersion
+  summary: A normed-but-not-necessarily-inner-product structure $F(x,\cdot)$ on each tangent space, obtained
+    as an expectation over generative paths.
+  background: false
+  prerequisites:
+  - riemannian-geometry
+  introduced_in:
+  - pouplinIdentifyingLatentDistances2023
+  used_in:
+  - pouplinIdentifyingLatentDistances2023
+- id: metric-flow
+  name: Metric flow
+  aliases:
+  - neural network metric flow
+  - local metric flow
+  - infinite neural network metric flow
+  - metric neural tangent kernel
+  - neural tangent kernel
+  - ricci flow
+  - perelman functional
+  - calabi-yau metric
+  - kähler potential
+  - range measure
+  summary: Evolution of a Riemannian metric driven by geometry, as in Ricci flow, here realised by a neural
+    network.
+  background: false
+  prerequisites:
+  - riemannian-geometry
+  introduced_in:
+  - halversonMetricFlowsNeural2024
+  used_in:
+  - halversonMetricFlowsNeural2024
+  - lewandowskiSpaceFoldsReLU2024
+- id: geometric-deep-learning
+  name: Geometric deep learning blueprint
+  aliases:
+  - geometric deep learning
+  - geometric deep learning blueprint
+  - 5g (grids, groups, graphs, geodesics, gauges)
+  - geometric priors
+  - dimensional analysis
+  summary: The blueprint placing symmetries, scale separation and multiscale structure at the centre of
+    architecture design.
+  background: false
+  prerequisites: []
+  introduced_in:
+  - bronsteinGeometricDeepLearning
+  - bronsteinGeometricDeepLearning2017
+  used_in:
+  - villarFullyCovariantMachine2023
+- id: symmetry-invariance
+  name: Symmetry, invariance and equivariance
+  aliases:
+  - equivariance
+  - invariance
+  - symmetry group
+  - group action
+  - group representation
+  - permutation invariance
+  - o(3) symmetry
+  - covariant machine learning
+  summary: Group actions on data, and the induced invariance/equivariance of the learned map.
+  background: true
+  prerequisites: []
+  introduced_in:
+  - villarFullyCovariantMachine2023
+  used_in:
+  - bronsteinGeometricDeepLearning
+  - villarFullyCovariantMachine2023
+- id: group-convolution
+  name: Group convolution
+  aliases:
+  - group convolution
+  - gauge-equivariant convolution
+  - local equivariant layer
+  - global invariant layer
+  - spatial (charting) convolution
+  - spectral graph convolution
+  - spectrum-free graph convolution
+  - renormalized graph laplacian
+  - graph laplacian
+  - fourier analysis on graphs
+  - convolution theorem
+  - fourier transform
+  summary: Convolutions defined by a group action and, more generally, convolution on a graph's spectral
+    or spatial domain.
+  background: false
+  prerequisites:
+  - geometric-deep-learning
+  - symmetry-invariance
+  introduced_in:
+  - bronsteinGeometricDeepLearning
+  - bronsteinGeometricDeepLearning2017
+  - meilaManifoldLearningWhat2023
+  used_in:
+  - bronsteinGeometricDeepLearning
+  - bronsteinGeometricDeepLearning2017
+  - meilaManifoldLearningWhat2023
+- id: graph-neural-network
+  name: Graph neural network
+  aliases:
+  - graph neural network
+  - node map
+  - conditional random field
+  - conditional neural field
+  - wavelet transform
+  - positional encoding
+  summary: Message-passing architectures on graphs, and their conditional (structured-output) variants.
+  background: false
+  prerequisites:
+  - group-convolution
+  introduced_in: []
+  used_in:
+  - berzinsGeometryInformedNeuralNetworks2024
+  - bronsteinGeometricDeepLearning
+  - bronsteinGeometricDeepLearning2017
+  - fuLatentTopologyInduction2022
+  - humayunSplineCamExactVisualization2024
+  - masdenAlgorithmicDeterminationCombinatorial2022
+- id: relu-network-symmetry
+  name: Hidden symmetries of ReLU networks
+  aliases:
+  - hidden symmetry
+  - active symmetry
+  - passive symmetry
+  - observer symmetry
+  - permutation symmetry
+  - permutation of units
+  - positive scaling symmetry
+  - positive scaling symmetry of weights
+  - units covariance
+  - scale equivariance of zero-bias relu networks
+  - independent eigendirection selection
+  - repeated eigendirection problem
+  - orthogonal template penalty
+  summary: Parameter-space symmetries of a ReLU network, chiefly permutation and positive scaling, and
+    the observable quantities they leave invariant.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - balestrieroSplineTheoryDeep2018
+  - grigsbyHiddenSymmetriesReLU
+  - haninDeepReLUNetworks2019
+  - meilaManifoldLearningWhat2023
+  - villarFullyCovariantMachine2023
+  used_in:
+  - grigsbyHiddenSymmetriesReLU
+  - phuongFunctionalVsParametric2019
+- id: spline-theory
+  name: Spline theory of deep networks
+  aliases:
+  - max-affine spline operator
+  - affine spline operator
+  - signal-dependent affine mapping of a network
+  - matched filter template of a network
+  - matched filter
+  - knot density along a 1d path
+  - expected knot density of a cpwl network
+  - spline approximation
+  - splinecam
+  - n-ary fraction
+  summary: Reading a deep piecewise-linear network as a continuous (max-affine) spline, with knots along
+    each direction and local affine templates.
+  background: false
+  prerequisites:
+  - piecewise-linear-function
+  introduced_in:
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - balestrieroSplineTheoryDeep2018
+  - goujonNumberRegionsPiecewise2023
+  - humayunSplineCamExactVisualization2024
+  used_in:
+  - balestrieroSplineTheoryDeep2018
+  - humayunSplineCamExactVisualization2024
+- id: locally-linear-clustering
+  name: Local linear model clustering
+  aliases:
+  - local linear map clustering
+  - partition statistics
+  - partition-based signal distance
+  - local pooling (coarsening)
+  - coarsening of a convex cpwl function
+  - minimal decomposition
+  - geometric shape distance
+  - subspace coordinates
+  - jacobian of a neural network
+  - angle between a neuron's normal vector and the data subspace
+  - interaction coefficient
+  - surface-strain objective
+  summary: Describing a piecewise-linear map by clustering its local linear maps and summarising each
+    region by its affine parameters.
+  background: false
+  prerequisites:
+  - linear-region
+  introduced_in:
+  - balestrieroSplineTheoryDeep2018
+  - berzinsGeometryInformedNeuralNetworks2024
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - bronsteinGeometricDeepLearning
+  - humayunSplineCamExactVisualization2024
+  - keupOrigamiDimensionsHow2022
+  - lewandowskiExploitingSpaceFolding2026
+  - sattelbergLocallyLinearAttributes2023
+  used_in:
+  - sattelbergLocallyLinearAttributes2023
+- id: preimage-of-layer-activities
+  name: Preimage of layer activities
+  aliases:
+  - preimage of layer activities
+  - complete preimage computation
+  - piecewise linear preimage manifold
+  - boundary back-projection
+  summary: The inverse image of a given activation criterion, a piecewise-linear manifold whose structure
+    encodes the layer's function.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - humayunSplineCamExactVisualization2024
+  used_in: []
+- id: implicit-neural-representation
+  name: Implicit neural representation
+  aliases:
+  - implicit neural representation
+  - implicit neural shape
+  - signed distance function
+  - neural field
+  - shape-generative neural field
+  - linear extrapolation generator
+  - meaningful extrapolation
+  - binarization
+  summary: Representing a shape or field by a neural network whose zero level set defines the object.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - berzinsGeometryInformedNeuralNetworks2024
+  used_in:
+  - berzinsGeometryInformedNeuralNetworks2024
+  - humayunSplineCamExactVisualization2024
+  - lewandowskiSpaceFoldsReLU2024
+- id: geometry-informed-neural-network
+  name: Geometry-informed neural network
+  aliases:
+  - geometry-informed neural network
+  - generative physics-informed neural network
+  - geometric loss on the polyhedral complex
+  - differentiable topology loss
+  - uncertainty regularization
+  - diversity constraint
+  - topology optimization
+  summary: A geometry-conditioned network whose output is a closed surface, trained without data on the
+    boundary's incidence structure.
+  background: false
+  prerequisites:
+  - implicit-neural-representation
+  - polyhedral-complex
+  introduced_in:
+  - arvanitidisPullingBackInformation2022
+  - berzinsGeometryInformedNeuralNetworks2024
+  - berzinsPolyhedralComplexExtraction2023
+  used_in:
+  - berzinsGeometryInformedNeuralNetworks2024
+- id: variational-autoencoder
+  name: Variational autoencoder
+  aliases:
+  - variational autoencoder
+  - elbo
+  - reparameterization trick
+  - generative adversarial network
+  - contrastive learning
+  - contextualized word representations
+  - pretrained language model
+  - mechanism of contextualization
+  - crf-vae topology induction
+  - sentence encoding as traversal
+  - state-state transition potential
+  - state-word emission potential
+  - viterbi decoding
+  - time warping invariance of gated recurrent networks
+  summary: Latent-variable generative models trained by maximising an evidence lower bound, with a reparameterised
+    sampler.
+  background: false
+  prerequisites: []
+  introduced_in:
+  - bronsteinGeometricDeepLearning
+  - fuLatentTopologyInduction2022
+  used_in:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - arvanitidisPullingBackInformation2022
+  - fuLatentTopologyInduction2022
+  - lewandowskiExploitingSpaceFolding2026
+- id: rational-relu-network
+  name: Rational ReLU network
+  aliases:
+  - rational relu network
+  summary: A ReLU network with rational, i.e. small/integer, weights, studied for its expressivity under
+    a bounded depth.
+  background: false
+  prerequisites:
+  - relu-network
+  introduced_in:
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  used_in: []
+- id: reachable-polyhedral-marching
+  name: Reachable polyhedral marching
+  aliases:
+  - reachable polyhedral marching
+  - exact reachability
+  - forward and backward reachable set computation
+  - anytime safety verification
+  - exact representation
+  summary: Exactly enumerating the linear regions a network can reach from a set of input polytopes, for
+    safety verification.
+  background: false
+  prerequisites:
+  - linear-region
+  - linear-programming
+  introduced_in:
+  - vincentReachablePolyhedralMarching2021
+  used_in:
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - vincentReachablePolyhedralMarching2021
+- id: gradient-based-training
+  name: Gradient-based training
+  aliases:
+  - backpropagation
+  - gradient flow
+  - batch normalization
+  - feature learning
+  - gradient norm of pre-activation
+  summary: Training by backpropagation and its statistics; the setting in which the geometry above is
+    observed rather than assumed.
+  background: true
+  prerequisites:
+  - relu-network
+  introduced_in: []
+  used_in:
+  - balestrieroSplineTheoryDeep2018
+  - halversonMetricFlowsNeural2024
+  - haninDeepReLUNetworks2019
+  - raghuExpressivePowerDeep2017
+- id: activation-statistics
+  name: Activation statistics
+  aliases:
+  - non-central nakagami distribution
+  - non-central wishart distribution
+  summary: Distributions used to describe the statistics of pre-activations and activations in random
+    or trained networks.
+  background: true
+  prerequisites:
+  - relu-network
+  introduced_in: []
+  used_in:
+  - pouplinIdentifyingLatentDistances2023
+- id: uncertainty-quantification
+  name: Uncertainty quantification
+  aliases:
+  - uncertainty quantification
+  summary: Calibrated uncertainty of a learned predictor, here requiring the architectural covariances
+    to be accounted for.
+  background: false
+  prerequisites: []
+  introduced_in: []
+  used_in:
+  - arvanitidisGeometricallyEnrichedLatent2020

@@ -1,7 +1,14 @@
 # Neural Network Geometry
 
-A textbook and literature review built from a Zotero collection of research
-papers. Every claim links to the paper it comes from.
+Neural networks are geometric objects: a ReLU network cuts its input space into
+linear regions whose number grows with depth [@NIPS2014_fa6f2a46], it can be read
+as a tropical rational function whose Newton polytope encodes that partition
+[@zhangTropicalGeometryDeep], and the spaces it learns carry their own Riemannian,
+Fisher–Rao or Finsler metrics [@arvanitidisGeometricallyEnrichedLatent2020]. This is
+a textbook and literature review built from a Zotero collection of research papers on
+that geometry — region counting, polyhedral complexes, splines, folding, tropical
+geometry, topology, information geometry and symmetry — with every claim linked to
+the paper it comes from.
 
 - **[Textbook](textbook/index.md)**: the material of the whole collection in teaching order, with exercises.
 - **[Comparison](comparison/index.md)**: concept map, timeline, comparison tables and themes across papers.

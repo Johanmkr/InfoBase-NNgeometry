@@ -1,0 +1,217 @@
+concepts_hash: 8bce5257ad7f
+chapters:
+- slug: polyhedral-foundations
+  title: Polyhedra, arrangements and piecewise-linear maps
+  goal: 'Read a piecewise-linear map as a polyhedral object: state what a polyhedral complex, a hyperplane
+    arrangement and a max-affine function are, and count the regions of a generic arrangement in low dimension.
+    This is the discrete-geometry background every later chapter uses.'
+  concepts:
+  - piecewise-linear-function
+  - maxout-unit
+  sources:
+  - pakLecturesDiscretePolyhedral
+  - NIPS2014_fa6f2a46
+  - pascanuNumberResponseRegions2013
+  depends_on: []
+- slug: relu-network-geometry
+  title: The region complex of a ReLU network
+  goal: Decompose the input space of a ReLU network into linear regions, label each region by its activation
+    pattern, and describe the region complex, its boundaries and its dual graph. The reader can compute
+    the local affine map of any region and say when two parametrisations give the same region structure.
+  concepts:
+  - activation-pattern
+  - activation-complex
+  - linear-region
+  - bent-hyperplane
+  - locally-linear-clustering
+  sources:
+  - liuIntegratingGeometriesReLU2023a
+  - sattelbergLocallyLinearAttributes2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - serraBoundingCountingLinear2018
+  - berzinsPolyhedralComplexExtraction2023
+  depends_on:
+  - polyhedral-foundations
+- slug: counting-regions
+  title: Counting linear regions
+  goal: Derive and compare the bounds on the number of linear regions of a ReLU or maxout network, explain
+    the depth–width trade-off they express, and choose the right bound for a given architecture and input
+    dimension.
+  concepts:
+  - number-of-linear-regions
+  - depth-width-tradeoff
+  - rational-relu-network
+  sources:
+  - NIPS2014_fa6f2a46
+  - pascanuNumberResponseRegions2013
+  - serraBoundingCountingLinear2018
+  - haninComplexityLinearRegions2019
+  - haninDeepReLUNetworks2019
+  - goujonNumberRegionsPiecewise2023
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  - gagneuxHowImproveExpressivity2025
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  depends_on:
+  - relu-network-geometry
+- slug: space-folding
+  title: Space folding and folding neurons
+  goal: Explain how ReLU units fold space, distinguish folding that creates linear separation from folding
+    that does not, and measure the amount of folding along a path or on a manifold. The reader can identify
+    the neurons responsible for a given fold.
+  concepts:
+  - space-folding
+  sources:
+  - keupOrigamiDimensionsHow2022
+  - lewandowskiSpaceFoldsReLU2024
+  - lewandowskiExploitingSpaceFolding2026
+  - NIPS2014_fa6f2a46
+  depends_on:
+  - relu-network-geometry
+- slug: spline-networks
+  title: Deep networks as splines
+  goal: 'Read a deep piecewise-linear network as a continuous spline: state its max-affine form, its knots
+    along a direction, and its local affine templates, and use exact region visualisation to inspect a
+    trained model.'
+  concepts:
+  - spline-theory
+  sources:
+  - balestrieroSplineTheoryDeep2018
+  - humayunSplineCamExactVisualization2024
+  - sattelbergLocallyLinearAttributes2023
+  depends_on:
+  - relu-network-geometry
+- slug: tropical-geometry
+  title: Tropical geometry of ReLU networks
+  goal: Translate a ReLU network into a tropical rational function, read its Newton polytope and dual
+    subdivision as the network's region structure, and use that representation to describe decision boundaries,
+    prune the network and build adversarial examples.
+  concepts:
+  - tropical-rational-function
+  - tropical-hypersurface
+  - dual-subdivision
+  - decision-boundary
+  - tropical-network-pruning
+  - tropical-adversarial-attack
+  sources:
+  - zhangTropicalGeometryDeep
+  - alfarraDecisionBoundariesNeural2023
+  - brandenburgDecompositionPolyhedraPiecewise2024
+  - averkovEXPRESSIVENESSRATIONALRELU2025
+  depends_on:
+  - relu-network-geometry
+- slug: region-topology
+  title: Topology of regions and of data
+  goal: Use simplicial and cubical complexes, persistent homology and distance-to-measure to describe
+    a network's region complex and its training data, and explain why the resulting invariants are stable.
+  concepts:
+  - topological-data-analysis
+  - persistent-homology
+  - distance-to-measure
+  - mapper
+  sources:
+  - chazalIntroductionTopologicalData2021
+  - liuReLUNeuralNetworks2023
+  - masdenAlgorithmicDeterminationCombinatorial2022
+  - berzinsPolyhedralComplexExtraction2023
+  depends_on:
+  - relu-network-geometry
+- slug: verification-and-preimages
+  title: Exact enumeration, preimages and verification
+  goal: Enumerate exactly the linear regions a network reaches from a set of input polytopes, compute
+    preimages of layer activities, and use both to verify a network's output on a region of interest.
+  concepts:
+  - reachable-polyhedral-marching
+  - preimage-of-layer-activities
+  sources:
+  - vincentReachablePolyhedralMarching2021
+  - serraBoundingCountingLinear2018
+  - carlssonPREIMAGERECTIFIERNETWORK2017
+  - gagneuxHowImproveExpressivity2025
+  depends_on:
+  - relu-network-geometry
+- slug: information-geometry
+  title: Information geometry
+  goal: Define a statistical manifold, its Fisher–Rao metric, the induced divergences and the α-connections,
+    and derive natural-gradient updates from that geometry. The reader can state which of these objects
+    survive reparametrisation.
+  concepts:
+  - information-geometry
+  - fisher-rao-metric
+  - alpha-connection
+  - natural-gradient
+  sources:
+  - nielsenElementaryIntroductionInformation2020
+  - combeExploringInformationGeometry2025
+  depends_on: []
+- slug: manifold-learning
+  title: Manifold learning and intrinsic dimension
+  goal: State the manifold hypothesis precisely, compare the estimators of intrinsic dimension and the
+    embeddings built on them, and explain what a latent topology induction adds to an unsupervised model.
+  concepts:
+  - manifold-learning
+  - participation-patterns
+  sources:
+  - meilaManifoldLearningWhat2023
+  - fuLatentTopologyInduction2022
+  - raghuExpressivePowerDeep2017
+  depends_on: []
+- slug: latent-geometry
+  title: Riemannian and Finsler geometry of latent spaces
+  goal: Pull a metric back through a decoder, write the geodesic shortest path it defines, and replace
+    the Riemannian metric by an expectation-based Finsler one when the data lie on a manifold. The reader
+    can say how such a metric changes interpolation and clustering in the latent space.
+  concepts:
+  - pullback-metric
+  - latent-space-geometry
+  - finsler-geometry
+  sources:
+  - arvanitidisGeometricallyEnrichedLatent2020
+  - arvanitidisPullingBackInformation2022
+  - pouplinIdentifyingLatentDistances2023
+  depends_on:
+  - manifold-learning
+- slug: metric-flows
+  title: Metric flows with neural networks
+  goal: Set up a metric evolving under a geometric functional, in the style of Ricci flow, and learn the
+    flow with a neural network. The reader can state what the flow preserves and how it is discretised.
+  concepts:
+  - metric-flow
+  sources:
+  - halversonMetricFlowsNeural2024
+  depends_on:
+  - latent-geometry
+- slug: symmetry-and-gdl
+  title: Symmetry and geometric deep learning
+  goal: Derive the invariance and equivariance that a dataset's symmetry group forces on the architecture,
+    read the geometric deep learning blueprint, and catalog the parameter-space symmetries of ReLU networks
+    and the functional equivalences they produce.
+  concepts:
+  - geometric-deep-learning
+  - group-convolution
+  - graph-neural-network
+  - relu-network-symmetry
+  - function-equivalence
+  - uncertainty-quantification
+  sources:
+  - bronsteinGeometricDeepLearning2017
+  - bronsteinGeometricDeepLearning
+  - villarFullyCovariantMachine2023
+  - grigsbyHiddenSymmetriesReLU
+  - phuongFunctionalVsParametric2019
+  depends_on: []
+- slug: implicit-geometry
+  title: Implicit and geometry-informed representations
+  goal: Represent a shape by the zero level set of a network, train such a representation to meet a geometric
+    objective, and extract the polyhedral complex it induces. The reader can state when an implicit representation
+    is exact and when it only approximates.
+  concepts:
+  - implicit-neural-representation
+  - geometry-informed-neural-network
+  - variational-autoencoder
+  sources:
+  - berzinsGeometryInformedNeuralNetworks2024
+  - berzinsPolyhedralComplexExtraction2023
+  - humayunSplineCamExactVisualization2024
+  - fuLatentTopologyInduction2022
+  depends_on:
+  - relu-network-geometry
