@@ -84,20 +84,25 @@ mixed-integer linear program with the one-tree approach (§5, Appendix I).
 Network activations, with the output layer linear (§2, p. 2):
 
 $$
-h^1 = \max\{0, W^1 x + b^1\}, \qquad h^l = \max\{0, W^l h^{l-1} + b^l\}, \qquad y = W^{L+1} h^L \qquad \text{(§2, p. 2)}
+h^1 = \max\{0, W^1 x + b^1\}, \qquad h^l = \max\{0, W^l h^{l-1} + b^l\}, \qquad y = W^{L+1} h^L
 $$
 
 Zaslavsky's region count for an arrangement of $n$ hyperplanes in $\R^d$, the
 base case the whole paper builds on (§2, p. 3; [@zaslavskyFacingArrangementsFacecount1975]):
 
 $$
-(\text{regions}) \le \sum_{s=0}^{d} \binom{n}{s} \qquad \text{(§2, p. 3)}
+(\text{regions}) \le \sum_{s=0}^{d} \binom{n}{s}
 $$
 
 The main upper bound (Thm. 1, p. 4):
 
 $$
-(\text{maximal number of regions}) \le \sum_{(j_1,\dots,j_L)\in J}\ \prod_{l=1}^{L}\binom{n_l}{j_l}, \qquad J = \Bigl\{(j_1,\dots,j_L)\in\Z^L : 0\le j_l\le \min\{n_0,\, n_1-j_1,\dots,n_{l-1}-j_{l-1},\, n_l\}\ \forall l\Bigr\} \qquad \text{(Thm. 1, p. 4)}
+\begin{aligned}
+(\text{maximal number of regions}) &\le \sum_{(j_1,\dots,j_L)\in J}\ \prod_{l=1}^{L}\binom{n_l}{j_l}, \\
+J &= \Bigl\{(j_1,\dots,j_L)\in\Z^L : 0\le j_l \\
+&\qquad \le \min\{n_0,\, n_1-j_1,\dots, \\
+&\qquad\qquad n_{l-1}-j_{l-1},\, n_l\}\ \forall l\Bigr\}
+\end{aligned}
 $$
 
 The index set forces each $j_l$ below the widths of all preceding layers after
@@ -108,27 +113,30 @@ Two ingredients, the second bounding how the image dimension shrinks
 (Lem. 5, 6, pp. 5–6):
 
 $$
-(\text{subregions of } S) \le \sum_{j=0}^{\min\{n_l,\ \dim(h^{l-1}(S))\}}\binom{n_l}{j}, \qquad \dim(h^l(S)) \le \min\{|S^l|,\ \dim(h^{l-1}(S^0))\} \qquad \text{(Lem. 5, 6, pp. 5–6)}
+\begin{aligned}
+(\text{subregions of } S) &\le \sum_{j=0}^{\min\{n_l,\ \dim(h^{l-1}(S))\}}\binom{n_l}{j}, \\
+\dim(h^l(S)) &\le \min\{|S^l|,\ \dim(h^{l-1}(S^0))\}
+\end{aligned}
 $$
 
 The exact one-dimensional result (Thm. 7, p. 6):
 
 $$
-\max = \prod_{l=1}^{L}(n_l + 1) \qquad \text{(Thm. 7, p. 6, for } n_0=1,\ n_l\ge 3\text{)}
+\max = \prod_{l=1}^{L}(n_l + 1) \qquad \text{for } n_0=1,\ n_l\ge 3
 $$
 
 The improved lower bounds (Thm. 8, 9, p. 6), the first in terms of per-layer
 widths, the second in terms of total size:
 
 $$
-\prod_{l=1}^{L-1}\Bigl(\bigl\lfloor n_l/n_0\bigr\rfloor + 1\Bigr)^{n_0}\sum_{j=0}^{n_0}\binom{n_L}{j} \qquad\text{and}\qquad 2^{\sum_{j=0}^{n_0-1}\binom{m-1}{j}}\,(w+1)^{L-1} \qquad \text{(Thm. 8, 9, p. 6)}
+\prod_{l=1}^{L-1}\Bigl(\bigl\lfloor n_l/n_0\bigr\rfloor + 1\Bigr)^{n_0}\sum_{j=0}^{n_0}\binom{n_L}{j} \qquad\text{and}\qquad 2^{\sum_{j=0}^{n_0-1}\binom{m-1}{j}}\,(w+1)^{L-1}
 $$
 
 The maxout upper bound (Thm. 10, p. 7), a product over layers of arrangements of
-the $\tfrac{k(k-1)}{2}n_l$ pairwise-difference hyperplanes:
+the $\tfrac{k(k-1)}{2}n_l$ pairwise-difference hyperplanes (Thm. 10, p. 7):
 
 $$
-\prod_{l=1}^{L}\sum_{j=0}^{d_l}\binom{\tfrac{k(k-1)}{2}\,n_l}{j}, \qquad d_l = \min\{n_0,n_1,\dots,n_l\} \qquad \text{(Thm. 10, p. 7)}
+\prod_{l=1}^{L}\sum_{j=0}^{d_l}\binom{\tfrac{k(k-1)}{2}\,n_l}{j}, \qquad d_l = \min\{n_0,n_1,\dots,n_l\}
 $$
 
 Mixed-integer encoding of one ReLU, with a complementary variable
@@ -136,7 +144,10 @@ $\bar h^l_i = \max\{0,-W^l_i h^{l-1}-b^l_i\}$ and a binary $z^l_i$
 (§5, p. 7, constraints (1)–(6)):
 
 $$
-W^l_i h^{l-1} + b^l_i = h^l_i - \bar h^l_i,\quad h^l_i \le M z^l_i,\quad \bar h^l_i \le M(1-z^l_i),\quad h^l_i \ge 0,\quad \bar h^l_i \ge 0,\quad z^l_i \in \{0,1\}
+\begin{aligned}
+&W^l_i h^{l-1} + b^l_i = h^l_i - \bar h^l_i,\quad h^l_i \le M z^l_i,\quad \bar h^l_i \le M(1-z^l_i), \\
+&\quad h^l_i \ge 0,\quad \bar h^l_i \ge 0,\quad z^l_i \in \{0,1\}
+\end{aligned}
 $$
 
 | Symbol | Meaning (in this paper) |

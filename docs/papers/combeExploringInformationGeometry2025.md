@@ -93,25 +93,28 @@ $$
 The metric-compatibility that defines a pre-Frobenius structure and the potentiality axiom (§9.3.3, p. 127; §9.3.4, p. 127):
 
 $$
-A(X,Y,Z) = g(X\circ Y, Z) = g(X, Y\circ Z),
-\qquad\qquad
-g(X\circ Y, Z) = g(X, Y\circ Z) = (XYZ)\,\Phi .
+\begin{aligned}
+A(X,Y,Z) &= g(X\circ Y, Z) = g(X, Y\circ Z), \\
+g(X\circ Y, Z) &= g(X, Y\circ Z) = (XYZ)\,\Phi .
+\end{aligned}
 $$
 
 The WDVV (associativity) equations for the potential $\Phi$ (§9.4.1, p. 128), and the structure connection, a pencil depending on a parameter $\lambda$ (§9.4.3, p. 129):
 
 $$
-\sum_{ef} \Phi_{abe}\, g^{ef}\, \Phi_{fcd} = \sum_{ef} \Phi_{bce}\, g^{ef}\, \Phi_{fad},
-\qquad\qquad
-\nabla_{\lambda,X}(Y) := \nabla_{0,X}(Y) + \lambda\,(X\circ Y).
+\begin{aligned}
+\sum_{ef} \Phi_{abe}\, g^{ef}\, \Phi_{fcd} &= \sum_{ef} \Phi_{bce}\, g^{ef}\, \Phi_{fad}, \\
+&\qquad\qquad \nabla_{\lambda,X}(Y) := \nabla_{0,X}(Y) + \lambda\,(X\circ Y).
+\end{aligned}
 $$
 
 The paracomplex unit and (indefinite) norm, and the entropy potential of a statistical manifold (§10.2, p. 143; Eq. 11.2, p. 150):
 
 $$
-z = x + \epsilon y, \quad \epsilon^2 = 1, \quad \norm{z} = x^2 - y^2,
-\qquad\qquad
-\tilde{\Phi} = \ln\sum_{\omega\in\Omega}\exp\!\Big(-\!\sum_j \beta_j X_j(\omega)\Big).
+\begin{aligned}
+z &= x + \epsilon y, \quad \epsilon^2 = 1, \quad \norm{z} = x^2 - y^2, \\
+&\qquad\qquad \tilde{\Phi} = \ln\sum_{\omega\in\Omega}\exp\!\Big(-\!\sum_j \beta_j X_j(\omega)\Big).
+\end{aligned}
 $$
 
 | Symbol | Meaning (in this paper) |

@@ -63,7 +63,7 @@ If $k=1$ keeps near-original accuracy the network behaves holistically as a line
 
 ## Key equations and definitions
 
-Piecewise-linear representation of the network (§2.1, Eq. 1, p. 2), with $f:\R^d\to\R^o$:
+Piecewise-linear representation of the network (§2.1, Eq. 1, p. 2), with $f:\R^d\to\R^o$ (Eq. 1):
 
 $$
 f(x) =
@@ -73,12 +73,11 @@ f(x) =
 \quad\vdots \\
 \mathbf{W}_m x + b_m, & \text{if } \mathbf{A}_m x \le c_m
 \end{cases}
-\qquad \text{(Eq. 1)}
 $$
 
 The affine map $(\mathbf{W}_i,b_i)$ is valid exactly on the polytope $\mathbf{A}_i x \le c_i$; the number of regions $m$ grows polynomially in width and exponentially in depth.
 
-XOR example (§2.2, Eq. 2, p. 4): the network in Figure 2B,
+XOR example (§2.2, Eq. 2, p. 4): the network in Figure 2B (Eq. 2),
 
 $$
 f(x,y) = \begin{bmatrix} 2 & -4 \end{bmatrix}
@@ -86,10 +85,9 @@ f(x,y) = \begin{bmatrix} 2 & -4 \end{bmatrix}
 \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \end{bmatrix},
 \ \begin{bmatrix} 0 \\ 0 \end{bmatrix}
 \right\} - 1
-\qquad \text{(Eq. 2)}
 $$
 
-Its induced regions (§2.2, Eq. 3, p. 4):
+Its induced regions (§2.2, Eq. 3, p. 4) (Eq. 3):
 
 $$
 f(x) =
@@ -98,7 +96,6 @@ f(x) =
 2x + 2y + 1, & -1 \le x + y \le 0 \quad \text{Top activated; bottom not} \\
 -1, & x + y \le -1 \quad \text{Neither ReLU activated}
 \end{cases}
-\qquad \text{(Eq. 3)}
 $$
 
 The "fourth" case (bottom activated, top not) would give $-4x-4y-1$ but lives on the empty polytope $0 \le x+y \le -1$, so it is unreachable — an example of why the region count is below $2^{\#\text{ReLUs}}$ (§2.2, p. 4).
@@ -106,13 +103,12 @@ The "fourth" case (bottom activated, top not) would give $-4x-4y-1$ but lives on
 Dual point (§2.1, Eq. 4, p. 4): the row of the region's weight matrix and its bias form
 
 $$
-\begin{bmatrix} -1 & -1 & 0 \end{bmatrix}\begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = -x - y,
-\qquad \text{(Eq. 4)}
+\begin{bmatrix} -1 & -1 & 0 \end{bmatrix}\begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = -x - y
 $$
 
 so the region $-x-y$ induces the dual point $(-1,-1,0)$.
 
-Per-output affine maps (§2.4, Eqs. 5–7, p. 8): with rows $w_{i,j}^T$ and biases $b_{i,j}$,
+Per-output affine maps (§2.4, Eqs. 5–7, p. 8): with rows $w_{i,j}^T$ and biases $b_{i,j}$ (Eqs. 5–6),
 
 $$
 \mathbf{W}_i =
@@ -120,14 +116,12 @@ $$
 \quad
 \mathbf{C}_j =
 \begin{bmatrix} w_{1,j}^T & b_{1,j} \\ w_{2,j}^T & b_{2,j} \\ \vdots \\ w_{m,j}^T & b_{m,j} \end{bmatrix} \in \R^{m\times(d+1)}
-\qquad \text{(Eqs. 5–6)}
 $$
 
-and Eq. 7 is the same with $p$ sampled rows instead of all $m$. The regression objective (§2.4.2, Eq. 8, p. 8):
+and Eq. 7 is the same with $p$ sampled rows instead of all $m$. The regression objective (§2.4.2, Eq. 8, p. 8) (Eq. 8):
 
 $$
 \norm{\mathbf{C}_{j,\text{network1}}\mathbf{M}_j - \mathbf{C}_{j,\text{network2}}}_2
-\qquad \text{(Eq. 8)}
 $$
 
 | Symbol | Meaning (in this paper) |

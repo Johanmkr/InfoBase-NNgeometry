@@ -97,19 +97,19 @@ validation is a fully connected 3-layer ReLU network on the UCI poker hand task 
 The layer update (§2, Eq. 1, p. 2):
 
 $$
-x_i^{(l)} = \phi\!\left(\sum_j W^{(l)}_{ij}\, x^{(l-1)}_j + b^{(l)}_i\right) \qquad \text{(Eq. 1, p. 2)}
+x_i^{(l)} = \phi\!\left(\sum_j W^{(l)}_{ij}\, x^{(l-1)}_j + b^{(l)}_i\right)
 $$
 
-with the preactivation written separately as an unnumbered equation:
+with the preactivation written separately as an unnumbered equation (§2, unnumbered eq., p. 2):
 
 $$
-\tilde x^{(l)} = W^{(l)} \tilde x^{(l-1)} + \tilde b^{(l)} \qquad \text{(§2, unnumbered eq., p. 2)}
+\tilde x^{(l)} = W^{(l)} \tilde x^{(l-1)} + \tilde b^{(l)}
 $$
 
-and the activation
+and the activation (§2, unnumbered eq., p. 2):
 
 $$
-\phi(\tilde x) = \mathrm{ReLU}(\tilde x) = \max(0, \tilde x) \qquad \text{(§2, unnumbered eq., p. 2)}
+\phi(\tilde x) = \mathrm{ReLU}(\tilde x) = \max(0, \tilde x)
 $$
 
 The ReLU hyperplanes $\tilde x_i = 0$ have normal vectors given by the rows of $W^{(l)}$ and

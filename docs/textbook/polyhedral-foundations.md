@@ -3,8 +3,8 @@ chapter: polyhedral-foundations
 title: Polyhedra, arrangements and piecewise-linear maps
 outline_hash: e439a201d301
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
 ---
 
@@ -74,7 +74,11 @@ recurring tool: it is what makes "$f$-vector" a computable invariant rather than
 
 Two further operations survive into the neural-network setting. The **Minkowski sum** of sets
 $A,B\subseteq\R^d$ is
-$$A+B := \{\,a+b \mid a\in A,\ b\in B\,\},$$
+
+$$
+A+B := \{\,a+b \mid a\in A,\ b\in B\,\},
+$$
+
 so that adding a ball of radius $\varepsilon$ thickens a set by $\varepsilon$; Pak uses it to define
 surface area via the derivative of $\operatorname{vol}(X+tB)$ and as the statement of the
 Brunn–Minkowski inequality [@pakLecturesDiscretePolyhedral, §7.3–7.4]. A polytope all of whose faces
@@ -178,14 +182,14 @@ transversally as possible: any $p\le n_0$ of them meet in dimension $n_0-p$ and 
 empty intersection, a situation attained whenever the defining weights and biases are generic
 [@pascanuNumberResponseRegions2013, §3]. For such an arrangement the region count is classical. With
 $m$ hyperplanes in $\R^{n_0}$, and writing $r(A)$ for the number of regions and $b(A)$ for the
-number of relatively bounded ones,
+number of relatively bounded ones, the two counts are [@pascanuNumberResponseRegions2013, Prop. 1]:
 
 $$
 r(A) = \sum_{s=0}^{n_0}\binom{m}{s},
 \qquad
 b(A) = \binom{m-1}{n_0}
-\qquad \text{[@pascanuNumberResponseRegions2013, Prop. 1]} .
 $$
+
 
 The two papers we are using state this as the general-position case of Zaslavsky's theorem and cite
 it rather than prove it [@pascanuNumberResponseRegions2013, §3; @NIPS2014_fa6f2a46, §2.2]. It is the
@@ -202,11 +206,10 @@ one result in this chapter whose proof we place outside the collection.
 
 In low dimension the formula is explicit and worth carrying in one's head. For $n_0=1$ a single
 line splits the line into two, and $m$ points split it into $m+1$ intervals: $r = m+1$. For $n_0=2$
-the arrangement of $m$ lines in general position satisfies [@pascanuNumberResponseRegions2013, §3]
+the arrangement of $m$ lines in general position satisfies the classical count (Eq. 4) [@pascanuNumberResponseRegions2013, §3]:
 
 $$
 r(A_m) = \frac{m(m-1)}{2} + m + 1 = \binom{m}{2} + m + 1
-\qquad \text{[@pascanuNumberResponseRegions2013, Eq. 4]} .
 $$
 
 The induction behind this is short and is the prototype for higher dimensions: suppose $m$ lines give
@@ -234,11 +237,11 @@ reachable. And if the hyperplanes are *not* in general position — if several a
 meet along a common line — then the count is strictly smaller: general position maximises, and any
 arrangement can be perturbed by an arbitrarily small perturbation into general position
 [@pascanuNumberResponseRegions2013, §3]. For a single rectifier layer with $n_1$ hidden units, the
-maximal number of linear regions is therefore
+maximal number of linear regions is therefore (Prop. 2 of [@pascanuNumberResponseRegions2013], and
+the same count in [@NIPS2014_fa6f2a46, §2.2]):
 
 $$
 R(n_0;n_1;n_y) = \sum_{j=0}^{n_0}\binom{n_1}{j}
-\qquad \text{[@pascanuNumberResponseRegions2013, Prop. 2; @NIPS2014_fa6f2a46, §2.2]} ,
 $$
 
 independent of the number of outputs by Lemma 2. This is the first of the bounds developed in
@@ -269,11 +272,10 @@ are then the intersections of the regions of its units, and the partition each u
 lifted **Voronoi diagram**: Voronoi diagrams are upper envelopes of linear functions in one higher
 dimension, so maxout layers are "intersections of Voronoi diagrams" [@NIPS2014_fa6f2a46, §4]. Since
 intersecting $m$ Voronoi diagrams with $k$ regions each is not easy, the paper settles for bounds
-rather than an exact formula for a shallow maxout layer:
+rather than an exact formula for a shallow maxout layer (Prop. 8 of [@NIPS2014_fa6f2a46]):
 
 $$
 k^{\min\{n,m\}} \;\le\; \text{regions} \;\le\; \min\Bigl\{\sum_{j=0}^{n}\binom{k^2 m}{j},\ k^{m}\Bigr\},
-\qquad \text{[@NIPS2014_fa6f2a46, Prop. 8]} ,
 $$
 
 for $n$ inputs and $m$ rank-$k$ outputs. The trivial upper bound $k^m$ counts all combinations of
@@ -311,11 +313,10 @@ subset [@NIPS2014_fa6f2a46, §2.4].
 
 Counting this replication gives the deep lower bounds that [Counting linear regions](counting-regions.md)
 develops in full. [@pascanuNumberResponseRegions2013] shows that a rectifier network with $n_0$
-inputs and $k$ hidden layers of widths $n_1,\dots,n_k$ can realise
+inputs and $k$ hidden layers of widths $n_1,\dots,n_k$ can realise (Thm. 1 of [@pascanuNumberResponseRegions2013]):
 
 $$
 \prod_{i=1}^{k-1}\left\lfloor\frac{n_i}{n_0}\right\rfloor \cdot \sum_{j=0}^{n_0}\binom{n_k}{j}
-\qquad \text{[@pascanuNumberResponseRegions2013, Thm. 1]} ,
 $$
 
 regions, by using the first $k-1$ layers to identify many input regions and letting the last layer
@@ -410,7 +411,11 @@ recursion in $\R^{n_0}$.
     distinct points, which split it into $m+1$ segments; each segment lies inside one old region and
     cuts it into two, adding exactly $m+1$ regions. Hence $r(A_{m+1})=r(A_m)+(m+1)$, and summing
     from $m=0$,
-    $$r(A_m)=1+\sum_{j=1}^{m}(j+1)=1+\frac{m(m+1)}{2}+m=\frac{m(m-1)}{2}+m+1 .$$
+
+    $$
+    r(A_m)=1+\sum_{j=1}^{m}(j+1)=1+\frac{m(m+1)}{2}+m=\frac{m(m-1)}{2}+m+1 .
+    $$
+
     In $\R^{n_0}$ the same argument replaces the line by a hyperplane, which is cut by the previous
     $m-1$ hyperplanes into the regions of an $(n_0-1)$-dimensional arrangement, giving the recursion
     $r_{n_0}(m)=r_{n_0}(m-1)+r_{n_0-1}(m-1)$ and, by induction, the general-position count

@@ -1,6 +1,6 @@
 # Papers
 
-40 summaries, oldest first.
+41 summaries, oldest first.
 
 | Year | Paper | Tags |
 |---|---|---|
@@ -42,5 +42,6 @@
 | 2025 | [Averkov et al. 2025: ON THE EXPRESSIVENESS OF RATIONAL RELU NEURAL NETWORKS WITH BOUNDED DEPTH](averkovEXPRESSIVENESSRATIONALRELU2025.md) | expressiveness, depth-separation, relu-networks, lattice-polytopes, rational-weights |
 | 2025 | [Brandenburg et al. 2024: Decomposition Polyhedra of Piecewise Linear Functions](brandenburgDecompositionPolyhedraPiecewise2024.md) | piecewise-linear, polyhedral-geometry, tropical-geometry, neural-network-theory, submodular-optimization |
 | 2025 | [Combe et al. 2025: Exploring Information Geometry](combeExploringInformationGeometry2025.md) | information-geometry, frobenius-manifolds, wdvv-equations, statistical-manifolds, paracomplex-geometry, topological-field-theory |
+| 2025 | [Dhayalkar 2025: Discrete Functional Geometry of ReLU Networks via ReLU Transition Graphs](dhayalkarDiscreteFunctionalGeometry2025.md) | relu-networks, linear-regions, graph-theory, expressivity, vc-dimension, pruning |
 | 2025 | [Gagneux et al. 2025: How to Improve Expressivity of Convex ReLU Neural Networks?](gagneuxHowImproveExpressivity2025.md) | relu-networks, convexity, input-convex-neural-networks, expressivity, regularization |
 | 2026 | [Lewandowski et al. 2026: Exploiting Space Folding by Neural Networks](lewandowskiExploitingSpaceFolding2026.md) | space-folding, relu-networks, activation-regions, adversarial-robustness, representation-geometry |

@@ -65,19 +65,19 @@ For the geometric reading, the partition indices $[t^{(\ell)}(x)]_k$ selected by
 
 ## Key equations and definitions
 
-A multivariate affine spline on a partition $\Omega=\{\omega_1,\dots,\omega_R\}$ with slopes $\alpha\in\R^{R\times D}$ and offsets $\beta\in\R^R$:
+A multivariate affine spline on a partition $\Omega=\{\omega_1,\dots,\omega_R\}$ with slopes $\alpha\in\R^{R\times D}$ and offsets $\beta\in\R^R$ (Eq. 3, p. 3):
 
 $$
-s[\alpha,\beta,\Omega](x) = \sum_{r=1}^{R}\big(\langle[\alpha]_{r,\cdot}, x\rangle + [\beta]_r\big)\,\mathbf{1}(x\in\omega_r) =: \langle\alpha[x], x\rangle + \beta[x] \qquad (\text{Eq. 3, p. 3})
+s[\alpha,\beta,\Omega](x) = \sum_{r=1}^{R}\big(\langle[\alpha]_{r,\cdot}, x\rangle + [\beta]_r\big)\,\mathbf{1}(x\in\omega_r) =: \langle\alpha[x], x\rangle + \beta[x]
 $$
 
-If the spline is globally convex it can be written without specifying $\Omega$:
+If the spline is globally convex it can be written without specifying $\Omega$ (Eq. 4, p. 3):
 
 $$
-s[\alpha,\beta,\Omega](x) = \max_{r=1,\dots,R}\ \langle[\alpha]_{r,\cdot}, x\rangle + [\beta]_r \qquad (\text{Eq. 4, p. 3})
+s[\alpha,\beta,\Omega](x) = \max_{r=1,\dots,R}\ \langle[\alpha]_{r,\cdot}, x\rangle + [\beta]_r
 $$
 
-A max-affine spline operator with slopes $A\in\R^{K\times R\times D}$ and offsets $B\in\R^{K\times R}$:
+A max-affine spline operator with slopes $A\in\R^{K\times R\times D}$ and offsets $B\in\R^{K\times R}$ (Eq. 5, p. 3):
 
 $$
 S[A,B](x) =
@@ -86,24 +86,26 @@ S[A,B](x) =
 \vdots\\
 \max_{r=1,\dots,R}\langle[A]_{K,r,\cdot},x\rangle+[B]_{K,r}
 \end{bmatrix}
-=: A[x]\,x + B[x] \qquad (\text{Eq. 5, p. 3})
+=: A[x]\,x + B[x]
 $$
 
-A single layer acts as a signal-dependent affine map:
+A single layer acts as a signal-dependent affine map (Eq. 6, p. 4):
 
 $$
-f^{(\ell)}(z^{(\ell-1)}(x)) = A^{(\ell)}[x]\,z^{(\ell-1)}(x) + B^{(\ell)}[x] \qquad (\text{Eq. 6, p. 4})
+f^{(\ell)}(z^{(\ell-1)}(x)) = A^{(\ell)}[x]\,z^{(\ell-1)}(x) + B^{(\ell)}[x]
 $$
 
-The closed form for a standard ReLU+max-pooling CNN ($A_\sigma$ for activations, $A_\rho$ for pooling; no offset terms because ReLU and max-pooling have none):
+The closed form for a standard ReLU+max-pooling CNN ($A_\sigma$ for activations, $A_\rho$ for pooling; no offset terms because ReLU and max-pooling have none) (Eq. 7, p. 5):
 
 $$
-z^{(L)}_{\mathrm{CNN}}(x) = W^{(L)}\Big(\prod_{\ell=L-1}^{1} A^{(\ell)}_\rho[x]A^{(\ell)}_\sigma[x]C^{(\ell)}\Big)x
-+ W^{(L)}\sum_{\ell=1}^{L-1}\Big(\prod_{j=L-1}^{\ell+1} A^{(j)}_\rho[x]A^{(j)}_\sigma[x]C^{(j)}\Big)\big(A^{(\ell)}_\rho[x]A^{(\ell)}_\sigma[x]b^{(\ell)}_C\big)
-+ b^{(L)}_W \qquad (\text{Eq. 7, p. 5})
+\begin{aligned}
+z^{(L)}_{\mathrm{CNN}}(x) &= W^{(L)}\Big(\prod_{\ell=L-1}^{1} A^{(\ell)}_\rho[x]A^{(\ell)}_\sigma[x]C^{(\ell)}\Big)x \\
+&\quad + W^{(L)}\sum_{\ell=1}^{L-1}\Big(\prod_{j=L-1}^{\ell+1} A^{(j)}_\rho[x]A^{(j)}_\sigma[x]C^{(j)}\Big)\big(A^{(\ell)}_\rho[x]A^{(\ell)}_\sigma[x]b^{(\ell)}_C\big) \\
+&\quad + b^{(L)}_W
+\end{aligned}
 $$
 
-The optimal templates at the constrained cross-entropy minimum (Prop. 5, p. 6), for unit-norm inputs $\norm{x_n}_2=1$:
+The optimal templates at the constrained cross-entropy minimum (Prop. 5, p. 6), for unit-norm inputs $\norm{x_n}_2=1$ (Eq. 12, p. 6):
 
 $$
 [A^\star[x_n]]_{c,\cdot} =
@@ -111,23 +113,22 @@ $$
 +\sqrt{\dfrac{(C-1)\alpha}{C}}\; x_n, & c = y_n\\
 -\sqrt{\dfrac{\alpha}{C(C-1)}}\; x_n, & c \neq y_n
 \end{cases}
-\qquad (\text{Eq. 12, p. 6})
 $$
 
-The orthogonality penalty added to the cross-entropy loss:
+The orthogonality penalty added to the cross-entropy loss (Eq. 13, p. 6):
 
 $$
-L_{CE} + \lambda\sum_{c_1\neq c_2}\big\lvert\langle[W^{(L)}]_{c_1,\cdot},[W^{(L)}]_{c_2,\cdot}\rangle\big\rvert^2 \qquad (\text{Eq. 13, p. 6})
+L_{CE} + \lambda\sum_{c_1\neq c_2}\big\lvert\langle[W^{(L)}]_{c_1,\cdot},[W^{(L)}]_{c_2,\cdot}\rangle\big\rvert^2
 $$
 
-The region index selected at layer $\ell$, and the partition-based distance between two signals:
+The region index selected at layer $\ell$ (Eq. 14, p. 8), and the partition-based distance between two signals (Eq. 15, p. 8):
 
 $$
-[t^{(\ell)}(x)]_k = \arg\max_r\ \langle[A^{(\ell)}]_{k,r,\cdot}, z^{(\ell-1)}(x)\rangle + [B^{(\ell)}]_{k,r} \qquad (\text{Eq. 14, p. 8})
+[t^{(\ell)}(x)]_k = \arg\max_r\ \langle[A^{(\ell)}]_{k,r,\cdot}, z^{(\ell-1)}(x)\rangle + [B^{(\ell)}]_{k,r}
 $$
 
 $$
-d\big(t^{(\ell)}(x_1), t^{(\ell)}(x_2)\big) = 1 - \frac{\sum_{k=1}^{D^{(\ell)}}\mathbf{1}\big([t^{(\ell)}(x_1)]_k = [t^{(\ell)}(x_2)]_k\big)}{D^{(\ell)}} \qquad (\text{Eq. 15, p. 8})
+d\big(t^{(\ell)}(x_1), t^{(\ell)}(x_2)\big) = 1 - \frac{\sum_{k=1}^{D^{(\ell)}}\mathbf{1}\big([t^{(\ell)}(x_1)]_k = [t^{(\ell)}(x_2)]_k\big)}{D^{(\ell)}}
 $$
 
 | Symbol | Meaning (in this paper) |

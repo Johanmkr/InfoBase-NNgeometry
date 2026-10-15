@@ -54,14 +54,14 @@ Experiments (fully connected nets, He-normal weights, biases $\mathcal N(0,10^{-
 
 ## Key equations and definitions
 
-The universal upper bound on the region count and the mean-gradient assumption (§2.1, Eqs. 1–2):
+The universal upper bound on the region count and the mean-gradient assumption (§2.1, Eqs. 1–2) (Eq. 1):
 
 $$
-\max \#\{\text{regions}\} \le 2^{\#\{\text{neurons}\}}, \qquad \min \#\{\text{regions}\} = 1,\quad \forall N, \qquad \text{(Eq. 1)}
+\max \#\{\text{regions}\} \le 2^{\#\{\text{neurons}\}}, \qquad \min \#\{\text{regions}\} = 1,\quad \forall N,
 $$
 
 $$
-\E\bigl[\norm{\nabla z(x)}\bigr] \le C,\quad \text{some } C>0. \qquad \text{(Eq. 2)}
+\E\bigl[\norm{\nabla z(x)}\bigr] \le C,\quad \text{some } C>0.
 $$
 
 Theorem 1 (informal, §2.1): for input/output dimension 1 and stimuli confined to $I \subset \R$,
@@ -70,42 +70,42 @@ $$
 \E\bigl[\#\{\text{regions in } I\}\bigr] \approx |I| \cdot T \cdot \#\{\text{neurons}\},
 $$
 
-with $T$ the number of breakpoints of the activation ($T=1$ for ReLU). The volume-density generalization and the exact distance formula (§2.2, Eqs. 3–4) are
+with $T$ the number of breakpoints of the activation ($T=1$ for ReLU). The volume-density generalization and the exact distance formula (§2.2, Eqs. 3–4; the distance formula is unnumbered, p. 4) are:
 
 $$
-\frac{\mathrm{vol}_{n_{\rm in}-1}(B_N \cap K)}{\mathrm{vol}_{n_{\rm in}}(K)}, \qquad B_N = \{x \mid \nabla N(x) \text{ is not continuous at } x\}, \qquad \text{(Eqs. 3–4)}
+\frac{\mathrm{vol}_{n_{\rm in}-1}(B_N \cap K)}{\mathrm{vol}_{n_{\rm in}}(K)}, \qquad B_N = \{x \mid \nabla N(x) \text{ is not continuous at } x\}
 $$
 
 $$
-\mathrm{distance}(x,B_N) = \min_{\text{neurons } z} \frac{|z(x)-b_z|}{\norm{\nabla z(x)}}. \qquad \text{(unnumbered, §2.2, p. 4)}
+\mathrm{distance}(x,B_N) = \min_{\text{neurons } z} \frac{|z(x)-b_z|}{\norm{\nabla z(x)}}.
 $$
 
 Theorem 2 (informal, §2.2), for $K \subset \R^{d_{\rm in}}$ bounded: $\E[\mathrm{vol}_{n_{\rm in}-1}(B_N\cap K)/\mathrm{vol}_{n_{\rm in}}(K)] \approx T\cdot\#\{\text{neurons}\}$, and for $x \sim \mathrm{Unif}([0,1]^{n_{\rm in}})$, $\E[\mathrm{distance}(x,B_N)] \ge C(\#\{\text{neurons}\})^{-1}$.
 
-The main theorem (Thm. 3, §5, Eq. 8) computes the expected $(n_{\rm in}-k)$-dimensional volume of $B_{N,k}$ exactly:
+The main theorem (Thm. 3, §5, Eq. 8) computes the expected $(n_{\rm in}-k)$-dimensional volume of $B_{N,k}$ exactly (Eq. 8), with the integrand $\Upsilon$ defined in Eq. 13:
 
 $$
-\E\bigl[\mathrm{vol}_{n_{\rm in}-k}(B_{N,k}\cap K)\bigr] = \sum_{\substack{\text{distinct neurons}\\ z_1,\dots,z_k \text{ in } N}} \int_K \E\bigl[\Upsilon_{z_1,\dots,z_k}(x)\bigr]\, \mathrm{d}x, \qquad \text{(Eq. 8)}
-$$
-
-$$
-\Upsilon_{z_1,\dots,z_k}(x) = \norm{J_{z_1,\dots,z_k}(x)}\,\rho_{b_{z_1},\dots,b_{z_k}}\bigl(z_1(x),\dots,z_k(x)\bigr) \cdot \mathbb{1}\{z_j \text{ good at } x\ \forall j\}, \qquad \text{(Eq. 13)}
-$$
-
-where $J_{z_1,\dots,z_k}$ is the $k\times n_{\rm in}$ Jacobian of $x\mapsto(z_1(x),\dots,z_k(x))$ and $\norm{J} := \det\bigl(J J^{\mathsf T}\bigr)^{1/2}$. Under A1–A2 and symmetric, variance-$2/{\rm fan\text{-}in}$ weights (Cor. 4), the $(n_{\rm in}-k)$-boundary volume obeys, with $\binom{\#\{\text{neurons}\}}{k}$ the binomial coefficient,
-
-$$
-\frac{\E\bigl[\mathrm{vol}_{n_{\rm in}-k}(B_{N,k}\cap K)\bigr]}{\mathrm{vol}_{n_{\rm in}}(K)} \le \binom{\#\{\text{neurons}\}}{k}\,(C_{\rm grad}\cdot C_{\rm bias})^k, \qquad \text{(Eq. 9)}
+\E\bigl[\mathrm{vol}_{n_{\rm in}-k}(B_{N,k}\cap K)\bigr] = \sum_{\substack{\text{distinct neurons}\\ z_1,\dots,z_k \text{ in } N}} \int_K \E\bigl[\Upsilon_{z_1,\dots,z_k}(x)\bigr]\, \mathrm{d}x,
 $$
 
 $$
-C_{\rm bias} = \sup_z \sup_{b\in\R}\rho_{b_z}(b), \qquad C_{\rm grad} = \sup_z \sup_{x\in\R^{n_{\rm in}}} \E\bigl[\norm{\nabla z(x)}^{2k}\bigr]^{1/k} \le C e^{C\sum_{j=1}^{d} 1/n_j}, \qquad \text{(Eq. 9)}
+\Upsilon_{z_1,\dots,z_k}(x) = \norm{J_{z_1,\dots,z_k}(x)}\,\rho_{b_{z_1},\dots,b_{z_k}}\bigl(z_1(x),\dots,z_k(x)\bigr) \cdot \mathbb{1}\{z_j \text{ good at } x\ \forall j\}
 $$
 
-and (Eq. 10) provides a matching lower bound $\binom{\#\{\text{neurons}\}}{k} c_{\rm bias}^k$, with $c_{\rm bias} = \inf_{|b|\le\eta}\rho_{b_z}(b)$ and an explicit $\eta$. Corollary 5 then gives, for $x$ uniform on a compact $K$,
+where $J_{z_1,\dots,z_k}$ is the $k\times n_{\rm in}$ Jacobian of $x\mapsto(z_1(x),\dots,z_k(x))$ and $\norm{J} := \det\bigl(J J^{\mathsf T}\bigr)^{1/2}$. Under A1–A2 and symmetric, variance-$2/{\rm fan\text{-}in}$ weights (Cor. 4), the $(n_{\rm in}-k)$-boundary volume obeys, with $\binom{\#\{\text{neurons}\}}{k}$ the binomial coefficient (Eq. 9),
 
 $$
-\E\bigl[\mathrm{distance}(x,B_N)\bigr] \ge \frac{c}{C_{\rm bias}C_{\rm grad}\,\#\{\text{neurons}\}}. \qquad \text{(Cor. 5, §5)}
+\frac{\E\bigl[\mathrm{vol}_{n_{\rm in}-k}(B_{N,k}\cap K)\bigr]}{\mathrm{vol}_{n_{\rm in}}(K)} \le \binom{\#\{\text{neurons}\}}{k}\,(C_{\rm grad}\cdot C_{\rm bias})^k,
+$$
+
+$$
+C_{\rm bias} = \sup_z \sup_{b\in\R}\rho_{b_z}(b), \qquad C_{\rm grad} = \sup_z \sup_{x\in\R^{n_{\rm in}}} \E\bigl[\norm{\nabla z(x)}^{2k}\bigr]^{1/k} \le C e^{C\sum_{j=1}^{d} 1/n_j}
+$$
+
+and (Eq. 10) provides a matching lower bound $\binom{\#\{\text{neurons}\}}{k} c_{\rm bias}^k$, with $c_{\rm bias} = \inf_{|b|\le\eta}\rho_{b_z}(b)$ and an explicit $\eta$. Corollary 5 then gives, for $x$ uniform on a compact $K$ (Cor. 5, §5),
+
+$$
+\E\bigl[\mathrm{distance}(x,B_N)\bigr] \ge \frac{c}{C_{\rm bias}C_{\rm grad}\,\#\{\text{neurons}\}}.
 $$
 
 Appendix A restates everything for a general continuous piecewise-linear $\varphi$ with breakpoints $\lambda_1<\dots<\lambda_T$ (Eq. 11) and arbitrary feed-forward connectivity (Thm. 6, Eq. 12; Cor. 7, Eq. 15), and App. C–E give the proofs.

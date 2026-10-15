@@ -54,40 +54,42 @@ Three steps build the results. (a) Theorem 1 bounds the cardinality of an arrang
 
 ## Key equations and definitions
 
-The upper bound on the cardinality of an arrangement of $N$ convex partitions with $n_1,\dots,n_N$ regions each (§3.1, Eq. 4) is the generalisation of the hyperplane bound:
+The upper bound on the cardinality of an arrangement of $N$ convex partitions with $n_1,\dots,n_N$ regions each (§3.1, Eq. 4) is the generalisation of the hyperplane bound (Eq. 4):
 
 $$
-\beta_d(n_1,\dots,n_N) = 1 + \sum_{k=1}^{\min(d,N)}\ \sum_{1\le \ell_1<\dots<\ell_k\le N}\ \prod_{q=1}^{k}\bigl(n_{\ell_q}-1\bigr) \qquad \text{(Eq. 4)}
+\beta_d(n_1,\dots,n_N) = 1 + \sum_{k=1}^{\min(d,N)}\ \sum_{1\le \ell_1<\dots<\ell_k\le N}\ \prod_{q=1}^{k}\bigl(n_{\ell_q}-1\bigr)
 $$
 
 Setting $n_{\ell}=2$ recovers $\sum_{k=0}^{\min(d,N)}\binom{N}{k}$, the classical number of regions of $N$ hyperplanes in general position. The matching operation bounds for sums and vectorisation (Proposition 2, §3.2, Eqs. 6–7) read
 
 $$
-\kappa_{f_1+\dots+f_N} \le \beta_d(\kappa_1,\dots,\kappa_N), \qquad \kappa_{(f_1,\dots,f_N)} \le \beta_d(\kappa_1,\dots,\kappa_N), \qquad \text{(Eqs. 6–7)}
+\kappa_{f_1+\dots+f_N} \le \beta_d(\kappa_1,\dots,\kappa_N), \qquad \kappa_{(f_1,\dots,f_N)} \le \beta_d(\kappa_1,\dots,\kappa_N),
 $$
 
-and both are sharp. Composition (Theorem 2, §3.3, Eq. 15) multiplies these layer-wise:
+and both are sharp. Composition (Theorem 2, §3.3, Eq. 15) multiplies these layer-wise (Eq. 15):
 
 $$
-\prod_{\ell=1}^{L}\alpha_{\min(d_1,\dots,d_{L+1})}(\kappa_{\ell,\cdot}) \ \le\ \kappa_{\max}\ \le\ \prod_{\ell=1}^{L}\beta_{\min(d_1,\dots,d_\ell)}(\kappa_{\ell,1},\dots,\kappa_{\ell,d_{\ell+1}}), \qquad \text{(Eq. 15)}
+\prod_{\ell=1}^{L}\alpha_{\min(d_1,\dots,d_{L+1})}(\kappa_{\ell,\cdot}) \ \le\ \kappa_{\max}\ \le\ \prod_{\ell=1}^{L}\beta_{\min(d_1,\dots,d_\ell)}(\kappa_{\ell,1},\dots,\kappa_{\ell,d_{\ell+1}}),
 $$
 
-where the lower factor $\alpha$ is a max over assignments $\tau$ of the $d_{\ell+1}$ outputs to the $\min(d_1,\dots,d_{L+1})$ bottleneck coordinates (Eq. 16). For a network with dimensions $(d_{\rm in}, W,\dots,W, d_{\rm out})$ and uniform activation complexity $\kappa$, Corollary 1 gives the readable form with $d^\ast = \min(d_{\rm in},d_{\rm out})$:
+where the lower factor $\alpha$ is a max over assignments $\tau$ of the $d_{\ell+1}$ outputs to the $\min(d_1,\dots,d_{L+1})$ bottleneck coordinates (Eq. 16). For a network with dimensions $(d_{\rm in}, W,\dots,W, d_{\rm out})$ and uniform activation complexity $\kappa$, Corollary 1 gives the readable form with $d^\ast = \min(d_{\rm in},d_{\rm out})$ (Eq. 17):
 
 $$
-\bigl(\kappa^{\lfloor W/d^\ast\rfloor}\bigr)^{L d^\ast} \ \le\ \kappa_{\max}\ \le\ (\kappa W)^{L d^\ast}. \qquad \text{(Eq. 17)}
+\bigl(\kappa^{\lfloor W/d^\ast\rfloor}\bigr)^{L d^\ast} \ \le\ \kappa_{\max}\ \le\ (\kappa W)^{L d^\ast}.
 $$
 
-The knot density itself (§4.1, Definition 6, Eq. 24) and the two stochastic bounds (§4.3) are
+The knot density itself (§4.1, Definition 6, Eq. 24) and the two stochastic bounds (§4.3, Eqs. 34–35) are
 
 $$
-\lambda_f^\gamma = \frac{kt_f^\gamma}{\mathrm{Len}(\gamma)}, \qquad \text{(Eq. 24)}
+\lambda_f^\gamma = \frac{kt_f^\gamma}{\mathrm{Len}(\gamma)},
 $$
+
 $$
-\E[\lambda^\gamma_{f_{\theta_L}\circ\dots\circ f_{\theta_1}}] \le \lambda_0 W\,\frac{1-D_0^{L}}{1-D_0}\ (D_0\ne 1), \qquad \E[\lambda] \le \lambda_0 W L\ (D_0 = 1), \qquad \text{(Eq. 34)}
+\E[\lambda^\gamma_{f_{\theta_L}\circ\dots\circ f_{\theta_1}}] \le \lambda_0 W\,\frac{1-D_0^{L}}{1-D_0}\ (D_0\ne 1), \qquad \E[\lambda] \le \lambda_0 W L\ (D_0 = 1),
 $$
+
 $$
-\E[\lambda^\gamma_{f_{\theta_L}\circ\dots\circ f_{\theta_1}}] \le D_0^\ast\,(\lambda_0 W L), \qquad D_0^\ast = \max(D_0,1). \qquad \text{(Eq. 35)}
+\E[\lambda^\gamma_{f_{\theta_L}\circ\dots\circ f_{\theta_1}}] \le D_0^\ast\,(\lambda_0 W L), \qquad D_0^\ast = \max(D_0,1).
 $$
 
 | Symbol | Meaning (in this paper) |

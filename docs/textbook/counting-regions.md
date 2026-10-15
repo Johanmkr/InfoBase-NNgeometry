@@ -3,15 +3,15 @@ chapter: counting-regions
 title: Counting linear regions
 outline_hash: 1931e7f419e7
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  serraBoundingCountingLinear2018: e57c5f62b98c
+  serraBoundingCountingLinear2018: 9cdce7bede89
 ---
 
 # Counting linear regions
@@ -57,7 +57,11 @@ The mechanism is *identification*. A map $F$ identifies two neighbourhoods $S,T$
 The elementary folding unit is a sum of rectifiers with alternating signs, $\tilde h_j(x)=[1,-1,1,\dots,(-1)^{p-1}]\,[h_1(x),\dots,h_p(x)]^\top$ with $h_r(x)=\max\{0,2wx-(r-1)\}$, which creates $p$ linear regions and identifies $p$ unit intervals of one input coordinate [@NIPS2014_fa6f2a46, §3.1, Eq. 3]. Choosing $p=\lfloor n/n_0\rfloor$ such units per coordinate produces $p^{n_0}$ identified hypercubes whose image is a single hypercube, on which the last layer then acts [@NIPS2014_fa6f2a46, §3.1].
 
 Chaining this across layers gives the central lower bound. A rectifier network with $n_0$ inputs and $L$ hidden layers of widths $n_i\ge n_0$ realises at least
-$$\prod_{i=1}^{L-1}\left\lfloor\frac{n_i}{n_0}\right\rfloor^{n_0}\left(\sum_{j=0}^{n_0}\binom{n_L}{j}\right)$$
+
+$$
+\prod_{i=1}^{L-1}\left\lfloor\frac{n_i}{n_0}\right\rfloor^{n_0}\left(\sum_{j=0}^{n_0}\binom{n_L}{j}\right)
+$$
+
 linear regions [@NIPS2014_fa6f2a46, Thm. 5], which for equal width $n\ge n_0$ behaves as $\Omega\big((n/n_0)^{(L-1)n_0}\,n^{n_0}\big)$ [@NIPS2014_fa6f2a46, Cor. 6]. The independent-coordinate construction only needs $n_0$ units per layer and gives the cleaner count of at least $2^{(k-1)n_0}\sum_{j=0}^{n_0}\binom{2n_0}{j}$ for $k$ hidden layers of width $2n_0$ [@pascanuNumberResponseRegions2013, Thm. 2]. Its small cases make the depth advantage concrete: for $n_0=2$, a shallow model with $8$ hidden units has at most $37$ regions, while two layers of $4$ units produce $44$; with $12$ hidden units the shallow maximum is $79$ while three layers reach $176$, and a four-layer model with $24$ hidden units computes a function that a shallow model needs at least $137$ units to match [@pascanuNumberResponseRegions2013, §5, p. 13].
 
 The same replication idea works for maxout. A rank-$k$ maxout unit identifies $k$ cones in its input; iterating the construction shows that a maxout network with $L$ layers of width $n_0$ and rank $k$ computes at least $k^{L-1}k^{n_0}$ regions [@NIPS2014_fa6f2a46, Thm. 9]. The two families are not nested: the rectifier constructions of Montúfar et al. are not computable by maxout networks except in the rank-$2$ case, and the authors explicitly leave open which architecture is more powerful by this measure [@NIPS2014_fa6f2a46, §4, §5].
@@ -67,7 +71,14 @@ Because a deep and a shallow network can be compared at equal *parameter* count 
 ## Sharper bounds and the bottleneck effect
 
 The replication bounds are lower bounds from a clever construction; the upper side was improved by tracking the *dimension of each region's image* through the layers. If a region $S$ is linear up to layer $l$, the map is affine on it and $\dim(h^l(S))$ equals the rank of the effective weight matrix, and this dimension can only decrease as later layers partition $S$ further [@serraBoundingCountingLinear2018, §3.1]. Substituting this into Zaslavsky's bound gives the sharpened count at most
-$$\sum_{(j_1,\dots,j_L)\in J}\prod_{l=1}^{L}\binom{n_l}{j_l},\qquad J=\big\{(j_l)\in\Z^L: 0\le j_l\le\min\{n_0,\,n_1-j_1,\dots,n_{l-1}-j_{l-1},\,n_l\}\big\}$$
+
+$$
+\begin{aligned}
+&\sum_{(j_1,\dots,j_L)\in J}\prod_{l=1}^{L}\binom{n_l}{j_l}, \\
+&J=\big\{(j_l)\in\Z^L: 0\le j_l\le\min\{n_0,\,n_1-j_1,\dots,n_{l-1}-j_{l-1},\,n_l\}\big\}
+\end{aligned}
+$$
+
 [@serraBoundingCountingLinear2018, Thm. 1]. The index set is the whole point: each $j_l$ is capped by the widths of *all* preceding layers after subtracting the dimensions already used up, so an early narrow layer limits how many regions a later wide layer can create [@serraBoundingCountingLinear2018, §3.1].
 
 This yields the *bottleneck effect*: subtracting a neuron from an earlier layer lowers the bound at least as much as subtracting it from a later one, and for a two-layer network with $n_0>\max\{n_1,n_2\}$ moving a neuron from the first to the second layer strictly decreases the bound [@serraBoundingCountingLinear2018, §3.1, Prop. 2]. One consequence runs against the received "depth always wins" story: for $L\ge2$, $n\ge1$ and $n_0\ge Ln$, the exact maximum satisfies $R(n_0,n,\dots,n)<R(n_0,Ln)$, and the ratio tends to $0$ as $L\to\infty$ — when the input dimension is large relative to the neuron count, a deep network is *worse* than a shallow one of the same total width [@serraBoundingCountingLinear2018, Cor. 3]. So the depth advantage of the previous section is conditional on $n\gg n_0$, consistent with Pascanu et al.'s manifold remark; the two papers do not contradict each other, they delimit when each regime applies [@pascanuNumberResponseRegions2013, §6; @serraBoundingCountingLinear2018, §3.1].
@@ -89,9 +100,17 @@ The trade-off is not merely asymptotic. Montúfar et al.'s construction already 
 ## Beyond ReLU: general piecewise-linear activations
 
 The ReLU-specific bounds leave the question of what happens for maxout, GroupSort, deepspline or PWLU activations. Goujon, Etemadi and Unser replace the arrangement of *hyperplanes* with an *arrangement of convex partitions*: given convex partitions $\Pi_1,\dots,\Pi_N$ of $\R^d$, its regions are the non-empty intersections $\bigcap_kP^{(k)}_{m_k}$ [@goujonNumberRegionsPiecewise2023, §2.3]. The maximal cardinality of such an arrangement is the polynomial
-$$\beta_d(n_1,\dots,n_N)=1+\sum_{k=1}^{\min(d,N)}\ \sum_{1\le\ell_1<\dots<\ell_k\le N}\ \prod_{q=1}^{k}(n_{\ell_q}-1),$$
+
+$$
+\beta_d(n_1,\dots,n_N)=1+\sum_{k=1}^{\min(d,N)}\ \sum_{1\le\ell_1<\dots<\ell_k\le N}\ \prod_{q=1}^{k}(n_{\ell_q}-1),
+$$
+
 which reduces to the classical hyperplane count $\sum_{k=0}^{\min(d,N)}\binom{N}{k}$ when every partition has two regions [@goujonNumberRegionsPiecewise2023, Thm. 1, Eq. 4]. Sums and vectorisations of piecewise-linear functions are bounded by $\beta_d$ of their individual region counts, and both bounds are sharp [@goujonNumberRegionsPiecewise2023, Prop. 2]. Composition then multiplies these factors layer by layer, giving
-$$\prod_{\ell=1}^{L}\alpha_{\min(d_1,\dots,d_{L+1})}(\kappa_{\ell,\cdot})\ \le\ \kappa_{\max}\ \le\ \prod_{\ell=1}^{L}\beta_{\min(d_1,\dots,d_\ell)}(\kappa_{\ell,1},\dots,\kappa_{\ell,d_{\ell+1}})$$
+
+$$
+\prod_{\ell=1}^{L}\alpha_{\min(d_1,\dots,d_{L+1})}(\kappa_{\ell,\cdot})\ \le\ \kappa_{\max}\ \le\ \prod_{\ell=1}^{L}\beta_{\min(d_1,\dots,d_\ell)}(\kappa_{\ell,1},\dots,\kappa_{\ell,d_{\ell+1}})
+$$
+
 [@goujonNumberRegionsPiecewise2023, Thm. 2, Eq. 15], which for a network of width $W$ and uniform activation complexity $\kappa$ reads $(\kappa^{\lfloor W/d^*\rfloor})^{Ld^*}\le\kappa_{\max}\le(\kappa W)^{Ld^*}$ with $d^*=\min(d_{\text{in}},d_{\text{out}})$ [@goujonNumberRegionsPiecewise2023, Cor. 1, Eq. 17].
 
 This framework explains the earlier results as special cases and marks their limits. For ReLU activations with two regions each, Eq. 15 reproduces the bound of Montúfar et al. — but the authors point out that it is *not* the tightest ReLU bound, precisely because the ReLU image of $(-\infty,0]$ is the singleton $\{0\}$, which reduces the effective dimension for any region that does not fire every neuron; that is the effect Serra et al. exploited [@goujonNumberRegionsPiecewise2023, §3.4]. For maxout, on the other hand, Eq. 15 improves the previously known bound [@goujonNumberRegionsPiecewise2023, §3.4, Eq. 20]. The lesson is that the same combinatorial machinery gives bounds of different tightness in different activation families, and the tightness is limited by how much of the neuron's output range is genuinely used [@goujonNumberRegionsPiecewise2023, §3.4].

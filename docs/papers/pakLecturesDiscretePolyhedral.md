@@ -65,14 +65,14 @@ Part II repeatedly reduces rigidity questions to a common lemma (the spherical L
 
 Helly's theorem in $\R^d$: $n \ge d+1$ convex sets whose every $d+1$ intersect have a common point (§1.1, Thm. 1.2, p. 12). Its proof uses Radon's theorem: any $m \ge d+2$ points in $\R^d$ split into two disjoint subsets with intersecting convex hulls (§1.1, Thm. 1.4, p. 12).
 
-Euler's formula and the Dehn–Sommerville equations for a simple $d$-polytope with $f$-vector $(f_0,\dots,f_d)$ (§8.1, p. 72):
+Euler's formula and the Dehn–Sommerville equations for a simple $d$-polytope with $f$-vector $(f_0,\dots,f_d)$ (§8.1, p. 72; Thm. 8.1):
 
 $$
 (\heartsuit)\qquad f_0 - f_1 + f_2 - \dots + (-1)^d f_d = 1
 $$
 
 $$
-\sum_{i=k}^{d} (-1)^i \binom{i}{k} f_i \;=\; \sum_{i=d-k}^{d} (-1)^{d-i} \binom{i}{d-k} f_i \qquad \text{(Thm. 8.1, p. 72)}
+\sum_{i=k}^{d} (-1)^i \binom{i}{k} f_i \;=\; \sum_{i=d-k}^{d} (-1)^{d-i} \binom{i}{d-k} f_i
 $$
 
 with the $h$-vector $h_i$ defined via the Morse orientation, satisfying $F(t)=H(t+1)$ and $h_k = h_{d-k}$ (§8.1, pp. 72–73).

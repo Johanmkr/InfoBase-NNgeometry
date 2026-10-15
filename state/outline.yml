@@ -1,4 +1,4 @@
-concepts_hash: 8bce5257ad7f
+concepts_hash: aee1153dff3d
 chapters:
 - slug: polyhedral-foundations
   title: Polyhedra, arrangements and piecewise-linear maps
@@ -16,11 +16,13 @@ chapters:
 - slug: relu-network-geometry
   title: The region complex of a ReLU network
   goal: Decompose the input space of a ReLU network into linear regions, label each region by its activation
-    pattern, and describe the region complex, its boundaries and its dual graph. The reader can compute
-    the local affine map of any region and say when two parametrisations give the same region structure.
+    pattern, and describe the region complex, its boundaries and its transition graph. The reader can
+    compute the local affine map of any region, state what the transition graph's size, degree and diameter
+    do and do not bound, and say when two parametrisations give the same region structure.
   concepts:
   - activation-pattern
   - activation-complex
+  - relu-transition-graph
   - linear-region
   - bent-hyperplane
   - locally-linear-clustering
@@ -30,6 +32,7 @@ chapters:
   - masdenAlgorithmicDeterminationCombinatorial2022
   - serraBoundingCountingLinear2018
   - berzinsPolyhedralComplexExtraction2023
+  - dhayalkarDiscreteFunctionalGeometry2025
   depends_on:
   - polyhedral-foundations
 - slug: counting-regions

@@ -1,46 +1,47 @@
 ---
 title: Comparison tables
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  bronsteinGeometricDeepLearning: b1bdc405eedd
-  bronsteinGeometricDeepLearning2017: 303af41ca265
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  alfarraDecisionBoundariesNeural2023: a305d52d8025
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  bronsteinGeometricDeepLearning: 6abf4c1c9edc
+  bronsteinGeometricDeepLearning2017: c17967a216bb
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  villarFullyCovariantMachine2023: 20a7c0430350
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
-  zhangTropicalGeometryDeep: f99703ad8890
+  phuongFunctionalVsParametric2019: 79b70de62319
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  villarFullyCovariantMachine2023: 206ac70ee271
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
+  zhangTropicalGeometryDeep: 56eee67d20f1
 ---
 
 # Comparison tables
@@ -79,6 +80,7 @@ symbols in its summary, and the notation page maps them.
 | [@liuReLUNeuralNetworks2023, Eq. 13] | topology | binary activation vectors; pairwise Hamming matrix into a Vietoris–Rips filtration | dual graph of the polyhedral decomposition |
 | [@liuIntegratingGeometriesReLU2023a, §2.2] | toolbox | traversal-and-pruning enumeration; redundancy LPs for active bits; Chebyshev centre LP | minimal H-representation, neighbour graph, inscribed radius |
 | [@sattelbergLocallyLinearAttributes2023, §2.4] | statistics of the complex | sampling region affine maps and treating them as points of a "dual" space | region affine maps, clustered and mapped between networks |
+| [@dhayalkarDiscreteFunctionalGeometry2025, Def. 3, §5.1] | region-adjacency graph | activation patterns sampled on a grid become nodes, joined exactly when they differ in one bit; region-volume entropy, degree and diameter are then read off the graph | the ReLU transition graph, its entropy and a pruning-based compression of the function |
 | [@keupOrigamiDimensionsHow2022, §3] | folding | folding the data manifold into unoccupied dimensions, with the fold edge exposed to a flat readout | folded data manifold; tuning-curve bimodality as observable |
 | [@lewandowskiSpaceFoldsReLU2024, Eq. 4] | folding | mapping a straight input segment into Hamming activation space and comparing range with path length | space folding measure $\chi \in [0,1]$ |
 | [@lewandowskiExploitingSpaceFolding2026, Def. 3] | folding | input equivalence classes by activation pattern, so the measure survives non-ReLU monotonic activations | folding pseudo-metric $d_\chi$, global statistic $\Phi_N$ |
@@ -107,8 +109,9 @@ symbols in its summary, and the notation page maps them.
 | [@arvanitidisPullingBackInformation2022, §4] | compute latent shortest paths for non-Gaussian decoders | MNIST digit-1 subset; synthetic noisy circle; CMU motion capture Seq.69_06; MovieLens 25M (60 movies, 10 000 users) | four VAEs on MNIST; products of 26 von Mises–Fisher; Bernoulli VAE | unsupervised |
 | [@balestrieroSplineTheoryDeep2018, §6] | interpret the classifier as a matched filter and regularise its templates | MNIST, CIFAR10, CIFAR100, SVHN | largeCNN, smallCNN, ResNet4-4; the printed evidence covers CIFAR100 with largeCNN | supervised |
 | [@berzinsGeometryInformedNeuralNetworks2024, §4] | generate diverse feasible shapes with no training data | Gray-Scott 2D reaction–diffusion; Plateau's problem; GE/GrabCAD jet-engine bracket | conditional neural fields with softplus/SIREN/WIRE; 9 shapes with $\dim(z)=2$ for the bracket | data-free, constraint-driven |
-| [@chazalIntroductionTopologicalData2021, §7] | topological inference and classification from shape | 14 configurations of maltose-binding protein (370 residues); smartphone accelerometer, 3 walkers, 300 windows of 200 samples | Rips complex up to dimension 2; alpha-complex persistence, 3 landscapes in dimensions 0 and 1, 6000 features, random forest | unsupervised features, supervised classification |
-| [@fuLatentTopologyInduction2022, §4] | induce the topology of a frozen language model's representation space | 20News dev set, 8000 contextualized embeddings | frozen BERT-base-uncased, 768-dimensional states, $N=2000$ latent states, LSTM decoder | unsupervised (structured VAE probe) |
+| [@chazalIntroductionTopologicalData2021, §7] | topological inference and classification from shape | 14 configurations of maltose-binding protein (370 residues); smartphone accelerometer, 3 walkers, 100 windows of 200 samples each (300 series) | Rips complex up to dimension 2; alpha-complex persistence, 3 landscapes in dimensions 0 and 1, 6000 features, random forest | unsupervised features, supervised classification |
+| [@dhayalkarDiscreteFunctionalGeometry2025, §5.1] | describe how a network's linear regions are wired to one another, and compress it by pruning low-degree regions | synthetic 2D uniform grid, 100 000 points in $[-1,1]^2$ | fully connected ReLU MLPs, depths 2–4, widths 4–128, 5 seeds per configuration | post hoc sampling of a randomly initialised network |
+| [@fuLatentTopologyInduction2022, §4] | induce the topology of a frozen language model's representation space | 20News dev set (frozen BERT$_{\text{LAST}}$ last-layer outputs) | frozen BERT-base-uncased, 768-dimensional states, $N=2000$ latent states, LSTM decoder | unsupervised (structured VAE probe) |
 | [@gagneuxHowImproveExpressivity2025, §4] | learn a convex function without the ICNN constraint | random weight draws; one 2D CPWL target on $[-10,10]^2$ | widths 10k draws for $d=2$; $n=(4,8)$ for the regression; 20K validation points | supervised |
 | [@grigsbyHiddenSymmetriesReLU, §6] | how often does a parameter determine its function uniquely | no data; Jacobian rank of unrolled evaluations at $m$ random points | depths 4 and 6, widths 5/10/15, 5000 parameter draws each | none (initialisation study) |
 | [@halversonMetricFlowsNeural2024, §3] | learn an approximate Calabi–Yau metric and study how training moves it | Fermat Quintic and Fermat Cubic | finite network of 3 layers, 64 nodes, ReLU, 100k points; cosine-activation kernel network | physics-informed by the sigma loss |
@@ -168,6 +171,7 @@ and is not summarised here; it is quoted by [@pascanuNumberResponseRegions2013, 
 | [@serraBoundingCountingLinear2018, Thm. 10] | $L$ layers of $n_l$ rank-$k$ maxout units | $\prod_{l=1}^{L}\sum_{j=0}^{d_l}\binom{k(k-1)n_l/2}{j}$ with $d_l=\min\{n_0,\dots,n_l\}$ | first upper bound for multi-layer maxout |
 | [@serraBoundingCountingLinear2018, Cor. 3] | $n_0\ge Ln$ | $R(n_0,n,\dots,n)<R(n_0,Ln)$, and the ratio tends to 0 with $L$ | depth is *worse* than width once the input dimension exceeds the unit count |
 | [@zhangTropicalGeometryDeep, Thm. 6.3] | $L$ layers, integer weights, thresholds, $n_l\ge d$ | $\prod_{l=1}^{L-1}\sum_{i=0}^{d}\binom{n_l}{i}$, hence $O(n^{d(L-1)})$ | upper bound from the tropical picture, which the authors state does not improve on [@raghuExpressivePowerDeep2017] and is more restrictive |
+| [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 1; App. A.1] | $L$ hidden layers of width $n$, $d$-dimensional input | $\lvert V\rvert\le\left(\sum_{i=0}^{d}\binom{n}{i}\right)^{L}$ | upper bound on the node count of the transition graph, stated as the Zaslavsky arrangement count composed over layers; the proof then loosens it with an inequality that fails in the direction stated, and the numerical column compares the experiments against that invalid form rather than the bound (my reading, not the paper's) |
 | [@goujonNumberRegionsPiecewise2023, Cor. 1] | $L$ layers, dimensions $(d_{\mathrm{in}},W,\dots,W,d_{\mathrm{out}})$, activation complexity $\kappa$ | $(\kappa^{\lfloor W/d^*\rfloor})^{Ld^*}\le\kappa_{\max}\le(\kappa W)^{Ld_{\mathrm{in}}}$, $d^*=\min(d_{\mathrm{in}},d_{\mathrm{out}})$ | lower and upper bound for any CPWL network |
 | [@goujonNumberRegionsPiecewise2023, Cor. 3] | random layers, any 1-D path | $\E[\lambda]\le D_0^*(\lambda_0WL)$ with $D_0^*=\max(D_0,1)$ | expected knot density; on average depth buys only a linear factor |
 | [@haninComplexityLinearRegions2019, Thm. 1] | any piecewise-linear net, random parameters, interval $I$ | $\E[\#\{\text{regions in }I\}]\approx\lvert I\rvert\cdot T\cdot\#\{\text{neurons}\}$ | average case; depth does not enter |
@@ -176,13 +180,16 @@ and is not summarised here; it is quoted by [@pascanuNumberResponseRegions2013, 
 | [@averkovEXPRESSIVENESSRATIONALRELU2025, Thm. 4] | the same, in terms of the base $N$ | depth at least $C\ln n/\ln\ln N$ | first non-constant depth lower bound for practically relevant weight precision |
 | [@brandenburgDecompositionPolyhedraPiecewise2024, Thm. 6.3] | convex CPWL function with $k$ affine components | depth $\lceil\log_2(n+1)\rceil+\lceil\log_2 r\rceil+1$ and size $O(rs^{n+1})$, for any $r,s$ with $rs\ge k$ | a depth–size trade-off, not a region count |
 
-Two readings of this table matter. First, the *kind* column separates existential from typical
+Three readings of this table matter. First, the *kind* column separates existential from typical
 statements: every "lower bound" row is realised by one construction, and
 [@NIPS2014_fa6f2a46, §2.5] only argues that the maximal count is not a measure-zero accident, not
 that training finds it. Second, the upper and lower bounds are not on the same quantity for
 different architectures: [@serraBoundingCountingLinear2018, Cor. 3] and
 [@NIPS2014_fa6f2a46, Cor. 6] disagree about depth precisely because the first compares $\max$ over
 weights at fixed total width while the second compares architectures at fixed width per layer.
+Third, one row counts a different thing: [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 1] bounds the
+node count of its graph, whose nodes are the regions observed on a sampled grid, so the empirical
+$|V|$ is a sampled count and not the true region count.
 
 ## Results as reported on the papers' own benchmarks
 
@@ -215,6 +222,7 @@ weights at fixed total width while the second compares architectures at fixed wi
 | [@arvanitidisPullingBackInformation2022, §4.4] | relative Frobenius error of the approximated metric against the closed form | $5.32\times10^{-4}\pm9.63\times10^{-4}$ for the Normal and $1.73\times10^{-5}\pm1.17\times10^{-5}$ for the Beta decoder | von Mises–Fisher latent space, perturbations of radius 0.1 |
 | [@berzinsGeometryInformedNeuralNetworks2024, Tab. 3, Tab. 4] | surface-strain objective; mean diversity | strain 7422 in the base model against 28 115 without the eikonal loss and 22 708 without connectedness; mean diversity 0.21 against 0.01 without the diversity loss | jet-engine bracket; 9 shapes with $\dim(z)=2$ |
 | [@bronsteinGeometricDeepLearning2017, §IX] | classification accuracy on CORA | 81.6% for the spectral CNN against 75.7% previous best; 81.7% with MoNet | 2708 papers, 5429 citations, 1433-dimensional bag-of-words features, relayed from the cited works |
+| [@dhayalkarDiscreteFunctionalGeometry2025, Tab. 1, §5.3.1] | mean number of transition-graph nodes; number of connected components | $\lvert V\rvert$ rises from 15.5 at $(L{=}2,n{=}4)$ to 7062.5 at $(L{=}4,n{=}128)$, all far below the printed bounds; 1 component for every configuration except $(L{=}4,n{=}128)$, which averages 4.40 components (std 2.06, CI95 1.80) | fully connected ReLU MLPs, depths 2–4, widths 4–128, 100 000 uniform points in $[-1,1]^2$, 5 seeds |
 
 Three patterns are worth naming. Variance is mostly absent: [@gagneuxHowImproveExpressivity2025,
 Tab. 1] and [@masdenAlgorithmicDeterminationCombinatorial2022, Tab. 2] report standard deviations,
@@ -256,6 +264,7 @@ one paper but not across papers.
 | [@liuReLUNeuralNetworks2023, §2.3] | none beyond a feedforward ReLU network | the Hamming distance is an approximation of the dual-graph distance, illustrated rather than bounded |
 | [@lewandowskiExploitingSpaceFolding2026, Lemma 1, Prop. 2] | continuous monotonic activations; straight input segments | the folding measure is bounded in $[0,1]$, its zero set is direction-independent, and the symmetrised version is a pseudo-metric; the asymptotic conjectures are labelled as conjectures |
 | [@pakLecturesDiscretePolyhedral, §8.1, §26.1] | convex polytopes, simplicial surfaces and plane triangulations as the theorems require | complete proofs of the polytope combinatorics and rigidity results the region-counting arguments cite loosely; hyperplane arrangements are outside the book's scope |
+| [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 2, Thm. 3, Thm. 4; §7] | fully connected ReLU MLPs with non-degenerate hyperplanes, sampled on a synthetic low-dimensional grid; a uniform region-volume distribution for the entropy estimate | connectivity of the transition graph when the hyperplanes are non-degenerate, and claimed bounds on the graph diameter versus the network's VC-dimension and on the size of the pruned graph. The connectivity statement is the only one the experiment exercises, and even it fails at the largest configuration; the diameter bound is a proof sketch and the compression theorem's free parameters are never instantiated, so the summary reads neither as established (my reading, not the paper's) |
 
 The one thing this table makes visible is that the collection's strongest guarantees are attached to
 the *weakest* claims. The statements that hold for every weight setting

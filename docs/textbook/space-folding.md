@@ -3,11 +3,11 @@ chapter: space-folding
 title: Space folding and folding neurons
 outline_hash: 469253b24a5d
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  phuongFunctionalVsParametric2019: 79b70de62319
 ---
 
 # Space folding and folding neurons
@@ -84,8 +84,10 @@ rectifiers over $n_0$ inputs, split the units into $n_0$ groups of $p=\lfloor n/
 and add the $p$ rectifiers of a group with alternating signs,
 
 $$
-\tilde h_j(x)=[1,-1,1,\dots,(-1)^{p-1}]\,[h_1(x),\dots,h_p(x)]^\top,
-\qquad h_r(x)=\max\{0,\,2wx-(r-1)\},
+\begin{aligned}
+&\tilde h_j(x)=[1,-1,1,\dots,(-1)^{p-1}]\,[h_1(x),\dots,h_p(x)]^\top, \\
+&\qquad h_r(x)=\max\{0,\,2wx-(r-1)\},
+\end{aligned}
 $$
 
 where $w$ selects the $j$-th coordinate [@NIPS2014_fa6f2a46, Eq. 3, §3.1]. The function

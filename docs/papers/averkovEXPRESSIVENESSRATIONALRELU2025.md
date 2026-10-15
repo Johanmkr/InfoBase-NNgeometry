@@ -42,7 +42,9 @@ datasets: []
 
 Understanding which functions a ReLU architecture can *exactly* represent is harder than understanding which it can approximate. Arora et al. (2018) show that the exactly representable functions are precisely the continuous piecewise linear (CPWL) functions, and that every such function on $n$ inputs is representable with $\lceil\log_2(n+1)\rceil$ hidden layers, but for which functions this depth is also necessary is open (§1, PDF p. 1). The key test function is
 
-$$F_n = \max\{0,x_1,\dots,x_n\},$$
+$$
+F_n = \max\{0,x_1,\dots,x_n\},
+$$
 
 and Hertrich et al. (2021) conjecture that any ReLU network exactly representing $F_n$ needs at least $\lceil\log_2(n+1)\rceil$ hidden layers (Conjecture 1, PDF p. 1). Equivalently, if the conjecture holds, the upper bound of Arora et al. (2018) is tight (§1, PDF p. 1). It has been confirmed only for integer-weight networks (Haase et al., ICLR 2023) and for $H$-conforming networks with $n=4$ (Hertrich et al. 2021) (§1, PDF p. 2).
 
@@ -63,26 +65,26 @@ The conceptual message the authors draw is a general "separation strategy": to s
 
 A rational number is an **$N$-ary fraction** if it equals $z/N^{t}$ for some $z\in\Z$, $t\in\Z_+$ (PDF p. 8). For $N=2$ and $N=10$ these are binary and decimal fractions.
 
-A ReLU network with $k+1$ layers is a chain of affine maps $t^{(i)}(x)=A^{(i)}x+b^{(i)}$ composed with the component-wise ReLU $\sigma(x)=\max\{0,x\}$:
+A ReLU network with $k+1$ layers is a chain of affine maps $t^{(i)}(x)=A^{(i)}x+b^{(i)}$ composed with the component-wise ReLU $\sigma(x)=\max\{0,x\}$ (Eq. 2, PDF p. 1):
 
 $$
-t^{(k+1)}\circ\sigma\circ t^{(k)}\circ\sigma\circ\cdots\circ t^{(2)}\circ\sigma\circ t^{(1)} \qquad \text{(Eq. 2, PDF p. 1)}
+t^{(k+1)}\circ\sigma\circ t^{(k)}\circ\sigma\circ\cdots\circ t^{(2)}\circ\sigma\circ t^{(1)}
 $$
 
 and *exactly represents* $f:\R^n\to\R$ when this composition equals $f$ everywhere; its *depth* is $k+1$, its *number of hidden layers* $k$ (PDF p. 1).
 
-The support function of a polytope $P=\mathrm{conv}(p_1,\dots,p_m)$ is
+The support function (§2.1, PDF p. 4) of a polytope $P=\mathrm{conv}(p_1,\dots,p_m)$ is
 
 $$
-h_P(x)=\max\{\,x^\top y : y\in P\,\}=\max\{p_1^\top x,\dots,p_m^\top x\} \qquad \text{(§2.1, PDF p. 4)}
+h_P(x)=\max\{\,x^\top y : y\in P\,\}=\max\{p_1^\top x,\dots,p_m^\top x\}
 $$
 
 so that $F_n = h_{\Delta_n}$ for the standard simplex $\Delta_n=\mathrm{conv}(0,e_1,\dots,e_n)$ (PDF p. 4). The normalized volume is $\mathrm{Vol}_n = n!\,\mathrm{vol}_n$, set to $1$ on $\Delta_n$, and takes non-negative integer values on lattice polytopes (PDF p. 4).
 
-The volume of a Minkowski sum expands binomially in mixed volumes:
+The volume of a Minkowski sum expands binomially in mixed volumes (Eq. 1, PDF p. 4):
 
 $$
-\mathrm{Vol}_n(A+B)=\sum_{i=0}^{n}\binom{n}{i}\,V(\underbrace{A,\dots,A}_{i},\underbrace{B,\dots,B}_{n-i}) \qquad \text{(Eq. 1, PDF p. 4)}
+\mathrm{Vol}_n(A+B)=\sum_{i=0}^{n}\binom{n}{i}\,V(\underbrace{A,\dots,A}_{i},\underbrace{B,\dots,B}_{n-i})
 $$
 
 where the mixed volume $V$ is permutation-invariant, Minkowski-linear in every argument, and equals $\mathrm{Vol}_n$ on the diagonal (Theorem 5, PDF pp. 4–5).
@@ -95,10 +97,10 @@ $$
 
 one has $\mathrm{ReLU}_R^{n,0}(k)=\{\,h_A-h_B : A,B\in SU^k(\mathcal{P}_0(R^n))\,\}$ (Theorem 8, PDF p. 6). Equivalently $h_P\in\mathrm{ReLU}_R^{n}(k)$ iff $P+A=B$ for some $A,B\in SU^k(\mathcal{P}_0(R^n))$ (Corollary 9, PDF p. 6).
 
-The modular additivity that drives everything (write $a\equiv_p b$ for "$a-b$ divisible by $p$"): if $d=p^t\le n$ is a prime power and $\sum_i P_i$ is again $d$-dimensional, then
+The modular additivity that drives everything (write $a\equiv_p b$ for "$a-b$ divisible by $p$"): if $d=p^t\le n$ is a prime power and $\sum_i P_i$ is again $d$-dimensional, then (Prop. 11, PDF p. 7):
 
 $$
-\mathrm{Vol}_d\Bigl(\sum_{i=1}^{m}P_i\Bigr)\equiv_p \sum_{i=1}^{m}\mathrm{Vol}_d(P_i) \qquad \text{(Prop. 11, PDF p. 7).}
+\mathrm{Vol}_d\Bigl(\sum_{i=1}^{m}P_i\Bigr)\equiv_p \sum_{i=1}^{m}\mathrm{Vol}_d(P_i)
 $$
 
 | Symbol | Meaning (in this paper) |
@@ -124,7 +126,11 @@ $$
 **Corollary 17** (PDF p. 9). For each $n\in\N$ and each integer $k\in\{1,\dots,\lceil\log_3 n\rceil\}$, among $n$-variate functions described by decimal-weight ReLU networks there are functions representable with $2k$ but not with $k$ hidden layers. Thus expressiveness with decimal weights grows gradually over depths $k=1,\dots,O(\log n)$.
 
 **Theorem 4** (PDF p. 2). There is a constant $C>0$ such that, for all integers $n,N\ge 3$, every ReLU network with $N$-ary-fraction weights representing $F_n$ has depth at least
-$$C\,\frac{\ln n}{\ln\ln N}.$$
+
+$$
+C\,\frac{\ln n}{\ln\ln N}.
+$$
+
 The proof picks the least prime $p$ not dividing $N$ and uses the prime number theorem to bound $p\le p_{t+1}\approx t\ln t$ in terms of the number $t$ of distinct prime factors of $N$ (§3.3, PDF pp. 9–10). In particular there is no constant-depth ReLU network exactly representing $F_n$ with rational weights sharing a common denominator $N$ (§1, PDF p. 2).
 
 There are no experiments, benchmarks or datasets: the paper is purely theoretical.

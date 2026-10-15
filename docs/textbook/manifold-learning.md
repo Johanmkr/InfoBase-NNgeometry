@@ -3,11 +3,11 @@ chapter: manifold-learning
 title: Manifold learning and intrinsic dimension
 outline_hash: ce511d23fbad
 built_from:
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  raghuExpressivePowerDeep2017: b62868fb88f1
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  raghuExpressivePowerDeep2017: effafc1ee765
 ---
 
 # Manifold learning and intrinsic dimension
@@ -243,7 +243,9 @@ The paper is unusually clear about what it has *not* shown, and its limits are t
 ??? success "Solution"
     For a ball $B_r\subset M$ the volume scales as $r^d$, so if $n$ samples are uniform the expected count scales as $nr^d$: $\log\#B_r=d\log r+\log n+\text{constant}$ [@meilaManifoldLearningWhat2023, Eq. 9, p. 20]. Let $k_{i,r}$ be the number of radius-$r$ neighbours of $x_i$; then $\log k_{i,r}\approx d\log r+\text{constant}$, and averaging over points recovers the same line. Taking $r\to0$ kills the constant and gives the correlation dimension
 
-    $$\hat{d}_C=\lim_{r\to0}\frac{\log\frac{1}{n}\sum_{i\neq i'}\mathbf{1}_{\lVert x_i-x_{i'}\rVert\le r}}{\log r},$$
+    $$
+    \hat{d}_C=\lim_{r\to0}\frac{\log\frac{1}{n}\sum_{i\neq i'}\mathbf{1}_{\lVert x_i-x_{i'}\rVert\le r}}{\log r},
+    $$
 
     i.e. the slope of a line fit to $(\log r,\log\#B_r)$ over a suitable range of scales [@meilaManifoldLearningWhat2023, Eq. 10, p. 20]. It uses the average neighbour count because $\sum_i(k_{i,r}-1)$ counts unordered pairs; box counting is the same idea with a covering number $\nu(r)\sim r^{-d}$ [@meilaManifoldLearningWhat2023, Eq. 11, p. 21].
 

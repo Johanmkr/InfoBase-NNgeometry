@@ -91,7 +91,10 @@ $Z_{G_1}$ is a zonotope in $\R^n$ with line segments $\{(B^+(1,j)+B^-(2,j))\,[A^
 Corollary 1 (§3, p. 5030): the generators can be taken as
 
 $$
-G_1 = \mathrm{Diag}\bigl[(B^+(1,:)) + (B^-(2,:))\bigr]A, \qquad G_2 = \mathrm{Diag}\bigl[(B^+(2,:)) + (B^-(1,:))\bigr]A,
+\begin{aligned}
+G_1 &= \mathrm{Diag}\bigl[(B^+(1,:)) + (B^-(2,:))\bigr]A, \\
+&\qquad G_2 = \mathrm{Diag}\bigl[(B^+(2,:)) + (B^-(1,:))\bigr]A,
+\end{aligned}
 $$
 
 both with shift $(B^-(1,:) + B^+(2,:) + B^+(1,:) + B^-(2,:))A^-$, where $\mathrm{Diag}(v)$ puts $v$ on the diagonal.
@@ -109,31 +112,37 @@ $$
 $$
 
 $$
-\tilde B(1,j) = \max\Biggl\{0, \; \frac{\tilde A(j,:)^\top G_1^+(j,:) - \lambda_1 \Vert \tilde A(j,:)\Vert_2}{\Vert \tilde A(j,:)\Vert_2^2}\Biggr\}, \qquad G_1^+ = \mathrm{Diag}(B^+(1,:))A .
+\begin{aligned}
+\tilde B(1,j) &= \max\Biggl\{0, \; \frac{\tilde A(j,:)^\top G_1^+(j,:) - \lambda_1 \Vert \tilde A(j,:)\Vert_2}{\Vert \tilde A(j,:)\Vert_2^2}\Biggr\}, \\
+&\qquad G_1^+ = \mathrm{Diag}(B^+(1,:))A .
+\end{aligned}
 $$
 
 (The bracket/grouping structure of these two displays is reconstructed from the printed page; see the report note on the PDF text layer and the critical assessment below.)
 
-Adversarial dual view and problem (Eqs. 3–6, §6, pp. 5034–5035), where $g$ is the network after the first layer and the loss is cross-entropy:
+Adversarial dual view and problem (Eqs. 3–6, §6, pp. 5034–5035), where $g$ is the network after the first layer and the loss is cross-entropy (Eq. 3):
 
 $$
-\min_h D(h) \quad \text{s.t.} \quad \operatorname*{argmax}_i f_i(x_0 + h) = t \neq c \qquad \text{(Eq. 3)}
-$$
-
-$$
-g\bigl((A_1 + \tilde A_1)x_0\bigr) = g\bigl(A_1 x_0 + \tilde A_1 x_0\bigr) = g(A_1 x_0 + A_1 h) = f(x_0 + h) \qquad \text{(Eq. 4)}
+\min_h D(h) \quad \text{s.t.} \quad \operatorname*{argmax}_i f_i(x_0 + h) = t \neq c
 $$
 
 $$
-\min_{h,\tilde A_1} D_1(h) + D_2(\tilde A_1) \quad \text{s.t.} \quad \mathrm{loss}\bigl(g(A_1(x_0+h)), t\bigr) \le -1, \;\; \mathrm{loss}\bigl(g((A_1+\tilde A_1)x_0), t\bigr) \le -1,
+g\bigl((A_1 + \tilde A_1)x_0\bigr) = g\bigl(A_1 x_0 + \tilde A_1 x_0\bigr) = g(A_1 x_0 + A_1 h) = f(x_0 + h)
 $$
 
 $$
-(x_0+h) \in [0,1]^n, \quad \Vert h\Vert_1 \le \lambda_1, \quad \Vert \tilde A_1\Vert_{1,1} \le \lambda_2, \quad A_1 h = \tilde A_1 x_0 \qquad \text{(Eq. 5)}
+\begin{aligned}
+\min_{h,\tilde A_1} D_1(h) + D_2(\tilde A_1) \quad \text{s.t.} \quad & \mathrm{loss}\bigl(g(A_1(x_0+h)), t\bigr) \le -1, \\
+& \mathrm{loss}\bigl(g((A_1+\tilde A_1)x_0), t\bigr) \le -1,
+\end{aligned}
 $$
 
 $$
-D_2(\tilde A_1) = \frac{1}{2}\sum_{j=1}^{2}\Bigl(\bigl\Vert \mathrm{Diag}\bigl(B^+(j,:)\bigr)\tilde A_1 \bigr\Vert_F^2 + \bigl\Vert \mathrm{Diag}\bigl(B^-(j,:)\bigr)\tilde A_1 \bigr\Vert_F^2\Bigr). \qquad \text{(Eq. 6)}
+(x_0+h) \in [0,1]^n, \quad \Vert h\Vert_1 \le \lambda_1, \quad \Vert \tilde A_1\Vert_{1,1} \le \lambda_2, \quad A_1 h = \tilde A_1 x_0
+$$
+
+$$
+D_2(\tilde A_1) = \frac{1}{2}\sum_{j=1}^{2}\Bigl(\bigl\Vert \mathrm{Diag}\bigl(B^+(j,:)\bigr)\tilde A_1 \bigr\Vert_F^2 + \bigl\Vert \mathrm{Diag}\bigl(B^-(j,:)\bigr)\tilde A_1 \bigr\Vert_F^2\Bigr).
 $$
 
 | Symbol | Meaning (in this paper) |

@@ -13,7 +13,7 @@ from pathlib import Path
 
 log = logging.getLogger("mkdocs.hooks.citations")
 
-CITE = re.compile(r"\[((?:\s*@[\w:.+-]+[^\];@]*;?)+)\]")
+CITE = re.compile(r"\[(\s*@[\w:.+-]+[^\[\]@]*(?:@[\w:.+-]+[^\[\]@]*)*)\]")
 ONE = re.compile(r"@([\w:.+-]+)\s*(?:,\s*([^;]*))?")
 FENCE = re.compile(r"^(```|~~~).*?^\1[ \t]*$", re.S | re.M)
 INLINE_CODE = re.compile(r"`[^`\n]+`")
@@ -67,14 +67,24 @@ def on_config(config):
     return config
 
 
+def _items(inner: str) -> list:
+    """'@a, §2; App. C; @b' -> [('a', ['§2', 'App. C']), ('b', [])]: a part without @key
+    is one more locator of the key before it."""
+    items = []
+    for part in inner.split(";"):
+        m = ONE.search(part)
+        if m and part.strip().startswith("@"):
+            items.append((m.group(1), [m.group(2).strip()] if (m.group(2) or "").strip() else []))
+        elif items and part.strip():
+            items[-1][1].append(part.strip())
+    return items
+
+
 def _render(match, page, files) -> str:
     here = posixpath.dirname(page.file.src_uri)
     parts = []
-    for item in match.group(1).split(";"):
-        m = ONE.search(item)
-        if not m:
-            continue
-        key, loc = m.group(1), (m.group(2) or "").strip()
+    for key, locs in _items(match.group(1)):
+        loc = "; ".join(locs)
         if key not in _labels:
             log.warning("%s: unknown citekey @%s", page.file.src_uri, key)
             parts.append(f"**@{key}?**")

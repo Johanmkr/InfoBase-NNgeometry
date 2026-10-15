@@ -3,11 +3,11 @@ chapter: information-geometry
 title: Information geometry
 outline_hash: f08837f1cf81
 built_from:
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
 ---
 
 # Information geometry
@@ -96,7 +96,7 @@ The two families of the previous section are the modelling payoff. Both the expo
 
 The companion volume gives the flat coordinates a probabilistic reading that is worth carrying forward, because it recurs in the latent-space chapters. On a finite simplex there are *natural coordinates* $t_j(P)=\int f_j(\omega)P(d\omega)$ given by expectations of functionals, and *canonical affine coordinates* $s$ in which the density takes the exponential form $\frac{dP_s}{d\mu}(\omega)=p(\omega,0)\exp[\sum_\alpha s^\alpha g_\alpha(\omega)-\Psi(s)]$ and the simplex becomes an affine space [@combeExploringInformationGeometry2025, §8.0.5, pp. 109–110]. The coordinate lines of this chart are the *Ceva lines*, the segments from a vertex to the opposite face, and along such a line the coordinate obeys $\dot p_1(t)=p_1(t)(1-p_1(t))$, i.e. $p_1(t)=1/(1+e^{-t})$ — a logistic curve, recovering the score of a Bernoulli coordinate [@combeExploringInformationGeometry2025, Lemma 8.3, p. 111]. Consistently, a tensor field on the simplex is translation-invariant exactly when its components are constant in these coordinates [@combeExploringInformationGeometry2025, Thm. 8.6, p. 114].
 
-## The $\alpha$-connections
+## The α-connections
 
 One conjugate pair is not enough: from $(M,g,\nabla,\nabla^*)$ one gets a whole circle of geometries. Because the cubic tensor is totally symmetric, so is any scalar multiple $\alpha C$, and the *$\alpha$-connections* are defined by
 
@@ -107,9 +107,11 @@ g(\nabla^{(\alpha)}_XY,Z)=g({}^{LC}\nabla_XY,Z)+\frac{\alpha}{2}C(X,Y,Z),
 $$
 
 with $\nabla^{(0)}$ the Levi–Civita connection and $(\nabla^{(-\alpha)},\nabla^{(\alpha)})$ again conjugate, so $\nabla^{(1)}$ and $\nabla^{(-1)}$ are the original pair [@nielsenElementaryIntroductionInformation2020, §3.4, Eqs. 50–53, Thm. 2, p. 14]. The family is
+
 $$
 \Gamma^{(\alpha)}_{ij,k}=\tfrac{1+\alpha}{2}\Gamma_{ij,k}+\tfrac{1-\alpha}{2}\Gamma^*_{ij,k},
 $$
+
 and the recommended mental picture is a line through the two connections with the Levi–Civita connection at the centre. In the statistical case the two endpoints have names: $\nabla^{(1)}$ is the expected *exponential* connection and $\nabla^{(-1)}$ the expected *mixture* connection, coupled to the Fisher metric by the theory above [@nielsenElementaryIntroductionInformation2020, §3.9, Eqs. 101–102, p. 24]. The companion volume writes the same objects as $\Gamma^\alpha_{ijk}=\E[(\partial_i\partial_j\ell+\frac{1-\alpha}{2}\partial_i\ell\partial_j\ell)\partial_k\ell]=\Gamma^1_{ijk}+\frac{1-\alpha}{2}T_{ijk}$ [@combeExploringInformationGeometry2025, §6.7.6, pp. 89–90].
 
 Flatness is inherited dually, which is what makes the family computationally useful. The fundamental theorem of information geometry states that a torsion-free connection of constant curvature $\kappa$ has a conjugate torsion-free connection of the same curvature, and its corollary is that a manifold is $\nabla^{(\alpha)}$-flat if and only if it is $\nabla^{(-\alpha)}$-flat; at $\alpha=\pm1$ this is the statement that dual flatness comes in pairs [@nielsenElementaryIntroductionInformation2020, Thm. 3, Cor. 1–2, p. 15; @combeExploringInformationGeometry2025, §7.5.2, p. 103]. The curvature of the expected $\alpha$-connection depends on both $\alpha$ and the model, so "the" geometry of a family is really a pencil of them. Finally, the $\alpha$-connections are also the ones induced by invariant divergences: for an $f$-divergence the induced $\pm1$-connections are the expected $\pm\alpha$-connections with $\alpha=2f'''(1)+3$, so the family is not a free choice but the image of the invariant divergences [@nielsenElementaryIntroductionInformation2020, §3.10, Eq. 124, p. 27].

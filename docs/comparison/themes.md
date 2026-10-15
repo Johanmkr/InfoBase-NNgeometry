@@ -1,46 +1,47 @@
 ---
 title: Themes
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  bronsteinGeometricDeepLearning: b1bdc405eedd
-  bronsteinGeometricDeepLearning2017: 303af41ca265
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  alfarraDecisionBoundariesNeural2023: a305d52d8025
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  bronsteinGeometricDeepLearning: 6abf4c1c9edc
+  bronsteinGeometricDeepLearning2017: c17967a216bb
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  villarFullyCovariantMachine2023: 20a7c0430350
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
-  zhangTropicalGeometryDeep: f99703ad8890
+  phuongFunctionalVsParametric2019: 79b70de62319
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  villarFullyCovariantMachine2023: 206ac70ee271
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
+  zhangTropicalGeometryDeep: 56eee67d20f1
 ---
 
 # Themes
@@ -155,6 +156,26 @@ accuracy of a convolutional network, and [@vincentReachablePolyhedralMarching202
 polynomial count of activation patterns at initialisation to justify marching rather than
 enumerating. Both use the typical-count picture, not the worst case.
 
+A late 2025 attempt closes the loop by making the *graph itself* the capacity measure: the ReLU
+transition graph's node count, degree distribution, diameter and region-volume entropy are proposed
+as stand-ins for expressivity, with a VC-dimension bound by the graph diameter as the headline
+[@dhayalkarDiscreteFunctionalGeometry2025, Def. 3, Thm. 3]. It **agrees** with the collection's
+premise that counting alone is insufficient — the stated motivation is exactly that counting ignores
+how regions are organised [@dhayalkarDiscreteFunctionalGeometry2025, §1] — and its size bound is the
+Zaslavsky count composed over layers, i.e. the same quantity as
+[@NIPS2014_fa6f2a46, Thm. 5], which the paper credits
+[@dhayalkarDiscreteFunctionalGeometry2025, §4.1]. It is **weaker** on both counts, and the paper's
+own text supplies the evidence: the size proof loosens the correct product form with an inequality
+that is false in the direction stated, so the printed numerical column is not an upper bound
+[@dhayalkarDiscreteFunctionalGeometry2025, App. A.1]; and the diameter-to-VC-dimension argument is a
+sketch whose intermediate count is never related to a shattered set
+[@dhayalkarDiscreteFunctionalGeometry2025, App. A.5]. Set against
+[@raghuExpressivePowerDeep2017, Thm. 1], an upper bound valid for every weight setting, and against
+the depth-independent average-case bounds [@haninDeepReLUNetworks2019, Thm. 5], the RTG claim would
+be a genuine capacity statement if it held — a graph invariant is cheaper to estimate than a region
+count — but the collection's two established capacity statements remain the counting ones, and this
+one is a conjecture with a proof-shaped appendix.
+
 ## 3. What folding does and does not buy
 
 Folding enters the collection as the *explanation* of depth: a layer can map several disjoint input
@@ -238,6 +259,23 @@ construction: [@berzinsPolyhedralComplexExtraction2023, §5.1.2] benchmarks *aga
 contrasts its route with both, and [@gagneuxHowImproveExpressivity2025, §3] uses the edge-subdivision
 routine as a component when checking convexity. This is a rare case in the collection of five papers
 that can be cross-validated against each other.
+
+A sixth, cheaper entry sits outside the exactness competition:
+[@dhayalkarDiscreteFunctionalGeometry2025, §5.1] does not enumerate the complex, it samples activation
+patterns on a grid and joins them at Hamming distance one, producing the ReLU transition graph
+[@dhayalkarDiscreteFunctionalGeometry2025, Def. 3] — "the region complex" reduced to its 1-skeleton,
+with no vertex coordinates, no face poset and no boundary. It **agrees** with the five exact routes on
+the object and, like them, on continuity as the premise: it needs the Hamming-1 rule to be the
+adjacency relation, which is the same local statement the edge-subdivision and marching schemes rest on
+[@dhayalkarDiscreteFunctionalGeometry2025, §4.2; @berzinsPolyhedralComplexExtraction2023, Eq. 1;
+@vincentReachablePolyhedralMarching2021, §IV-B]. It is **weaker** as a description by construction:
+the graph is built from the rule it then tests, so its 100/100 adjacency check verifies the code, not
+the geometry [@dhayalkarDiscreteFunctionalGeometry2025, §5.3], and at $(L{=}4,n{=}128)$ the sampler
+produces 4.40 components on average, an artefact the authors attribute to grid sparsity
+[@dhayalkarDiscreteFunctionalGeometry2025, §5.3.1]. Where the exact methods state their input-dimension
+limits openly [@berzinsPolyhedralComplexExtraction2023, §1;
+@masdenAlgorithmicDeterminationCombinatorial2022, §6], the RTG's own connectivity theorem applies to
+the continuous network rather than to its sample, which is exactly the gap the experiment falls into.
 
 Where they **contradict** is on feasibility, and the reason is the domain. SplineCam is exact "up to
 machine precision" on 2-D slices only [@humayunSplineCamExactVisualization2024, §2.2], and its
@@ -445,7 +483,10 @@ itself flags as unresolved, is not fixed by the theory.
 My synthesis: the collection uses topology in two directions that have not yet met. Looking inward —
 describing a network's own complex — it has an exact method with real guarantees only in low input
 dimension [@masdenAlgorithmicDeterminationCombinatorial2022, §6] and an approximate method that works
-at ImageNet scale with no guarantee [@liuReLUNeuralNetworks2023, §4.2]. Looking outward —
+at ImageNet scale with no guarantee [@liuReLUNeuralNetworks2023, §4.2].
+[@dhayalkarDiscreteFunctionalGeometry2025, Def. 3, §5.1] adds a third and cheaper probe of the same
+dual graph — Hamming-1 adjacency of patterns sampled on a grid — which reports its sampling artefact
+rather than bounding it [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.1]. Looking outward —
 constraining a learned representation — it has a differentiable topological objective with no
 guarantee about the optimiser [@berzinsGeometryInformedNeuralNetworks2024, §4.1]. The obvious missing
 paper is the one that bounds the Hamming metric of the first by the dual-graph metric, which is what
@@ -481,6 +522,11 @@ not at my paraphrase.
 - Exact extraction remains impractical beyond low input dimension, and replacing the sorting step by
   hash tables is named as the route to linear time and memory
   [@berzinsPolyhedralComplexExtraction2023, §5.1, §6].
+- The transition-graph construction is only defined and measured for fully connected ReLU MLPs on
+  synthetic low-dimensional inputs; extending it to convolutional, residual and attention models and
+  to real datasets is stated as future work, as is checking whether the entropy-versus-degree
+  inequality survives without the uniform-region-volume assumption
+  [@dhayalkarDiscreteFunctionalGeometry2025, §6, §7].
 
 **Symmetry, equivalence and identifiability.**
 - The mixed width regime — some hidden layers wider, some narrower than the input — is uncovered by

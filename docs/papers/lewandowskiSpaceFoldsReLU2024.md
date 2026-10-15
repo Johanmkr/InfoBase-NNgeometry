@@ -55,46 +55,46 @@ The setting: a ReLU network $N : X \to Y$ with $N$ hidden neurons, a straight li
 
 ## Key equations and definitions
 
-$$
-\Delta_i := d_H(\pi_{i+1}, \pi_1) - d_H(\pi_i, \pi_1) \qquad \text{(Eq. 1, p. 6)}
-$$
-
-The step-by-step change in Hamming distance to the start point; negative values signal folding.
+The step-by-step change in Hamming distance to the start point, with negative values signalling folding (Eq. 1, p. 6):
 
 $$
-r_1(\Gamma) = \max_{i \in \{1,\dots,n-1\}} \sum_{j=1}^{i} \bigl(d_H(\pi_{j+1}, \pi_1) - d_H(\pi_j, \pi_1)\bigr) = \max_{i \in \{1,\dots,n-1\}} d_H(\pi_i, \pi_1) \qquad \text{(Eq. 2, p. 7)}
+\Delta_i := d_H(\pi_{i+1}, \pi_1) - d_H(\pi_i, \pi_1)
 $$
 
-Maximum Hamming distance to the start reached along the path (a range/diameter measure).
+Maximum Hamming distance to the start reached along the path — a range/diameter measure (Eq. 2, p. 7):
 
 $$
-r_2(\Gamma) = \sum_{i=1}^{n-1} d_H(\pi_i, \pi_{i+1}) \qquad \text{(Eq. 3, p. 7)}
+r_1(\Gamma) = \max_{i \in \{1,\dots,n-1\}} \sum_{j=1}^{i} \bigl(d_H(\pi_{j+1}, \pi_1) - d_H(\pi_j, \pi_1)\bigr) = \max_{i \in \{1,\dots,n-1\}} d_H(\pi_i, \pi_1)
 $$
 
-Total distance travelled on the hypercube.
+Total distance travelled on the hypercube (Eq. 3, p. 7):
 
 $$
-\chi(\Gamma) := 1 - \phi(\Gamma) = 1 - \frac{\max_{i \in \{1,\dots,n\}} d_H(\pi_i, \pi_1)}{\sum_{i=1}^{n-1} d_H(\pi_i, \pi_{i+1})} \qquad \text{(Eq. 4, p. 7)}
+r_2(\Gamma) = \sum_{i=1}^{n-1} d_H(\pi_i, \pi_{i+1})
 $$
 
-The space folding measure; the deviation from convexity of the image of a straight line.
+The space folding measure — the deviation from convexity of the image of a straight line (Eq. 4, p. 7):
 
 $$
-\Phi_N := \sup_{\Gamma \in X} \chi(\Gamma) \qquad \text{(Eq. 5, p. 7)}
+\chi(\Gamma) := 1 - \phi(\Gamma) = 1 - \frac{\max_{i \in \{1,\dots,n\}} d_H(\pi_i, \pi_1)}{\sum_{i=1}^{n-1} d_H(\pi_i, \pi_{i+1})}
 $$
 
-Global folding. Note the index ranges differ between Eq. 2 ($i \in \{1,\dots,n-1\}$) and Eq. 4 ($i \in \{1,\dots,n\}$); this appears to be a small inconsistency in the printed paper, harmless because the last pattern only adds a term.
+Global folding (Eq. 5, p. 7). Note the index ranges differ between Eq. 2 ($i \in \{1,\dots,n-1\}$) and Eq. 4 ($i \in \{1,\dots,n\}$); this appears to be a small inconsistency in the printed paper, harmless because the last pattern only adds a term.
 
 $$
-O\bigl(n \cdot (N + C) \cdot |C_1| \cdot |C_2|\bigr) \qquad \text{(Eq. 6, p. 8)}
+\Phi_N := \sup_{\Gamma \in X} \chi(\Gamma)
 $$
 
-Total cost of evaluating the measure over all pairs of two classes.
-
-**CantorNet** (App. A, pp. 15–16) is defined by the generating function $A(x) := \max\{-3x+1, 0, 3x-2\}$ nested as $A^{(k+1)}(x) := A(A^{(k)}(x))$, with decision region
+Total cost of evaluating the measure over all pairs of two classes (Eq. 6, p. 8):
 
 $$
-R_k := \{(x,y) \in [0,1]^2 : y \le (A^{(k)}(x)+1)/2\} \qquad \text{(Eq. 7, p. 15)}
+O\bigl(n \cdot (N + C) \cdot |C_1| \cdot |C_2|\bigr)
+$$
+
+**CantorNet** (App. A, pp. 15–16) is defined by the generating function $A(x) := \max\{-3x+1, 0, 3x-2\}$ nested as $A^{(k+1)}(x) := A(A^{(k)}(x))$, with decision region (Eq. 7, p. 15)
+
+$$
+R_k := \{(x,y) \in [0,1]^2 : y \le (A^{(k)}(x)+1)/2\}
 $$
 
 and realized as the zero-preimage of a ReLU network with $W_1 = \begin{pmatrix} -3 & 0 \\ 3 & 0 \\ 0 & 1\end{pmatrix}$, $b_1 = \begin{pmatrix} 1 \\ -2 \\ 0\end{pmatrix}$, $W_2 = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$, $W_L = \begin{pmatrix} -\tfrac12 & 1\end{pmatrix}$, $b_L = -\tfrac12$ (Eq. 8, p. 15). Kanji-free transcription from the extracted text; the matrix layout is as printed.

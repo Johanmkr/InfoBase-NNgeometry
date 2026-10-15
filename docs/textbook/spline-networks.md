@@ -3,11 +3,11 @@ chapter: spline-networks
 title: Deep networks as splines
 outline_hash: 61539c731fc8
 built_from:
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  haninComplexityLinearRegions2019: 438efc947567
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  sattelbergLocallyLinearAttributes2023: 731de219deef
 ---
 
 # Deep networks as splines
@@ -30,22 +30,20 @@ I keep the shared [notation](../notation.md): $L$ layers, widths $n_l$, weights 
 
 ## Splines: affine pieces glued on a partition
 
-A multivariate affine spline is defined exactly as the region picture suggests, and I follow the formulation of [@balestrieroSplineTheoryDeep2018, Eq. 3, p. 3]. Let $\Omega=\{\omega_1,\dots,\omega_R\}$ partition the domain into $R$ regions, let $\alpha\in\R^{R\times n_0}$ collect one slope row per region and $\beta\in\R^{R}$ one offset per region. The spline is
+A multivariate affine spline is defined exactly as the region picture suggests, and I follow the formulation of [@balestrieroSplineTheoryDeep2018, Eq. 3, p. 3]. Let $\Omega=\{\omega_1,\dots,\omega_R\}$ partition the domain into $R$ regions, let $\alpha\in\R^{R\times n_0}$ collect one slope row per region and $\beta\in\R^{R}$ one offset per region. The spline (Eq. 3, p. 3) is
 
 $$
 s[\alpha,\beta,\Omega](x)
 =\sum_{r=1}^{R}\bigl(\langle[\alpha]_{r,\cdot},x\rangle+[\beta]_r\bigr)\,\mathbf{1}(x\in\omega_r)
 =:\langle\alpha[x],x\rangle+\beta[x]
-\qquad(\text{Eq. 3, p. 3}),
 $$
 
 where the bracket notation $\alpha[x],\beta[x]$ selects the row of the region containing $x$ [@balestrieroSplineTheoryDeep2018, Eq. 3, p. 3]. This is a *continuous* spline: the pieces must agree across the shared boundaries of the partition, otherwise the sum would jump. Feedforward ReLU networks satisfy this automatically, because they are compositions of continuous maps, so the CPWL functions of deep learning form a subclass of the continuous affine splines [@balestrieroSplineTheoryDeep2018, §2, p. 2]. The paper is careful that "piecewise-affine convex nonlinearities" is the operative class: (leaky-)ReLU, the absolute value, maxout and max-pooling all qualify, while sigmoid and tanh can only be *approximated* by such a spline, not represented by one [@balestrieroSplineTheoryDeep2018, §4.1, p. 4].
 
-The difficulty of the spline view, and the reason it is not the end of the story, is that the partition $\Omega$ and the slopes $\alpha$ are coupled: fitting a spline from data means optimising both at once, and the partition is a combinatorial object [@balestrieroSplineTheoryDeep2018, §2, p. 2]. There is one escape, and it is the hinge on which the whole chapter turns. If the spline is constrained to be *globally convex*, the partition does not have to be written down at all:
+The difficulty of the spline view, and the reason it is not the end of the story, is that the partition $\Omega$ and the slopes $\alpha$ are coupled: fitting a spline from data means optimising both at once, and the partition is a combinatorial object [@balestrieroSplineTheoryDeep2018, §2, p. 2]. There is one escape, and it is the hinge on which the whole chapter turns. If the spline is constrained to be *globally convex*, the partition does not have to be written down at all (Eq. 4, p. 3):
 
 $$
 s[\alpha,\beta,\Omega](x)=\max_{r=1,\dots,R}\ \langle[\alpha]_{r,\cdot},x\rangle+[\beta]_r
-\qquad(\text{Eq. 4, p. 3}).
 $$
 
 The maximum of finitely many affine functions is convex and piecewise affine, and its pieces — and hence its partition — are induced by the slopes and offsets, an *adaptive partitioning* [@balestrieroSplineTheoryDeep2018, Eq. 4, p. 3]. A network is not globally convex, but each of its (convex) nonlinearities is, and that is enough to make every layer a max of affines, which is where we go next.
@@ -55,7 +53,7 @@ The maximum of finitely many affine functions is convex and piecewise affine, an
 
 ## Every layer is a max-affine spline operator
 
-The multivariate version of the max-affine form is what [@balestrieroSplineTheoryDeep2018] calls a *max-affine spline operator*. Fix an output dimension $K$, a number of pieces $R$, slopes $A\in\R^{K\times R\times n_0}$ and offsets $B\in\R^{K\times R}$. The operator is
+The multivariate version of the max-affine form is what [@balestrieroSplineTheoryDeep2018] calls a *max-affine spline operator*. Fix an output dimension $K$, a number of pieces $R$, slopes $A\in\R^{K\times R\times n_0}$ and offsets $B\in\R^{K\times R}$. The operator (Eq. 5, p. 3) is
 
 $$
 S[A,B](x)=
@@ -65,7 +63,6 @@ S[A,B](x)=
 \max_{r=1,\dots,R}\bigl(\langle[A]_{K,r,\cdot},x\rangle+[B]_{K,r}\bigr)
 \end{bmatrix}
 =:A[x]\,x+B[x]
-\qquad(\text{Eq. 5, p. 3}),
 $$
 
 where again $A[x]$ is the slope matrix selected by the winning piece index for each output [@balestrieroSplineTheoryDeep2018, Eq. 5, p. 3]. Each coordinate of $S[A,B]$ is a scalar convex spline in the sense of Eq. 4; the operator stacks $K$ of them, one per output unit.
@@ -76,11 +73,10 @@ Three facts turn this into a language for networks [@balestrieroSplineTheoryDeep
 - a piecewise-affine convex activation is a MASO with $R=2$, the two pieces being the branches on either side of the kink — for ReLU the slope tensor is $[A_\sigma]_{k,1,\cdot}=0$ and $[A_\sigma]_{k,2,\cdot}=e_k$ (Prop. 2);
 - a piecewise-affine convex pooling operator, such as max-pooling, is a MASO (Prop. 3).
 
-Composing one affine layer with one activation therefore gives a layer that acts as a *signal-dependent affine map*,
+Composing one affine layer with one activation therefore gives a layer that acts as a *signal-dependent affine map* (Eq. 6, p. 4),
 
 $$
 f^{(\ell)}\bigl(z^{(\ell-1)}(x)\bigr)=A^{(\ell)}[x]\,z^{(\ell-1)}(x)+B^{(\ell)}[x]
-\qquad(\text{Eq. 6, p. 4}),
 $$
 
 with $A^{(\ell)}[x],B^{(\ell)}[x]$ the activation's MASO matrices pushed through the affine layer (Prop. 4) [@balestrieroSplineTheoryDeep2018, Eq. 6, p. 4]. The superscript $(\ell)$ here indexes the *layer's* MASO, not a region.
@@ -109,14 +105,15 @@ At each layer the matrices $A^{(\ell)}[x]$ are chosen by the region of the curre
 
 ## Collapsing the composition
 
-Because every layer is a signal-dependent affine map, substituting the layer recursion into itself removes the intermediate compositions and leaves a single affine expression for the whole network at a fixed input. For a standard ReLU-plus-max-pooling convolutional network, with convolution matrices $C^{(\ell)}$, fully connected weights $W^{(\ell)}$ and biases $b_C^{(\ell)}$, the closed form is
+Because every layer is a signal-dependent affine map, substituting the layer recursion into itself removes the intermediate compositions and leaves a single affine expression for the whole network at a fixed input. For a standard ReLU-plus-max-pooling convolutional network, with convolution matrices $C^{(\ell)}$, fully connected weights $W^{(\ell)}$ and biases $b_C^{(\ell)}$, the closed form (Eq. 7, p. 5) is
 
 $$
+\begin{aligned}
 z^{(L)}_{\mathrm{CNN}}(x)
-=W^{(L)}\Bigl(\prod_{\ell=L-1}^{1}A^{(\ell)}_{\rho}[x]\,A^{(\ell)}_{\sigma}[x]\,C^{(\ell)}\Bigr)x
-+W^{(L)}\sum_{\ell=1}^{L-1}\Bigl(\prod_{j=L-1}^{\ell+1}A^{(j)}_{\rho}[x]\,A^{(j)}_{\sigma}[x]\,C^{(j)}\Bigr)\bigl(A^{(\ell)}_{\rho}[x]\,A^{(\ell)}_{\sigma}[x]\,b^{(\ell)}_C\bigr)
-+b^{(L)}_W
-\qquad(\text{Eq. 7, p. 5}),
+&=W^{(L)}\Bigl(\prod_{\ell=L-1}^{1}A^{(\ell)}_{\rho}[x]\,A^{(\ell)}_{\sigma}[x]\,C^{(\ell)}\Bigr)x\\
+&\quad +W^{(L)}\sum_{\ell=1}^{L-1}\Bigl(\prod_{j=L-1}^{\ell+1}A^{(j)}_{\rho}[x]\,A^{(j)}_{\sigma}[x]\,C^{(j)}\Bigr)\bigl(A^{(\ell)}_{\rho}[x]\,A^{(\ell)}_{\sigma}[x]\,b^{(\ell)}_C\bigr)\\
+&\quad +b^{(L)}_W
+\end{aligned}
 $$
 
 where $A^{(\ell)}_{\sigma}$ is the activation's MASO matrix and $A^{(\ell)}_{\rho}$ the pooling operator's, and there is no offset from either because ReLU and max-pooling have none [@balestrieroSplineTheoryDeep2018, Eq. 7, p. 5; Eq. 8, p. 5]. The inner factor $A_{\mathrm{CNN}}[x]x+B_{\mathrm{CNN}}[x]$ is the featurisation that feeds the final linear classifier: the network is, at input $x$, a linear classifier applied to a feature vector that has been produced by the *composition of the chosen affine pieces*. Analogous collapse formulas for ResNets and recurrent networks are derived in the extended companion, outside this collection [@balestrieroSplineTheoryDeep2018, §4.2, pp. 4–5].
@@ -141,11 +138,10 @@ $$
 
 with $C$ the number of classes and $\alpha$ the constraint bound. This predicts a bimodal distribution of the inner products $\langle[A^{\star}[x_n]]_{c,\cdot},x_n\rangle$, and Figure 2 confirms it for a large CNN on MNIST and CIFAR10, more strongly on the easier problem [@balestrieroSplineTheoryDeep2018, Prop. 5, Fig. 2, p. 6]. The template picture is visible per input too: for an MNIST "0" the three classes $(0,3,7)$ give inner products $32.7$, $-27.7$, $-27.8$, and for a CIFAR10 "truck" the classes $(\text{truck},\text{bird},\text{dog})$ give $30.6$, $-12.5$, $-16.2$ [@balestrieroSplineTheoryDeep2018, Fig. 1, p. 6].
 
-The paper's application is to push the classifier towards orthogonal templates by augmenting the cross-entropy loss,
+The paper's application is to push the classifier towards orthogonal templates by augmenting the cross-entropy loss (Eq. 13, p. 6),
 
 $$
 L_{CE}+\lambda\sum_{c_1\neq c_2}\bigl\lvert\langle[W^{(L)}]_{c_1,\cdot},[W^{(L)}]_{c_2,\cdot}\rangle\bigr\rvert^2
-\qquad(\text{Eq. 13, p. 6}),
 $$
 
 motivated by the mismatch between the matched-filter model (which assumes additive white Gaussian noise) and real classification [@balestrieroSplineTheoryDeep2018, Eq. 13, §6, p. 6]. On CIFAR100 with largeCNN the paper reports that the benefit "emerges distinctly as soon as $\lambda>0$", with improved final accuracy, better generalisation and visibly less overfitting; the main text gives only the figure, over 15 runs, with no numeric accuracies, and defers the remaining architectures and datasets to the companion outside the collection [@balestrieroSplineTheoryDeep2018, Fig. 3, §6, p. 7].
@@ -163,29 +159,26 @@ $$
 \varphi_f^\gamma(t)=\bigl(\mathbf{1}_{\Omega_1}(\gamma(t)),\dots,\mathbf{1}_{\Omega_K}(\gamma(t))\bigr)
 $$
 
-be the characteristic function that records which piece supports the active affine function along the path. It is a step function, and the number of its jumps is the number of *knots* $kt_f^\gamma$; the knot density is
+be the characteristic function that records which piece supports the active affine function along the path. It is a step function, and the number of its jumps is the number of *knots* $kt_f^\gamma$; the knot density (Def. 6, Eq. 24, §4.1, p. 13) is
 
 $$
 \lambda_f^\gamma=\frac{kt_f^\gamma}{\mathrm{Len}(\gamma)}
-\qquad(\text{Def. 6, Eq. 24, §4.1, p. 13}).
 $$
 
 The definition is set up to avoid the ambiguity of a path running along a region boundary: the knots are the jumps of $\varphi_f^\gamma$, not literal geometric crossings [@goujonNumberRegionsPiecewise2023, Def. 6, Eq. 24, p. 13]. In practice $\varphi_f^\gamma$ is read off from $f(\gamma(t))$ and $\nabla f(\gamma(t))$, both computable in any deep-learning library [@goujonNumberRegionsPiecewise2023, §4.1, p. 13]. For a ReLU network along a path, a knot is exactly a point where some unit changes sign — a crossing of a bent hyperplane — so the knot count is the number of regions the path visits minus one [@goujonNumberRegionsPiecewise2023, §4.1, p. 13].
 
-Why restrict to a curve? Because the *total* number of regions can be exponential in depth and is hard to compute, while along a direction the spline is a univariate piecewise-linear function whose knots are directly countable [@goujonNumberRegionsPiecewise2023, §4.1, p. 13]. The contrast between the two regimes is the chapter's quantitative payoff. The maximal region count of a CPWL network grows exponentially in depth and only polynomially in width and activation complexity: for a network with dimensions $(d_{\rm in},W,\dots,W,d_{\rm out})$ and uniform activation complexity $\kappa$, the count $\kappa_{\max}$ satisfies
+Why restrict to a curve? Because the *total* number of regions can be exponential in depth and is hard to compute, while along a direction the spline is a univariate piecewise-linear function whose knots are directly countable [@goujonNumberRegionsPiecewise2023, §4.1, p. 13]. The contrast between the two regimes is the chapter's quantitative payoff. The maximal region count of a CPWL network grows exponentially in depth and only polynomially in width and activation complexity: for a network with dimensions $(d_{\rm in},W,\dots,W,d_{\rm out})$ and uniform activation complexity $\kappa$, the count $\kappa_{\max}$ satisfies (Eq. 17, §3.3, p. 11)
 
 $$
 \bigl(\kappa^{\lfloor W/d^\ast\rfloor}\bigr)^{L d^\ast}\le\kappa_{\max}\le(\kappa W)^{L d^\ast},
 \qquad d^\ast=\min(d_{\rm in},d_{\rm out})
-\qquad(\text{Eq. 17, §3.3, p. 11}),
 $$
 
-so depth is the only descriptor that can make the count grow exponentially [@goujonNumberRegionsPiecewise2023, Eq. 17, p. 11]. Along a single direction the picture is entirely different. Under two assumptions — the expected knot density of each layer is bounded by $\lambda_0$, and the expected directional derivative within the composition by $D_0$ — the expected knot density along *any* path is bounded linearly in depth:
+so depth is the only descriptor that can make the count grow exponentially [@goujonNumberRegionsPiecewise2023, Eq. 17, p. 11]. Along a single direction the picture is entirely different. Under two assumptions — the expected knot density of each layer is bounded by $\lambda_0$, and the expected directional derivative within the composition by $D_0$ — the expected knot density along *any* path is bounded linearly in depth (Eq. 35, §4.3, p. 15):
 
 $$
 \E\bigl[\lambda^\gamma_{f_{\theta_L}\circ\dots\circ f_{\theta_1}}\bigr]\le D_0^\ast\,(\lambda_0 W L),
 \qquad D_0^\ast=\max(D_0,1)
-\qquad(\text{Eq. 35, §4.3, p. 15}),
 $$
 
 so on average depth buys only a linear factor, and depth, width and activation complexity play identical roles [@goujonNumberRegionsPiecewise2023, Eq. 35, §4.3, p. 15; Cor. 3]. The assumption on the per-layer knot density is verified for ReLU, Maxout and GroupSort layers with random weights and biases [@goujonNumberRegionsPiecewise2023, §4.2, pp. 14–15].
@@ -197,20 +190,19 @@ This is not a quirk of the general CPWL framework; it is the same phenomenon the
 
 ## Exact geometry of the spline: SplineCam
 
-Measuring the spline along a curve is cheap but partial. The opposite extreme is to compute the spline's partition and decision boundary *exactly*, at least over a 2-D slice of input space, and that is what SplineCam does [@humayunSplineCamExactVisualization2024, §1, p. 2]. It rests on the same per-region affine representation as the previous section, stated as a lemma: for a network with $L$ CPWL layers, the composition of layers $1$ to $\ell$ is
+Measuring the spline along a curve is cheap but partial. The opposite extreme is to compute the spline's partition and decision boundary *exactly*, at least over a 2-D slice of input space, and that is what SplineCam does [@humayunSplineCamExactVisualization2024, §1, p. 2]. It rests on the same per-region affine representation as the previous section, stated as a lemma: for a network with $L$ CPWL layers, the composition of layers $1$ to $\ell$ is (Lemma 1, Eq. 2, p. 3)
 
 $$
 S^\ell(x)=\sum_{\omega\in\Omega}\bigl(A^\ell_\omega x+b^\ell_\omega\bigr)\,\mathbf{1}\{x\in\omega\}
-\qquad(\text{Lemma 1, Eq. 2, p. 3}),
 $$
 
-with per-region parameters built from the pointwise derivatives $q^\omega_i$ of the activation at each layer's pre-activation,
+with per-region parameters built from the pointwise derivatives $q^\omega_i$ of the activation at each layer's pre-activation (Eqs. 3–4, p. 3),
 
 $$
-A^\ell_\omega=\prod_{i=1}^{\ell}\operatorname{diag}\bigl(q^\omega_i\bigr)W^i,
-\qquad
-b^\ell_\omega=\operatorname{diag}\bigl(q^\ell_\omega\bigr)b^\ell+\sum_{i=1}^{\ell-1}\Bigl(\prod_{j=i+1}^{\ell}\operatorname{diag}\bigl(q^\omega_j\bigr)W^j\Bigr)\operatorname{diag}\bigl(q^\omega_i\bigr)b^i
-\qquad(\text{Eqs. 3–4, p. 3}),
+\begin{aligned}
+A^\ell_\omega&=\prod_{i=1}^{\ell}\operatorname{diag}\bigl(q^\omega_i\bigr)W^i,\\
+&\qquad b^\ell_\omega=\operatorname{diag}\bigl(q^\ell_\omega\bigr)b^\ell+\sum_{i=1}^{\ell-1}\Bigl(\prod_{j=i+1}^{\ell}\operatorname{diag}\bigl(q^\omega_j\bigr)W^j\Bigr)\operatorname{diag}\bigl(q^\omega_i\bigr)b^i
+\end{aligned}
 $$
 
 and $q^\omega_i$ unique for each region, a fact inherited from the spline theory of [@balestrieroSplineTheoryDeep2018] [@humayunSplineCamExactVisualization2024, Lemma 1, Eqs. 2–4 and §2.1, p. 3]. Knowing $A^\ell_\omega,b^\ell_\omega$ for all regions $\omega$ *is* knowing the function, which is why the partition is the right object to compute.
@@ -218,11 +210,10 @@ and $q^\omega_i$ unique for each region, a fact inherited from the spline theory
 The algorithm partitions a 2-polytope $P$ layer by layer [@humayunSplineCamExactVisualization2024, §2.2, pp. 3–4]:
 
 1. the hyperplanes of layer 1, $h^1_i$, cut $P$ into the first partition; the cells are the cycles of the planar arrangement, found by solving for all intersections to get nodes, connecting consecutive nodes to get edges, and extracting cycles by breadth-first search (Alg. 1 and Alg. 2);
-2. for each region $\omega$, the *deeper* layer hyperplanes are pulled back onto $\omega$'s tangent space. A layer-$\ell$ hyperplane $h^\ell_i=\{z:\langle w^\ell_i,z\rangle+b^\ell_i=0\}$ back-projects to
+2. for each region $\omega$, the *deeper* layer hyperplanes are pulled back onto $\omega$'s tangent space. A layer-$\ell$ hyperplane $h^\ell_i=\{z:\langle w^\ell_i,z\rangle+b^\ell_i=0\}$ back-projects to (Lemma 2, Eq. 6, p. 3)
 
 $$
 \operatorname{proj}_\omega(h^\ell_i)=\bigl\{x\in\R^{S}:\langle w^\ell_i,\,A^{\ell-1}_\omega x+b^{\ell-1}_\omega\rangle+b^\ell_i=0\bigr\}
-\qquad(\text{Lemma 2, Eq. 6, p. 3}),
 $$
 
 3. the refined partition graph is recomputed and the process repeats to layer $L$.

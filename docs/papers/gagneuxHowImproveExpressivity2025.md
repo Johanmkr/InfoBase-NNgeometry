@@ -57,33 +57,33 @@ The algorithmic contribution follows from Thm. 2.3. The naive check is prohibiti
 Neighboring-region convexity test (§2.3, Eq. 1): $f$ is convex iff for every neighboring pair $R_1 \sim R_2$ there is a pair of points $x_1 \in \mathrm{int}(R_1)$, $x_2 \in \mathrm{int}(R_2)$ with
 
 $$
-\langle \nabla f(x_1) - \nabla f(x_2),\, x_1 - x_2 \rangle \geq 0. \qquad \text{(Eq. 1, p. 3)}
+\langle \nabla f(x_1) - \nabla f(x_2),\, x_1 - x_2 \rangle \geq 0.
 $$
 
-Path-lifting decomposition (§2.4.3, Eq. 2), with $\Phi(\theta)$ the path-lifting vector and $A(x,\theta)$ the path-activations matrix:
+Path-lifting decomposition (§2.4.3, Eq. 2), with $\Phi(\theta)$ the path-lifting vector and $A(x,\theta)$ the path-activations matrix (Eq. 2, p. 3):
 
 $$
-f(x,\theta) = \Phi(\theta)\, A(x,\theta). \qquad \text{(Eq. 2, p. 3)}
+f(x,\theta) = \Phi(\theta)\, A(x,\theta).
 $$
 
-Gradient on an activation region (§2.4.3, Eq. 3): since $A(\cdot,\theta)$ is constant on an activation region $R_1$ with matrix $A_1$,
+Gradient on an activation region (§2.4.3, Eq. 3): since $A(\cdot,\theta)$ is constant on an activation region $R_1$ with matrix $A_1$ (Eq. 3, p. 4),
 
 $$
-\nabla f(x_1) = A_1^{\top}\, \Phi(\theta). \qquad \text{(Eq. 3, p. 4)}
+\nabla f(x_1) = A_1^{\top}\, \Phi(\theta).
 $$
 
-Characterization of convex ReLU networks (§2.4.3, Thm. 2.3): under a non-degeneracy assumption (Assumption 7.1 of the companion paper), $f_\theta$ is convex if and only if for every hidden neuron $\nu \in H$,
+Characterization of convex ReLU networks (§2.4.3, Thm. 2.3): under a non-degeneracy assumption (Assumption 7.1 of the companion paper), $f_\theta$ is convex if and only if for every hidden neuron $\nu \in H$ (Eq. 4, p. 4),
 
 $$
-\min_{a \in \mathfrak{a}^{\nu\to}} \langle a,\, \Phi^{\nu\to}(\theta) \rangle \geq 0, \qquad \text{where } \mathfrak{a}^{\nu\to} := \{ a^{\nu\to}(x,\theta) : x \in X_\nu \}. \qquad \text{(Eq. 4, p. 4)}
+\min_{a \in \mathfrak{a}^{\nu\to}} \langle a,\, \Phi^{\nu\to}(\theta) \rangle \geq 0, \qquad \text{where } \mathfrak{a}^{\nu\to} := \{ a^{\nu\to}(x,\theta) : x \in X_\nu \}.
 $$
 
 Each binary $a$ is the activation pattern of a $(d-1)$-dimensional boundary where $\nu$ switches (§2.4.3). If all elementary vectors are present in $\mathfrak{a}^{\nu\to}$ for every $\nu$, each scalar product has a single term and (4) collapses to the ICNN nonnegativity constraints; when elementary vectors are missing, (4) is strictly less restrictive — this is exactly the gap the paper exploits.
 
-Convex regularisation (§4.2, Eq. 5), the soft penalty that drives negative constraint values up to zero:
+Convex regularisation (§4.2, Eq. 5), the soft penalty that drives negative constraint values up to zero (Eq. 5, p. 5):
 
 $$
-R(\theta) := \lambda \sum_{\nu \in H} \sum_{a \in \mathfrak{a}^{\nu\to}} \max\!\left(0,\, -\langle a,\, \Phi^{\nu\to}(\theta) \rangle\right). \qquad \text{(Eq. 5, p. 5)}
+R(\theta) := \lambda \sum_{\nu \in H} \sum_{a \in \mathfrak{a}^{\nu\to}} \max\!\left(0,\, -\langle a,\, \Phi^{\nu\to}(\theta) \rangle\right).
 $$
 
 | Symbol | Meaning (in this paper) |

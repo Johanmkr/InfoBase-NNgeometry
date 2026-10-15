@@ -58,15 +58,19 @@ The paper is a theory paper (Theorem 5, proved in Appendices B–C) reinforced b
 Activation pattern and region (Definition 1, §2.1):
 
 $$
-A = \{a_z;\ z \text{ a neuron in } N\}\in\{-1,1\}^{\#\text{neurons}}, \qquad
-R(A;\theta) = \{x\in\R^{n_{\mathrm{in}}} \mid (-1)^{a_z}\bigl(z(x;\theta)-b_z\bigr) > 0,\ z \text{ a neuron in } N\}.
+\begin{aligned}
+A &= \{a_z;\ z \text{ a neuron in } N\}\in\{-1,1\}^{\#\text{neurons}}, \\
+R(A;\theta) &= \{x\in\R^{n_{\mathrm{in}}} \mid (-1)^{a_z}\bigl(z(x;\theta)-b_z\bigr) > 0,\ z \text{ a neuron in } N\}.
+\end{aligned}
 $$
 
 Bent hyperplanes and the connectivity description (Eqs. 2–3, Lemma 2):
 
 $$
-H_z(\theta) := \{x\in\R^{n_{\mathrm{in}}} \mid z(x;\theta) = b_z\}, \qquad
-\{\text{non-empty } R(A;\theta)\} = \text{connected components}\Bigl(\R^{n_{\mathrm{in}}}\setminus \bigcup_{\text{neurons } z} H_z(\theta)\Bigr).
+\begin{aligned}
+H_z(\theta) &:= \{x\in\R^{n_{\mathrm{in}}} \mid z(x;\theta) = b_z\}, \\
+\{\text{non-empty } R(A;\theta)\} &= \text{connected components}\Bigl(\R^{n_{\mathrm{in}}}\setminus \bigcup_{\text{neurons } z} H_z(\theta)\Bigr).
+\end{aligned}
 $$
 
 Arrangement count for one hidden layer in general position (Eq. 4, §2.2):
@@ -78,7 +82,10 @@ $$
 Theorem 5 (Eq. 5, §3.1), under the four assumptions above with constants $C_{\mathrm{grad}},C_{\mathrm{bias}}>0$ and $T=T(C_{\mathrm{grad}},C_{\mathrm{bias}})$, for every cube $C$ of side length $\delta>\delta_0$:
 
 $$
-\frac{\E\bigl[\#\text{non-empty activation regions of } N \text{ in } C\bigr]}{\mathrm{vol}(C)} \le \frac{(T\,\#\text{neurons})^{n_{\mathrm{in}}}}{n_{\mathrm{in}}!}, \qquad \#\text{neurons}\ge n_{\mathrm{in}}.
+\begin{aligned}
+\frac{\E\bigl[\#\text{non-empty activation regions of } N \text{ in } C\bigr]}{\mathrm{vol}(C)} &\le \frac{(T\,\#\text{neurons})^{n_{\mathrm{in}}}}{n_{\mathrm{in}}!}, \\
+&\qquad \#\text{neurons}\ge n_{\mathrm{in}}.
+\end{aligned}
 $$
 
 The two regularity constants come from (Conditions 3–4, §3.1):
@@ -91,19 +98,23 @@ $$
 Generalization to $r$-partial regions (Theorem 10, Eq. 9, App. C):
 
 $$
-\frac{\E\bigl[\#r\text{-partial activation regions of } N \text{ in } C\bigr]}{\mathrm{vol}(C)}
-\le
+\begin{aligned}
+&\frac{\E\bigl[\#r\text{-partial activation regions of } N \text{ in } C\bigr]}{\mathrm{vol}(C)}\\
+&\quad \le
 \begin{cases}
 \dfrac{(T\,\#\text{neurons})^{n_{\mathrm{in}}}}{2^{\,r}\,n_{\mathrm{in}}!}, & \#\text{neurons}\ge n_{\mathrm{in}},\\[2mm]
 2^{\#\text{neurons}}, & \#\text{neurons}\le n_{\mathrm{in}}.
 \end{cases}
+\end{aligned}
 $$
 
 The two volume bounds the proof rests on are, for bounded $S\subset\R^{n_{\mathrm{in}}}$ (Eq. 10) and the $k$-skeleton $C_k$ of $C$ (Eq. 12):
 
 $$
-\frac{\E\bigl[\mathrm{vol}_{n_{\mathrm{in}}-k}(X_{N,k}\cap S)\bigr]}{\mathrm{vol}_{n_{\mathrm{in}}}(S)} \le T^k\binom{\#\text{neurons}}{k}, \qquad
-\#\{R(A;\theta)\cap C \neq \emptyset\} \le \sum_{k=r}^{n_{\mathrm{in}}}\binom{k}{r}2^{k-r}\,\#V_k .
+\begin{aligned}
+\frac{\E\bigl[\mathrm{vol}_{n_{\mathrm{in}}-k}(X_{N,k}\cap S)\bigr]}{\mathrm{vol}_{n_{\mathrm{in}}}(S)} &\le T^k\binom{\#\text{neurons}}{k}, \\
+\#\{R(A;\theta)\cap C \neq \emptyset\} &\le \sum_{k=r}^{n_{\mathrm{in}}}\binom{k}{r}2^{k-r}\,\#V_k .
+\end{aligned}
 $$
 
 | Symbol | Meaning (in this paper) |

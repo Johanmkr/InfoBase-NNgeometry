@@ -128,10 +128,10 @@ Bregman divergence of a strictly convex generator $F$, and the dually flat metri
 induces (§3.7, Eqs. 62–65, p. 16):
 
 $$
-B_F(\theta : \theta') := F(\theta) - F(\theta') - (\theta-\theta')^\top \nabla F(\theta'),
-\qquad
-^F g := \nabla^2 F(\theta), \qquad
-^F C_{ijk} := \partial_i \partial_j \partial_k F(\theta).
+\begin{aligned}
+B_F(\theta : \theta') &:= F(\theta) - F(\theta') - (\theta-\theta')^\top \nabla F(\theta'), \\
+^F g &:= \nabla^2 F(\theta), \qquad ^F C_{ijk} := \partial_i \partial_j \partial_k F(\theta).
+\end{aligned}
 $$
 
 The Fisher information matrix (Eq. 85, p. 21) and the Fisher information metric (Eq. 100, p. 24) of a

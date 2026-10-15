@@ -1,46 +1,47 @@
 ---
 title: Comparison
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  bronsteinGeometricDeepLearning: b1bdc405eedd
-  bronsteinGeometricDeepLearning2017: 303af41ca265
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  alfarraDecisionBoundariesNeural2023: a305d52d8025
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  bronsteinGeometricDeepLearning: 6abf4c1c9edc
+  bronsteinGeometricDeepLearning2017: c17967a216bb
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  villarFullyCovariantMachine2023: 20a7c0430350
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
-  zhangTropicalGeometryDeep: f99703ad8890
+  phuongFunctionalVsParametric2019: 79b70de62319
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  villarFullyCovariantMachine2023: 206ac70ee271
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
+  zhangTropicalGeometryDeep: 56eee67d20f1
 ---
 
 # Comparison
@@ -75,7 +76,7 @@ these are *worst-case* statements about an architecture, while the same collecti
 *average-case* statements about parameters: with random weights the expected number of regions along a
 line is proportional to the number of neurons and not to depth
 [@haninComplexityLinearRegions2019, Thm. 1], and the expected density of activation regions is
-bounded by $(\#\text{neurons})^{n_{\mathrm{in}}}/n_{\mathrm{in}}!$ with no depth dependence at all,
+bounded by $(T\#\text{neurons})^{n_{\mathrm{in}}}/n_{\mathrm{in}}!$ up to the constant $T$, with no depth dependence at all,
 a bound that survives training [@haninDeepReLUNetworks2019, Thm. 5]. Taken together, the collection
 says that depth buys *possible* complexity that gradient descent demonstrably does not buy in this
 measure.
@@ -92,6 +93,16 @@ statistical summaries of the same object — sampling the affine maps of regions
 Hamming activation space [@lewandowskiSpaceFoldsReLU2024, Eq. 4], or feeding the region labels to
 persistent homology [@liuReLUNeuralNetworks2023, §4.2].
 
+A more recent entry in the same spirit stops computing the complex at all and treats the adjacency
+itself as the object: sampling activation patterns on a grid and joining patterns at Hamming
+distance one yields the *ReLU transition graph*, whose node count, degree distribution, diameter
+and region-volume entropy are then read as structural statistics
+[@dhayalkarDiscreteFunctionalGeometry2025, Def. 3, §5.1]. It is a cheap summary rather than a new
+geometry — it inherits the sampling artefacts the paper itself reports at its largest
+configuration [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.1], and its counting component
+restates the arrangement count of the first thread
+[@dhayalkarDiscreteFunctionalGeometry2025, §4.1].
+
 Where the field is heading, on the evidence of this collection: away from region counts and toward
 *invariants and equivalences*. Region counts are ambiguous under parameter symmetries and do not
 distinguish architectures with identical accuracy [@humayunSplineCamExactVisualization2024, §1], so
@@ -103,8 +114,9 @@ which quantities a symmetry group forces to be covariant [@villarFullyCovariantM
 
 ## Concept map
 
-Forty papers is past the point where one node per paper is readable, so the map below draws each
-line of work as a single node and lists its members underneath. Edges follow `builds_on` in the
+Forty-one papers is past the point where one node per paper is readable, so the map below draws each
+line of work as a single node and lists its members underneath, except the 2025 transition-graph
+entry, which is a single paper and is drawn as one node of its own. Edges follow `builds_on` in the
 summaries: an arrow $a \rightarrow b$ means $b$ builds on $a$.
 
 ```mermaid
@@ -121,6 +133,7 @@ flowchart LR
     subgraph EX["Exact structure"]
         G3["The region complex and its algorithms"]
         G5["Tropical geometry"]
+        dhayalkarDiscreteFunctionalGeometry2025["Dhayalkar 2025 — the ReLU transition graph"]
     end
     subgraph FO["Folding"]
         G4["Space folding"]
@@ -136,6 +149,7 @@ flowchart LR
     G1 -->|folding operator| G4
     G1 -->|region bounds re-derived| G5
     G1 -->|symmetry of the weights| G8
+    G1 -->|region counts become graph nodes| dhayalkarDiscreteFunctionalGeometry2025
     G2 -->|polynomially many regions| G3
     G5 -->|Newton polytopes and zonotopes| G3
     G5 -->|folds as max-affine maps| G4
@@ -143,6 +157,7 @@ flowchart LR
     G3 -->|combinatorial structure| G8
     G8 -->|fold-set and identifiability| G4
     G7 -->|covariance and units| G8
+    click dhayalkarDiscreteFunctionalGeometry2025 "../papers/dhayalkarDiscreteFunctionalGeometry2025/"
 ```
 
 **Members.** *Worst-case expressivity* [@pascanuNumberResponseRegions2013;
@@ -157,6 +172,8 @@ flowchart LR
 @berzinsPolyhedralComplexExtraction2023; @vincentReachablePolyhedralMarching2021;
 @humayunSplineCamExactVisualization2024; @sattelbergLocallyLinearAttributes2023;
 @liuIntegratingGeometriesReLU2023a].
+
+*The ReLU transition graph* [@dhayalkarDiscreteFunctionalGeometry2025].
 
 *Tropical geometry* [@zhangTropicalGeometryDeep; @alfarraDecisionBoundariesNeural2023].
 
@@ -280,6 +297,7 @@ timeline
     2025 : Averkov et al. bound the depth of rational ReLU networks
     2025 : Combe et al. read statistical manifolds as Frobenius manifolds
     2025 : Gagneux et al. improve convex ReLU networks beyond ICNNs
+    2025 : Dhayalkar reads region adjacency as a ReLU transition graph
     2026 : Lewandowski et al. generalise folding to monotonic activations
 ```
 
@@ -304,6 +322,11 @@ verification question [@vincentReachablePolyhedralMarching2021]. Finish with the
 summarise what you sketched: cluster the region affine maps
 [@sattelbergLocallyLinearAttributes2023], or measure folding along paths between class means
 [@lewandowskiSpaceFoldsReLU2024; @lewandowskiExploitingSpaceFolding2026].
+The cheapest summary is also the crudest: sample activation patterns on a grid and read the
+transitions between them as a graph [@dhayalkarDiscreteFunctionalGeometry2025, §5.1], which needs no
+geometry library but reports its own sampling artefact — a disconnected graph at the largest
+configuration — as a property of the graph
+[@dhayalkarDiscreteFunctionalGeometry2025, §5.3.1].
 
 **Geometry of representations.** The manifold premise first [@meilaManifoldLearningWhat2023], then
 the two latent-metric constructions in the order they were written

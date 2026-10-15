@@ -3,13 +3,13 @@ chapter: latent-geometry
 title: Riemannian and Finsler geometry of latent spaces
 outline_hash: 8bb3c420d703
 built_from:
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  halversonMetricFlowsNeural2024: 699fded4f825
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
 ---
 
 # Riemannian and Finsler geometry of latent spaces
@@ -149,8 +149,10 @@ So the Riemannian energy penalises curves that pass through high-variance region
 The central theoretical result is that $\|\cdot\|_F$ is a genuine Finsler metric and *cannot* be Riemannian. It satisfies positive homogeneity, smoothness and strong convexity, as Finsler metrics require, but it is not bilinear, so no inner product induces it; stochastic manifolds are therefore "inherently more complex" than deterministic ones [@pouplinIdentifyingLatentDistances2023, Prop. 2.2, §2.4, p. 7]. For a Gaussian-process decoder, $v^\top G v$ follows a one-dimensional non-central Wishart distribution, whose square root is non-central Nakagami, and the expectation is known in closed form:
 
 $$
-\|v\|_F = \sqrt{2}\,\sqrt{v^\top \Sigma v}\;\frac{\Gamma\!\left(\frac{D}{2}+\frac{1}{2}\right)}{\Gamma\!\left(\frac{D}{2}\right)}\;{}_1F_1\!\left(-\frac{1}{2}, \frac{D}{2}, -\frac{\omega}{2}\right),
-\qquad \omega = (v^\top\Sigma v)^{-1}\,(v^\top\mathbb{E}[J]^\top\mathbb{E}[J]\,v),
+\begin{aligned}
+\|v\|_F &= \sqrt{2}\,\sqrt{v^\top \Sigma v}\;\frac{\Gamma\!\left(\frac{D}{2}+\frac{1}{2}\right)}{\Gamma\!\left(\frac{D}{2}\right)}\;{}_1F_1\!\left(-\frac{1}{2}, \frac{D}{2}, -\frac{\omega}{2}\right), \\
+\omega &= (v^\top\Sigma v)^{-1}\,(v^\top\mathbb{E}[J]^\top\mathbb{E}[J]\,v),
+\end{aligned}
 $$
 
 with $\Sigma$ the covariance of the Jacobian and ${}_1F_1$ the confluent hypergeometric function [@pouplinIdentifyingLatentDistances2023, Prop. 2.3, §2.4, p. 7]. This closed form is what makes the comparison quantitative rather than formal.

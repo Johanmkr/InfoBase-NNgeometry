@@ -59,13 +59,13 @@ A ReLU network computes a piecewise affine map $M:\R^m\to\R^n$; the pieces are c
 
 ## Key equations and definitions
 
-Layerwise feedforward map with ReLU on the hidden layers (§2.1, Eq. 2, p. 3):
+Layerwise feedforward map with ReLU on the hidden layers (§2.1, Eq. 2, p. 3) (Eq. 2, p. 3):
 
 $$
-F_i(x) = \mathrm{ReLU}(W_i F_{i-1}(x) + b_i) \qquad \text{(Eq. 2, p. 3)}
+F_i(x) = \mathrm{ReLU}(W_i F_{i-1}(x) + b_i)
 $$
 
-Binary bit of unit $j$ in hidden layer $i$ (§2.2, Eq. 3):
+Binary bit of unit $j$ in hidden layer $i$ (§2.2, Eq. 3) (Eq. 3, p. 3):
 
 $$
 s_{i,j}(x) =
@@ -73,23 +73,20 @@ s_{i,j}(x) =
 1 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} > 0,\\
 0 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} \le 0.
 \end{cases}
-\qquad \text{(Eq. 3, p. 3)}
 $$
 
-The full binary vector stacks all hidden layers (§2.2, Eq. 4):
+The full binary vector stacks all hidden layers (§2.2, Eq. 4) (Eq. 4, p. 3):
 
 $$
 s(x) = \bigl[\,s_1(x)^\top \ \cdots \ s_L(x)^\top\,\bigr]^\top \in \R^h, \qquad h = \sum_{i=1}^{L} h_i
-\qquad \text{(Eq. 4, p. 3)}
 $$
 
-Linear model of the polyhedron carrying $s(x)$ (§2.2, Eq. 5):
+Linear model of the polyhedron carrying $s(x)$ (§2.2, Eq. 5) (Eq. 5, p. 3):
 
 $$
 Ax \le c, \quad
 A = \bigl[A_1^\top \ A_2^\top \ \cdots \ A_L^\top\bigr]^\top, \quad
 c = \bigl[c_1^\top \ c_2^\top \ \cdots \ c_L^\top\bigr]^\top,
-\qquad \text{(Eq. 5, p. 3)}
 $$
 
 with $A_j = \mathrm{diag}(s'_j)\,\hat W_j$ and $c_j = \mathrm{diag}(s'_j)\,(-\hat b_j)$, where $s'_j$ is the sign vector ($s'_{i,j}=1$ if $s_{i,j}=0$, and $-1$ if $s_{i,j}=1$) and the recursive quantities are $\hat W_j = W_j\,\mathrm{diag}(s_{j-1})\,\hat W_{j-1}$, $\hat b_j = W_j\,\mathrm{diag}(s_{j-1})\,\hat b_{j-1} + b_j$ for $2\le j\le L$, with $\hat W_1=W_1$, $\hat b_1=b_1$ (§2.2). *(The extraction is ambiguous about whether the display prints $s_j$ or $s'_j$ in $A_j,c_j$; the sign vector $s'_j$ is the one defined for expressing inequality direction, §2.2.)*
@@ -98,21 +95,18 @@ Within the polyhedron the network is the single affine map (§2.2):
 
 $$
 G(x) = W_{L+1}\,\mathrm{diag}(s_L)\,\hat W_L\,x + W_{L+1}\,\mathrm{diag}(s_L)\,\hat b_L + b_{L+1}
-\qquad \text{(§2.2)}
 $$
 
-Redundancy test for the $i$th inequality, with $\tilde A,\tilde c$ the rows/entries other than $i$ (§2.2, Eq. 6):
+Redundancy test for the $i$th inequality, with $\tilde A,\tilde c$ the rows/entries other than $i$ (§2.2, Eq. 6) (Eq. 6, p. 3):
 
 $$
 \max_{x}\ a_i^\top x \quad \text{s.t. } \tilde A x \le \tilde c
-\qquad \text{(Eq. 6, p. 3)}
 $$
 
-Chebyshev center LP for a bounded polyhedron $A'x\le c'$ (§3.3, Eq. 7):
+Chebyshev center LP for a bounded polyhedron $A'x\le c'$ (§3.3, Eq. 7) (Eq. 7, p. 5):
 
 $$
 \max_{r,\,x_c}\ r \quad \text{s.t. } a_i'^\top x_c + r\,\norm{a_i'} \le c_i', \quad 1\le i\le l
-\qquad \text{(Eq. 7, p. 5)}
 $$
 
 which is recast as the LP $\min_x -e^\top x$ s.t. $\hat A x \le c'$ and solved with `cvxpy` (§3.3, Eq. 8).

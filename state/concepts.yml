@@ -1,44 +1,45 @@
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  bronsteinGeometricDeepLearning: b1bdc405eedd
-  bronsteinGeometricDeepLearning2017: 303af41ca265
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  alfarraDecisionBoundariesNeural2023: a305d52d8025
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  bronsteinGeometricDeepLearning: 6abf4c1c9edc
+  bronsteinGeometricDeepLearning2017: c17967a216bb
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  villarFullyCovariantMachine2023: 20a7c0430350
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
-  zhangTropicalGeometryDeep: f99703ad8890
+  phuongFunctionalVsParametric2019: 79b70de62319
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  villarFullyCovariantMachine2023: 206ac70ee271
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
+  zhangTropicalGeometryDeep: 56eee67d20f1
 concepts:
 - id: relu-unit
   name: ReLU unit
@@ -147,6 +148,7 @@ concepts:
   - berzinsPolyhedralComplexExtraction2023
   - brandenburgDecompositionPolyhedraPiecewise2024
   - carlssonPREIMAGERECTIFIERNETWORK2017
+  - dhayalkarDiscreteFunctionalGeometry2025
   - gagneuxHowImproveExpressivity2025
   - goujonNumberRegionsPiecewise2023
   - haninComplexityLinearRegions2019
@@ -182,6 +184,7 @@ concepts:
   - NIPS2014_fa6f2a46
   - berzinsPolyhedralComplexExtraction2023
   - carlssonPREIMAGERECTIFIERNETWORK2017
+  - dhayalkarDiscreteFunctionalGeometry2025
   - goujonNumberRegionsPiecewise2023
   - haninComplexityLinearRegions2019
   - haninDeepReLUNetworks2019
@@ -260,6 +263,7 @@ concepts:
   - vincentReachablePolyhedralMarching2021
   used_in:
   - carlssonPREIMAGERECTIFIERNETWORK2017
+  - dhayalkarDiscreteFunctionalGeometry2025
   - gagneuxHowImproveExpressivity2025
   - grigsbyHiddenSymmetriesReLU
   - lewandowskiExploitingSpaceFolding2026
@@ -301,6 +305,7 @@ concepts:
   - raghuExpressivePowerDeep2017
   - vincentReachablePolyhedralMarching2021
   used_in:
+  - dhayalkarDiscreteFunctionalGeometry2025
   - lewandowskiExploitingSpaceFolding2026
   - lewandowskiSpaceFoldsReLU2024
 - id: linear-region
@@ -1442,3 +1447,51 @@ concepts:
   introduced_in: []
   used_in:
   - arvanitidisGeometricallyEnrichedLatent2020
+- id: relu-transition-graph
+  name: ReLU transition graph
+  aliases:
+  - relu transition graph
+  - rtg entropy
+  - rtg size bound
+  - rtg connectivity
+  - rtg diameter bound on vc-dimension
+  - rtg degree-sparsity
+  - functional compression via rtg pruning
+  - graph diameter
+  summary: The undirected graph $G=(V,E)$ whose nodes are the linear regions of a ReLU network and whose
+    edges join regions sharing a facet, i.e. activation patterns at Hamming distance one; its node count,
+    degree distribution, diameter and region-volume entropy stand in for the network's capacity.
+  background: false
+  prerequisites:
+  - activation-pattern
+  - linear-region
+  - shannon-entropy
+  - vc-dimension
+  introduced_in:
+  - dhayalkarDiscreteFunctionalGeometry2025
+  used_in: []
+- id: shannon-entropy
+  name: Shannon entropy
+  aliases:
+  - shannon entropy
+  - entropy of a distribution
+  summary: $H(p)=-\sum_v p_v\log p_v$ of a distribution over the objects of interest; here the region-volume
+    distribution of a ReLU network.
+  background: true
+  prerequisites: []
+  introduced_in: []
+  used_in:
+  - dhayalkarDiscreteFunctionalGeometry2025
+- id: vc-dimension
+  name: VC-dimension
+  aliases:
+  - vc-dimension
+  - vc dimension
+  - shattering
+  summary: The largest number of points a function class can shatter, i.e. label in all $2^N$ ways; the
+    classical capacity measure that the RTG diameter is claimed to bound.
+  background: true
+  prerequisites: []
+  introduced_in: []
+  used_in:
+  - dhayalkarDiscreteFunctionalGeometry2025

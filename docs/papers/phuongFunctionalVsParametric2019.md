@@ -112,18 +112,18 @@ domain (§6, p. 6–8).
 
 ## Key equations and definitions
 
-Network and truncated networks (§3, Eq. 6–7):
+Network and truncated networks (§3, Eq. 6–7) (Eq. 6–7):
 
 $$
 h = h_L \circ h_{L-1} \circ \dots \circ h_1, \qquad h_l(z) = W_l z + b_l, \qquad
-h^{l:k} = h_k \circ h_{k-1} \circ \dots \circ h_l \qquad \text{(Eq. 6–7)}
+h^{l:k} = h_k \circ h_{k-1} \circ \dots \circ h_l
 $$
 
 Fold-set of a general and transparent network (§4, Lemma 1, Eq. 9) — the union of all units'
-zero-level sets:
+zero-level sets (Eq. 9, p. 4):
 
 $$
-F(h) = \bigcup_{l,i} \left\{ z \mid h^{1:l}_i(z) = 0 \right\} \qquad \text{(Eq. 9, p. 4)}
+F(h) = \bigcup_{l,i} \left\{ z \mid h^{1:l}_i(z) = 0 \right\}
 $$
 
 Main theorem (Thm. 1, Eq. 5 / Eq. 11): for an architecture with non-increasing widths
@@ -135,20 +135,19 @@ $$
 \begin{aligned}
 W_1 &= M_1 P_1 W_1^0, &\quad b_1 &= M_1 P_1 b_1^0, \\
 W_l &= M_l P_l W_l^0 P_{l-1}^{-1} M_{l-1}^{-1}, &\quad b_l &= M_l P_l b_l^0,
-  &\quad l &\in \{2,\dots,L-1\}, \\
+&\quad l &\in \{2,\dots,L-1\}, \\
 W_L &= W_L^0 P_{L-1}^{-1} M_{L-1}^{-1}, &\quad b_L &= b_L^0,
 \end{aligned}
-\qquad \text{(Eq. 11)}
 $$
 
 with permutation matrices $P_l$ and positive diagonal matrices $M_l$, and $(W^0_1,b^0_1,\dots,W^0_L,b^0_L)$
 the parameters of $\tilde h$.
 
 Layer-wise recovery (Eq. 16): the zero-level sets determine each unit's parameters up to a scalar per
-unit,
+unit (Eq. 16, p. 8),
 
 $$
-(W_l[i,:],\, b_l[i]) = m_i \left( W_l^0[\sigma(i),:],\, b_l^0[\sigma(i)] \right) \qquad \text{(Eq. 16, p. 8)}
+(W_l[i,:],\, b_l[i]) = m_i \left( W_l^0[\sigma(i),:],\, b_l^0[\sigma(i)] \right)
 $$
 
 for a permutation $\sigma$ of $[d_l]$.

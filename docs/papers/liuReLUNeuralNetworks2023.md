@@ -53,36 +53,52 @@ The construction has three stages.
 
 ## Key equations and definitions
 
-$$
-ReLU(a) = \begin{cases} a & \text{if } a > 0 \\ 0 & \text{if } a \le 0 \end{cases} \qquad \text{(Eq. 2, p. 2)}
-$$
+The element-wise ReLU activation (Eq. 2, p. 2):
 
 $$
-s_{i,j}(x) = \begin{cases} 1 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} > 0 \\ 0 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} \le 0 \end{cases} \qquad \text{(Eq. 4, p. 2)}
+ReLU(a) = \begin{cases} a & \text{if } a > 0 \\ 0 & \text{if } a \le 0 \end{cases}
 $$
 
-$$
-s(x) = [s_1^\top(x) \dots s_L^\top(x)]^\top \in \R^h, \qquad h = \sum_{i=1}^{L} h_i \qquad \text{(Eq. 5, p. 2)}
-$$
+The activation bit of unit $j$ in hidden layer $i$, with the paper's sign convention (Eq. 4, p. 2):
 
 $$
-s'_{i,j} = \begin{cases} 1 & \text{if } s_{i,j} = 0 \\ -1 & \text{if } s_{i,j} = 1 \end{cases} \qquad \text{(Eq. 6, p. 2)}
+s_{i,j}(x) = \begin{cases} 1 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} > 0 \\ 0 & \text{if } w_{i,j}F_{i-1}(x) + b_{i,j} \le 0 \end{cases}
 $$
 
-$$
-diag(s'_1)(W_1 x + b_1) \le 0 \qquad \text{(Eq. 7, p. 2)}
-$$
+The stacked binary vector over all $h$ hidden nodes (Eq. 5, p. 2):
 
 $$
-Ax \le c, \qquad A = [A_1^\top \dots A_L^\top]^\top,\ c = [c_1^\top \dots c_L^\top]^\top \qquad \text{(Eq. 9, pp. 2–3)}
+s(x) = [s_1^\top(x) \dots s_L^\top(x)]^\top \in \R^h, \qquad h = \sum_{i=1}^{L} h_i
 $$
 
-$$
-A_i = diag(s'^{i})\hat W_i, \qquad c_i = diag(s'^{i})(-\hat b_i) \qquad \text{(§2.3, p. 3)}
-$$
+The sign vector that reverses each bit (Eq. 6, p. 2):
 
 $$
-A(t)_{i,j} = \begin{cases} 0 & \text{if } D^{(i,j)} > t \text{ or } i = j \\ 1 & \text{else} \end{cases} \qquad \text{(Eq. 13, p. 6)}
+s'_{i,j} = \begin{cases} 1 & \text{if } s_{i,j} = 0 \\ -1 & \text{if } s_{i,j} = 1 \end{cases}
+$$
+
+The half-space condition defining the polyhedron carrying $s$ (Eq. 7, p. 2):
+
+$$
+diag(s'_1)(W_1 x + b_1) \le 0
+$$
+
+The half-space model with the layer blocks stacked (Eq. 9, pp. 2–3):
+
+$$
+Ax \le c, \qquad A = [A_1^\top \dots A_L^\top]^\top,\ c = [c_1^\top \dots c_L^\top]^\top
+$$
+
+Its blocks, built from folded weights and biases (§2.3, p. 3):
+
+$$
+A_i = diag(s'^{i})\hat W_i, \qquad c_i = diag(s'^{i})(-\hat b_i)
+$$
+
+The threshold adjacency matrix of the Hamming-distance matrix (Eq. 13, p. 6):
+
+$$
+A(t)_{i,j} = \begin{cases} 0 & \text{if } D^{(i,j)} > t \text{ or } i = j \\ 1 & \text{else} \end{cases}
 $$
 
 | Symbol | Meaning (in this paper) |

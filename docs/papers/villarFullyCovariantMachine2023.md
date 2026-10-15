@@ -94,19 +94,17 @@ the same problem as finding confounders in causal inference (§3, §7).
 
 ## Key equations and definitions
 
-Equivariance, the property the whole paper is about (§2, Eq. 1):
+Equivariance, the property the whole paper is about (§2, Eq. 1) (Eq. 1, §2):
 
 $$
 f\bigl(\rho_X(g)(x)\bigr) = \rho_Y(g)\bigl(f(x)\bigr)
-\qquad \text{(Eq. 1, §2)}
 $$
 
 with $G$ acting on $X$ and $Y$ through representations $\rho_X, \rho_Y$; invariance is the special case where
-the output action is trivial (§2). The actions induce an action on maps,
+the output action is trivial (§2). The actions induce an action on maps (§2, p. 4),
 
 $$
 \rho_{XY}(g)(f) = \rho_Y(g) \circ f \circ \rho_X(g)^{-1},
-\qquad \text{(§2, p. 4)}
 $$
 
 so that equivariant maps are the fixed points of this action.
@@ -122,9 +120,11 @@ Units covariance is illustrated by pure dimensional analysis (§4). Dropping a m
 constant gravity $g$, the only combination with units of time is
 
 $$
-T = \alpha\sqrt{h/g}, \qquad\text{and for a projectile launched at speed } v \text{ at angle } \theta:
-\qquad L = \beta(\theta)\,v^2/g,
-\qquad \text{(§4)}
+\begin{aligned}
+&T = \alpha\sqrt{h/g}, \\
+&\text{and for a projectile launched at speed } v \text{ at angle } \theta: \\
+&\quad L = \beta(\theta)\,v^2/g,
+\end{aligned}
 $$
 
 with dimensionless $\alpha$ and dimensionless function $\beta(\theta)$. Both answers are forced by units alone,
@@ -134,18 +134,16 @@ Planck's law, the target of the first experiment (Eq. 4, §6):
 
 $$
 B_\lambda(\lambda) = \frac{2hc^2}{\lambda^5}\left[\exp\!\left(\frac{hc}{\lambda k T}\right) - 1\right]^{-1}
-\qquad \text{(Eq. 4, §6)}
 $$
 
 The pre-quantum dimensionally acceptable candidate $B_\lambda(\lambda) = 2ckT/\lambda^4$ is the long-wavelength
 limit; the ultraviolet catastrophe is resolved by units covariance only once a new constant with units of action
 is admitted (§6).
 
-Naive feature normalization, the object of §10 (Eq. 5):
+Naive feature normalization, the object of §10 (Eq. 5) (Eq. 5, §10):
 
 $$
 X' \leftarrow \sigma^{-1}(X - \mu),
-\qquad \text{(Eq. 5, §10)}
 $$
 
 where $\sigma$ and $\mu$ are scales and shifts derived from the training features. Applied component-wise this

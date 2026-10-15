@@ -111,68 +111,68 @@ extracts poorly, so a few symbols (noted individually) are a faithful reading of
 rather than a clean render.
 
 $$
-T_v f(x) = f(x - v), \qquad x, v \in \Omega \qquad \text{(Eq. 2, §III)}
+T_v f(x) = f(x - v), \qquad x, v \in \Omega
 $$
 
-The translation operator; stationarity means $y$ commutes with it (invariance) or commutes with it
+The translation operator (Eq. 2, §III); stationarity means $y$ commutes with it (invariance) or commutes with it
 on the output side (equivariance).
 
 $$
-g^l(x) = \xi\!\left(\sum_{l'=1}^{p} (f^{l'} \ast \theta^{l,l'})(x)\right) \qquad \text{(Eq. 6, §III)}
+g^l(x) = \xi\!\left(\sum_{l'=1}^{p} (f^{l'} \ast \theta^{l,l'})(x)\right)
 $$
 
-A convolutional layer: a bank of filters $\theta^{l,l'}$ applied to a $p$-dimensional input, summed
+A convolutional layer (Eq. 6, §III): a bank of filters $\theta^{l,l'}$ applied to a $p$-dimensional input, summed
 and passed through a pointwise nonlinearity $\xi$, producing a $q$-dimensional feature map.
 
 $$
-(f \ast \theta)(x) = \int f(x - x')\, \theta(x')\, \mathrm{d}x' \qquad \text{(Eq. 7, §III)}
+(f \ast \theta)(x) = \int f(x - x')\, \theta(x')\, \mathrm{d}x'
 $$
 
-The standard convolution; it relies on the shift $x - x'$ that does not exist on a manifold or graph.
+The standard convolution (Eq. 7, §III); it relies on the shift $x - x'$ that does not exist on a manifold or graph.
 
 $$
-(\Delta f)_i = \frac{1}{a_i}\sum_{j:(i,j)\in E} w_{ij}\,(f_i - f_j) \qquad \text{(Eq. 25, §IV)}
+(\Delta f)_i = \frac{1}{a_i}\sum_{j:(i,j)\in E} w_{ij}\,(f_i - f_j)
 $$
 
-The graph Laplacian as $\Delta = \operatorname{div}\nabla$: the difference between a vertex value and
+The graph Laplacian as $\Delta = \operatorname{div}\nabla$ (Eq. 25, §IV): the difference between a vertex value and
 its weighted local average, $a_i$ a vertex weight and $w_{ij}$ the edge weight.
 
 $$
-L f = A^{-1}(D - W)\, f \qquad \text{(Eq. 26, §IV)}
+L f = A^{-1}(D - W)\, f
 $$
 
-Matrix form, with $W$ the edge-weight matrix, $A$ the diagonal vertex-weight matrix and
+Matrix form (Eq. 26, §IV), with $W$ the edge-weight matrix, $A$ the diagonal vertex-weight matrix and
 $D$ the degree matrix. $A = I$ gives the unnormalized Laplacian, $A = D$ the random-walk Laplacian.
 
 $$
-\Delta \phi_i = \lambda_i \phi_i, \qquad f(x) = \sum_{i \ge 0} \underbrace{\langle f, \phi_i \rangle_{L^2(X)}}_{\hat{f}_i}\, \phi_i(x) \qquad \text{(Eqs. 31–32, §IV)}
+\Delta \phi_i = \lambda_i \phi_i, \qquad f(x) = \sum_{i \ge 0} \underbrace{\langle f, \phi_i \rangle_{L^2(X)}}_{\hat{f}_i}\, \phi_i(x)
 $$
 
-The Laplacian eigendecomposition (orthonormal eigenfunctions, non-negative eigenvalues
-$0 = \lambda_0 \le \lambda_1 \le \dots$) and the induced Fourier series; the eigenbasis generalizes
+The Laplacian eigendecomposition (Eqs. 31–32, §IV): orthonormal eigenfunctions, non-negative eigenvalues
+$0 = \lambda_0 \le \lambda_1 \le \dots$, and the induced Fourier series; the eigenbasis generalizes
 the classical Fourier basis to a non-Euclidean domain.
 
 $$
-(f \ast g)(x) = \sum_{i \ge 0} \langle f, \phi_i \rangle_{L^2(X)}\, \langle g, \phi_i \rangle_{L^2(X)}\, \phi_i(x) \qquad \text{(Eq. 34, §IV)}
+(f \ast g)(x) = \sum_{i \ge 0} \langle f, \phi_i \rangle_{L^2(X)}\, \langle g, \phi_i \rangle_{L^2(X)}\, \phi_i(x)
 $$
 
-Convolution defined *by* the Convolution Theorem. Unlike the Euclidean case it is not
+Convolution defined *by* the Convolution Theorem (Eq. 34, §IV). Unlike the Euclidean case it is not
 shift-invariant: the spatial filter is position-dependent, and the operator matrix loses its
 circulant structure.
 
 $$
-g(\Lambda) = \sum_{j=0}^{r-1} \theta_j \Lambda^{j} \qquad \text{(Eq. 45, §VI)}
+g(\Lambda) = \sum_{j=0}^{r-1} \theta_j \Lambda^{j}
 $$
 
-A spectrum-free filter as a degree-$(r-1)$ polynomial of the Laplacian, with coefficient vector
+A spectrum-free filter (Eq. 45, §VI): a degree-$(r-1)$ polynomial of the Laplacian, with coefficient vector
 $\theta$. Because $\Lambda$ is local, $g(\Lambda)$ acts within $r$ hops of each vertex, so filters
 are localized by construction.
 
 $$
-D_j(x) f = \int_X f(x')\, v_j(x, x')\, \mathrm{d}x', \qquad (f \ast g)(x) = \sum_j g_j\, D_j(x) f \qquad \text{(Eqs. 52–53, §VII)}
+D_j(x) f = \int_X f(x')\, v_j(x, x')\, \mathrm{d}x', \qquad (f \ast g)(x) = \sum_j g_j\, D_j(x) f
 $$
 
-The spatial/charting convolution: an intrinsic patch operator built from weighting functions
+The spatial/charting convolution (Eqs. 52–53, §VII): an intrinsic patch operator built from weighting functions
 $v_1,\dots,v_J$ localized near $x$, then a learned template $g$ applied to the extracted patch.
 
 | Symbol | Meaning (in this paper) |

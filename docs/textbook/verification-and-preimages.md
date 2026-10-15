@@ -3,12 +3,12 @@ chapter: verification-and-preimages
 title: Exact enumeration, preimages and verification
 outline_hash: b9845b5556b8
 built_from:
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
 ---
 
 # Exact enumeration, preimages and verification
@@ -80,7 +80,10 @@ The reported numbers bear this out. On the ACAS Xu advisory networks — five in
 Enumeration of the region complex is one exact algorithm; a completely different one encodes the network as a mixed-integer linear program. When the input $x$ is bounded and polyhedral — a box, as when every pixel lies in $[0,1]$ — each ReLU can be written with a continuous complementary variable $\bar h^l_i=\max\{0,-W^l_i h^{l-1}-b^l_i\}$ and a binary activation variable $z^l_i$ [@serraBoundingCountingLinear2018, §5, p. 7]. The big-$M$ disjunction
 
 $$
-W^l_i h^{l-1}+b^l_i=h^l_i-\bar h^l_i,\quad h^l_i\le M z^l_i,\quad \bar h^l_i\le M(1-z^l_i),\quad h^l_i,\bar h^l_i\ge0,\quad z^l_i\in\{0,1\}
+\begin{aligned}
+W^l_i h^{l-1}+b^l_i &= h^l_i-\bar h^l_i,\quad h^l_i\le M z^l_i,\quad \bar h^l_i\le M(1-z^l_i), \\
+&\quad h^l_i,\bar h^l_i\ge0,\quad z^l_i\in\{0,1\}
+\end{aligned}
 $$
 
 reproduces the ReLU exactly whenever $|W^l_i h^{l-1}+b^l_i|\le M$ for every reachable $h^{l-1}$; Theorem 11 states that a feasible solution with $x$ fixed then yields the network's output $y$ [@serraBoundingCountingLinear2018, §5, Eqs. (1)–(6) and Thm. 11, p. 7]. Counting *regions* rather than evaluating *one* input needs the complementary programme (P), which maximises the minimum output of an active unit so that neurons lying exactly on an activation boundary are not double-counted [@serraBoundingCountingLinear2018, §5, p. 7]. With the network so encoded, all integer solutions of (P) are enumerated by the one-tree approach, which resumes the branch-and-bound search after an optimum has been found [@serraBoundingCountingLinear2018, §5, p. 7].

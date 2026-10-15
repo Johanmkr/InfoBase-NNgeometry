@@ -3,7 +3,7 @@ chapter: metric-flows
 title: Metric flows with neural networks
 outline_hash: 9bbc03481229
 built_from:
-  halversonMetricFlowsNeural2024: 699fded4f825
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
 ---
 
 # Metric flows with neural networks
@@ -25,10 +25,10 @@ The chapter follows [@halversonMetricFlowsNeural2024] closely. Section "Metrics 
 
 Let $X$ be a Riemannian manifold with metric $g=(g_{ij})$ in local coordinates $x^i$, and let the components $g_{ij}(x)$ be computed by a deep network with parameters $\theta^I$, $I=1,\dots,N$ [@halversonMetricFlowsNeural2024, §2.1, p. 5]. Throughout the paper lower-case Latin indices label coordinates of $X$ and capital Latin indices label network parameters, and Einstein summation over repeated indices is implied unless stated otherwise [@halversonMetricFlowsNeural2024, §2.1, p. 5].
 
-Since $g$ is a function of $\theta$ and nothing else, the metric changes only when the parameters do, and the chain rule gives the flow
+Since $g$ is a function of $\theta$ and nothing else, the metric changes only when the parameters do, and the chain rule gives the flow (Eq. 2.1):
 
 $$
-\frac{dg_{ij}(x)}{dt} = \frac{\partial g_{ij}(x)}{\partial\theta^I}\,\frac{d\theta^I}{dt}. \qquad \text{(Eq. 2.1)}
+\frac{dg_{ij}(x)}{dt} = \frac{\partial g_{ij}(x)}{\partial\theta^I}\,\frac{d\theta^I}{dt}.
 $$
 
 Training the network means choosing a nonzero $d\theta^I/dt$, so training *is* a metric flow [@halversonMetricFlowsNeural2024, §2.1, p. 5]. The paper restricts to gradient descent, $d\theta^I/dt = -\partial L[g]/\partial\theta^I$, for a scalar loss functional $L$ that depends on the metric [@halversonMetricFlowsNeural2024, §2.1, pp. 5–6, Eq. 2.2]. The loss is either a finite batch sum $L[g]=\sum_{x'\in B} l(x')$ or a continuous integral $L[g]=\int_X d\mu(x')\,l(x')$ against a chosen measure on $X$ [@halversonMetricFlowsNeural2024, §2.1, p. 6, Eqs. 2.3–2.4]. The measure is typically the volume form of a fixed reference metric $\tilde g$, so that there is a background geometry against which the moving metric is measured [@halversonMetricFlowsNeural2024, §2.1, p. 6].
@@ -36,23 +36,23 @@ Training the network means choosing a nonzero $d\theta^I/dt$, so training *is* a
 Writing the loss as a batch sum and applying the chain rule once more, one factor of $\partial g/\partial\theta$ stays outside the sum and the other pulls inside. The result is the general metric flow
 
 $$
-\frac{dg_{ij}(x)}{dt} = -\sum_{x'\in B} \Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')} \qquad \text{(Eq. 2.5, p. 6)}
+\frac{dg_{ij}(x)}{dt} = -\sum_{x'\in B} \Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')}
 $$
 
-for the discrete case, and
+for the discrete case (Eq. 2.5, p. 6), and
 
 $$
-\frac{dg_{ij}(x)}{dt} = -\int_X d\mu(x')\,\Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')} \qquad \text{(Eq. 2.8, p. 6)}
+\frac{dg_{ij}(x)}{dt} = -\int_X d\mu(x')\,\Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')}
 $$
 
-for the continuous one. The distinction matters: the discrete sum updates the metric only at the batch points, while the integral smears the update over all of $X$ — a difference that returns as a genuine pathology when locality is imposed later [@halversonMetricFlowsNeural2024, §2.3, p. 9].
+for the continuous one (Eq. 2.8, p. 6). The distinction matters: the discrete sum updates the metric only at the batch points, while the integral smears the update over all of $X$ — a difference that returns as a genuine pathology when locality is imposed later [@halversonMetricFlowsNeural2024, §2.3, p. 9].
 
 ## The metric neural tangent kernel
 
-The distinguished object appearing in both flow equations is
+The distinguished object appearing in both flow equations (Eq. 2.7, p. 6) is
 
 $$
-\Theta_{ijkl}(x,x') := \frac{\partial g_{ij}(x)}{\partial\theta^I}\,\frac{\partial g_{kl}(x')}{\partial\theta^I}, \qquad \text{(Eq. 2.7, p. 6)}
+\Theta_{ijkl}(x,x') := \frac{\partial g_{ij}(x)}{\partial\theta^I}\,\frac{\partial g_{kl}(x')}{\partial\theta^I},
 $$
 
 the *metric neural tangent kernel* (metric-NTK), symmetric in the first and the last pair of indices [@halversonMetricFlowsNeural2024, §2.1, p. 6]. It is the ordinary neural tangent kernel of the collection, but with one copy of the Jacobian at the external point $x$ and one at the integrated point $x'$.
@@ -70,18 +70,18 @@ In the continuous case the flow is thus an integral-differential equation that i
 
 ## Infinite-width metric flows
 
-The first simplification is the large-width limit. For an appropriately chosen and normalised architecture, the metric-NTK becomes, by the law of large numbers, an expectation over the parameter distribution,
+The first simplification is the large-width limit. For an appropriately chosen and normalised architecture, the metric-NTK becomes, by the law of large numbers, an expectation over the parameter distribution (Eq. 2.9, p. 7),
 
 $$
-\lim_{N\to\infty}\Theta_{ijkl}(x,x') = \E_\theta\!\left[\alpha_{ijkl}(x,x')\right] =: \bar\Theta_{ijkl}(x,x'), \qquad \text{(Eq. 2.9, p. 7)}
+\lim_{N\to\infty}\Theta_{ijkl}(x,x') = \E_\theta\!\left[\alpha_{ijkl}(x,x')\right] =: \bar\Theta_{ijkl}(x,x'),
 $$
 
 which is deterministic and depends only on the architecture and the parameter distribution, not on the particular initialisation [@halversonMetricFlowsNeural2024, §2.2, p. 7]. The second simplification is linearisation in the parameters: Taylor-expanding $g$ about the initial parameters $\theta_0$ and truncating at linear order gives a model whose metric-NTK is $\Theta$ evaluated at initialisation [@halversonMetricFlowsNeural2024, §2.2, p. 7, Eqs. 2.10–2.11]. That kernel still does not depend on $t$ even though $\Theta$ does, and its $N\to\infty$ limit is both $t$- and $\theta$-independent — the *frozen* NTK, written with a bar [@halversonMetricFlowsNeural2024, §2.2, p. 7].
 
-The justification for taking this truncation seriously is the *lazy-learning* result: deep networks in the $N\to\infty$ limit evolve as linear models under gradient descent, so the frozen kernel governs the dynamics to controllable accuracy [@halversonMetricFlowsNeural2024, §2.2, p. 8]. Substituting $\bar\Theta$ into the general flow gives
+The justification for taking this truncation seriously is the *lazy-learning* result: deep networks in the $N\to\infty$ limit evolve as linear models under gradient descent, so the frozen kernel governs the dynamics to controllable accuracy [@halversonMetricFlowsNeural2024, §2.2, p. 8]. Substituting $\bar\Theta$ into the general flow gives (Eq. 2.12, p. 8):
 
 $$
-\frac{dg_{ij}(x)}{dt} = -\sum_{x'\in B}\bar\Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')}, \qquad \text{(Eq. 2.12, p. 8)}
+\frac{dg_{ij}(x)}{dt} = -\sum_{x'\in B}\bar\Theta_{ijkl}(x,x')\,\frac{\delta l(x')}{\delta g_{kl}(x')},
 $$
 
 and likewise for the integral form, with the only change that the deterministic, time-independent $\bar\Theta$ replaces the stochastic, time-dependent $\Theta$ [@halversonMetricFlowsNeural2024, §2.2, p. 8]. The paper calls this an *infinite neural network metric flow*. The kernel is frozen, but the flow is still non-local and still mixes components [@halversonMetricFlowsNeural2024, §2.2, p. 8].
@@ -90,48 +90,48 @@ The apparent paradox — one cannot put an infinite network on a computer — is
 
 ## Local metric flows
 
-The second simplification removes non-locality and component mixing. A frozen metric-NTK is called *local* when it collapses onto the diagonal,
+The second simplification removes non-locality and component mixing. A frozen metric-NTK is called *local* when it collapses onto the diagonal (Eq. 2.13, p. 9),
 
 $$
-\bar\Theta_{ijkl}(x,x') = \delta(x-x')\,\delta_{ik}\delta_{jl}\,\bar\Omega(x) \qquad \text{(Eq. 2.13, p. 9)}
+\bar\Theta_{ijkl}(x,x') = \delta(x-x')\,\delta_{ik}\delta_{jl}\,\bar\Omega(x)
 $$
 
-for a deterministic function $\bar\Omega(x)$, in which case the flow becomes the local gradient flow
+for a deterministic function $\bar\Omega(x)$, in which case the flow becomes the local gradient flow (Eq. 2.14, p. 9):
 
 $$
-\frac{dg_{ij}(x)}{dt} = -\bar\Omega(x)\,\frac{\delta l(x)}{\delta g_{ij}(x)}. \qquad \text{(Eq. 2.14, p. 9)}
+\frac{dg_{ij}(x)}{dt} = -\bar\Omega(x)\,\frac{\delta l(x)}{\delta g_{ij}(x)}.
 $$
 
 Here $\delta(x-x')$ is the Dirac delta with respect to the chosen measure and $\delta_{ik}\delta_{jl}$ is a Kronecker delta [@halversonMetricFlowsNeural2024, §2.3, p. 9]. The paper immediately flags a pathology: enforcing Kronecker deltas in the discrete case means only the batch points are ever updated, so no point outside the training set learns anything [@halversonMetricFlowsNeural2024, §2.3, p. 9]. A non-local kernel is therefore essential for the metric to update anywhere, and the local case is meaningful only for continuous flows [@halversonMetricFlowsNeural2024, §2.3, p. 9].
 
 Component mixing is removed architecturally. If each independent component $g_{ij}(x)$ is a separate network with its own parameters $\theta^{ij}$, the parameter set partitions as $\theta=\bigcup_{i,j}\theta^{ij}$ and the metric-NTK factorises as $\bar\Theta_{ijkl}(x,x')=\delta_{ik}\delta_{jl}\bar\Theta(x,x')$ once the per-component networks share an architecture [@halversonMetricFlowsNeural2024, §2.3.1, pp. 10–11, Eqs. 2.19–2.23]. Locality is harder: one needs an architecture whose component kernel is $\bar\Theta(x,x')=\delta(x-x')\bar\Omega(x)$ [@halversonMetricFlowsNeural2024, §2.3.1, p. 11, Eq. 2.24].
 
-Two ingredients deliver it [@halversonMetricFlowsNeural2024, §2.3.1, pp. 11–12]. The first is a Gaussian-suppressed kernel. If a network $\phi_\sigma$ has frozen NTK
+Two ingredients deliver it [@halversonMetricFlowsNeural2024, §2.3.1, pp. 11–12]. The first is a Gaussian-suppressed kernel. If a network $\phi_\sigma$ has frozen NTK (Eq. 2.27, p. 11):
 
 $$
-\bar\Theta_\sigma(x,x') = \frac{1}{(2\pi\sigma^2)^{d/2}}\exp\!\left(-\frac{1}{2\sigma^2}|x-x'|^2\right)\bar\alpha(x,x') \qquad \text{(Eq. 2.27, p. 11)}
+\bar\Theta_\sigma(x,x') = \frac{1}{(2\pi\sigma^2)^{d/2}}\exp\!\left(-\frac{1}{2\sigma^2}|x-x'|^2\right)\bar\alpha(x,x')
 $$
 
 for some deterministic $\bar\alpha$, then the normalised Gaussian becomes the $d$-dimensional delta function $\delta_{\mathbb{R}^d}$ as $\sigma\to0$ [@halversonMetricFlowsNeural2024, §2.3.1, pp. 11–12]. The paper is explicit that this semi-locality is an *assumption*, not a general consequence, made to push towards local flows [@halversonMetricFlowsNeural2024, §2.3.1, p. 12].
 
-The second ingredient is a rescaling trick. Multiplying a network function by a deterministic $h(x)$ leaves the parameters unchanged and multiplies its NTK by $h(x)h(x')$,
+The second ingredient is a rescaling trick. Multiplying a network function by a deterministic $h(x)$ leaves the parameters unchanged and multiplies its NTK by $h(x)h(x')$ (Eq. 2.16, p. 9),
 
 $$
-\Theta_{\tilde\phi}(x,x') = h(x)h(x')\,\Theta_\phi(x,x'), \qquad \text{(Eq. 2.16, p. 9)}
+\Theta_{\tilde\phi}(x,x') = h(x)h(x')\,\Theta_\phi(x,x'),
 $$
 
 so with the choice $h=\tilde g^{-1/4}$ one cancels the metric determinant in the volume measure, converting the flat delta function into the delta function with respect to the Riemannian volume form [@halversonMetricFlowsNeural2024, §2.3.1, pp. 11–12, Eqs. 2.15–2.18, 2.25–2.28]. The resulting kernel satisfies $\lim_{\sigma\to0}\bar\Theta_\sigma(x,x')=\delta(x-x')\bar\Omega(x)$, i.e. the locality condition (2.13), with the parameter $\sigma$ measuring the amount of non-locality remaining [@halversonMetricFlowsNeural2024, §2.3.1, p. 12, Eq. 2.29]. At finite $\sigma$ the flow is a controlled non-local generalisation in which nearby points influence the update at $x$ [@halversonMetricFlowsNeural2024, §2.3.1, p. 12, Eq. 2.30].
 
-A concrete architecture realising Eq. (2.27) is a cosine-activation network,
+A concrete architecture realising Eq. (2.27) is a cosine-activation network (Eq. 2.32, p. 13),
 
 $$
-\phi(x) = \frac{A}{\sqrt N}\sum_{i=1}^N a_i\cos\!\Big(\sum_{j=1}^d w_{ij}x^j + b_i\Big), \qquad \text{(Eq. 2.32, p. 13)}
+\phi(x) = \frac{A}{\sqrt N}\sum_{i=1}^N a_i\cos\!\Big(\sum_{j=1}^d w_{ij}x^j + b_i\Big),
 $$
 
-with $a\sim\mathcal{N}(0,\sigma_a^2)$, $w\sim\mathcal{N}(0,\sigma_w^2/d)$ and $b\sim U(-\pi,\pi)$, in which only the final-layer coefficients $a_i$ are trained [@halversonMetricFlowsNeural2024, §2.3.2, p. 13]. Its $N\to\infty$ NTK is a Gaussian,
+with $a\sim\mathcal{N}(0,\sigma_a^2)$, $w\sim\mathcal{N}(0,\sigma_w^2/d)$ and $b\sim U(-\pi,\pi)$, in which only the final-layer coefficients $a_i$ are trained [@halversonMetricFlowsNeural2024, §2.3.2, p. 13]. Its $N\to\infty$ NTK is a Gaussian (Eq. 2.35, p. 13),
 
 $$
-\bar\Theta(x,x') = \frac{A^2}{2}\exp\!\left(-\frac{1}{2}\frac{\sigma_w^2}{d}|x-x'|^2\right), \qquad \text{(Eq. 2.35, p. 13)}
+\bar\Theta(x,x') = \frac{A^2}{2}\exp\!\left(-\frac{1}{2}\frac{\sigma_w^2}{d}|x-x'|^2\right),
 $$
 
 which after fixing the normalisation $A$ is a normalised Gaussian of width $\sigma=\sqrt d/\sigma_w$, so the limit $\sigma_w\to\infty$ gives $\sigma\to0$ and a local metric flow [@halversonMetricFlowsNeural2024, §2.3.2, pp. 13–14, Eqs. 2.36–2.37]. The authors note that this is a modification, via NTK parameterisation, of an architecture known to have a Gaussian NNGP kernel, and that the Gauss-net architecture of an earlier paper has a Gaussian NNGP kernel that can be repurposed similarly [@halversonMetricFlowsNeural2024, §2.3.2, p. 14].
@@ -141,22 +141,22 @@ which after fixing the normalisation $A$ is a normalised Gaussian of width $\sig
 
 ## Ricci flow as a neural network metric flow
 
-With a local metric flow in hand, one can ask which classical flows are expressible in it. Many well-studied metric flows are local in the sense that they take the form $dg_{ij}/dt = -u_{ij}(x)$ for a rank-two symmetric tensor $u_{ij}$ built from local data, and Ricci flow,
+With a local metric flow in hand, one can ask which classical flows are expressible in it. Many well-studied metric flows are local in the sense that they take the form $dg_{ij}/dt = -u_{ij}(x)$ for a rank-two symmetric tensor $u_{ij}$ built from local data, and Ricci flow (Eq. 2.39, p. 14),
 
 $$
-\frac{dg_{ij}(x)}{dt} = -2R_{ij}(x), \qquad \text{(Eq. 2.39, p. 14)}
+\frac{dg_{ij}(x)}{dt} = -2R_{ij}(x),
 $$
 
-is the leading example, with $R_{ij}$ the Ricci tensor [@halversonMetricFlowsNeural2024, §2.4, p. 14]. Such a flow need not be a gradient flow, but Perelman showed that Ricci flow *is* one after a time-dependent diffeomorphism: with the Perelman functional
+is the leading example, with $R_{ij}$ the Ricci tensor [@halversonMetricFlowsNeural2024, §2.4, p. 14]. Such a flow need not be a gradient flow, but Perelman showed that Ricci flow *is* one after a time-dependent diffeomorphism: with the Perelman functional (Eq. 2.41, p. 15):
 
 $$
-F[\phi,g] = \int_X \left(R + |\nabla\phi|^2\right)e^{-\phi}\,dV, \qquad \text{(Eq. 2.41, p. 15)}
+F[\phi,g] = \int_X \left(R + |\nabla\phi|^2\right)e^{-\phi}\,dV,
 $$
 
-and a scalar dilaton $\phi$, one has
+and a scalar dilaton $\phi$, one has (Eq. 2.40, p. 14):
 
 $$
-\frac{dg_{ij}}{dt} = \frac{\delta F[\phi,g]}{\delta g_{ij}(x)} = -2\left[R_{ij} + \nabla_i\nabla_j\phi\right], \qquad \text{(Eq. 2.40, p. 14)}
+\frac{dg_{ij}}{dt} = \frac{\delta F[\phi,g]}{\delta g_{ij}(x)} = -2\left[R_{ij} + \nabla_i\nabla_j\phi\right],
 $$
 
 which equals Eq. (2.39) up to that diffeomorphism [@halversonMetricFlowsNeural2024, §2.4, pp. 14–15]. Since a local metric flow is a local gradient flow, and $l(x)=-F[\phi,g]/\bar\Omega(x)$ is a legal choice of loss, Perelman's formulation of Ricci flow is realised as a neural network metric flow [@halversonMetricFlowsNeural2024, §2.4, p. 15, Eq. 2.42]. Backing off the $\sigma\to0$ limit replaces the delta function by a Gaussian and yields a parametrically non-local generalisation of Ricci flow, controlled by $\sigma$ [@halversonMetricFlowsNeural2024, §2.4, p. 15]. The same construction works for any local metric flow that is a gradient flow, by a suitable choice of loss [@halversonMetricFlowsNeural2024, §2.4, p. 15].
@@ -174,38 +174,38 @@ flowchart TB
 
 ## Kähler flows and what the flow preserves
 
-For Calabi–Yau applications the relevant metrics carry extra structure, and the flow must respect it. On a compact Kähler manifold the metric is the second derivative of a real Kähler potential, $g_{a\bar b}=\partial_a\partial_{\bar b}K$, subject to positive-definiteness [@halversonMetricFlowsNeural2024, App. B, p. 28, Eq. B.1], and the associated Kähler form is $J=\frac{i}{2}g_{a\bar b}\,dz^a\wedge d\bar z^{\bar b}$ [@halversonMetricFlowsNeural2024, App. B, p. 28, Eq. B.2]. The Ricci tensor then takes the particularly simple form $R_{a\bar b}=-\partial_a\partial_{\bar b}\ln g$ with $g=\det(g_{a\bar b})$, and Hamilton's Ricci flow becomes
+For Calabi–Yau applications the relevant metrics carry extra structure, and the flow must respect it. On a compact Kähler manifold the metric is the second derivative of a real Kähler potential, $g_{a\bar b}=\partial_a\partial_{\bar b}K$, subject to positive-definiteness [@halversonMetricFlowsNeural2024, App. B, p. 28, Eq. B.1], and the associated Kähler form is $J=\frac{i}{2}g_{a\bar b}\,dz^a\wedge d\bar z^{\bar b}$ [@halversonMetricFlowsNeural2024, App. B, p. 28, Eq. B.2]. The Ricci tensor then takes the particularly simple form $R_{a\bar b}=-\partial_a\partial_{\bar b}\ln g$ with $g=\det(g_{a\bar b})$, and Hamilton's Ricci flow becomes (Eq. B.4, p. 29):
 
 $$
-\frac{dg_{a\bar b}}{dt} = \partial_a\partial_{\bar b}\ln g. \qquad \text{(Eq. B.4, p. 29)}
+\frac{dg_{a\bar b}}{dt} = \partial_a\partial_{\bar b}\ln g.
 $$
 
 This is the decisive structural point: the metric update for the Kähler–Ricci flow is both $\partial$- and $\bar\partial$-exact, and therefore the *Kähler class is fixed* along the flow [@halversonMetricFlowsNeural2024, App. B, p. 29]. That is what the flow preserves in this setting — it moves the metric within a fixed cohomology class rather than changing the class.
 
 Because the class is fixed, the whole flow can be written on the level of a Kähler-potential correction $\varphi$, with $g_{a\bar b}(t)=g_{0,a\bar b}+\frac{i}{2\pi}\partial_a\partial_{\bar b}\varphi(t)$ for a reference metric $g_{0}$ in the chosen class [@halversonMetricFlowsNeural2024, App. B, p. 29, Eqs. B.5–B.6]. The problem of finding a Ricci-flat metric then becomes a parabolic Monge–Ampère-type equation in $\varphi$ — the equation Yau used to prove Calabi's conjecture [@halversonMetricFlowsNeural2024, App. B, p. 29]. Several energy functionals play the role of $F$ here: the Mabuchi energy functional, the $J$-functional and the Calabi functional, with the Calabi functional being the square of the derivative of the $J$-functional [@halversonMetricFlowsNeural2024, App. B, pp. 29–30]. The Calabi functional $E_{\text{Calabi}}=\int_X R^2 J^n$ drives a flow ending on constant-scalar-curvature metrics, which for a Calabi–Yau manifold are exactly the Ricci-flat ones because the vanishing of the first Chern class forces $R_{a\bar b}=0$ [@halversonMetricFlowsNeural2024, App. B, pp. 29–30, Eqs. B.7–B.9].
 
-The construction also covers the ultra-local functionals $E_{\text{ultra}}=\int_X F(\eta)\,\mu_{\text{CY}}$ for any differentiable, convex $F$ bounded below, whose variation forces $F'(\eta)$ to be constant [@halversonMetricFlowsNeural2024, App. B, p. 30, Eqs. B.12–B.13]. Here $\eta = J^n/(\kappa|\Omega|^2)$ measures the deviation of the metric from Ricci-flatness, with $\Omega$ the nowhere-vanishing holomorphic top form and $\kappa$ a normalisation constant [@halversonMetricFlowsNeural2024, App. B, p. 30, Eqs. B.10–B.11]. The corresponding *sigma loss* is
+The construction also covers the ultra-local functionals $E_{\text{ultra}}=\int_X F(\eta)\,\mu_{\text{CY}}$ for any differentiable, convex $F$ bounded below, whose variation forces $F'(\eta)$ to be constant [@halversonMetricFlowsNeural2024, App. B, p. 30, Eqs. B.12–B.13]. Here $\eta = J^n/(\kappa|\Omega|^2)$ measures the deviation of the metric from Ricci-flatness, with $\Omega$ the nowhere-vanishing holomorphic top form and $\kappa$ a normalisation constant [@halversonMetricFlowsNeural2024, App. B, p. 30, Eqs. B.10–B.11]. The corresponding *sigma loss* (Eq. B.11, p. 30) is
 
 $$
-\sigma := |1-\eta|, \qquad \eta = \frac{J^n}{\kappa|\Omega|^2}, \qquad \text{(Eq. B.11, p. 30)}
+\sigma := |1-\eta|, \qquad \eta = \frac{J^n}{\kappa|\Omega|^2},
 $$
 
 which vanishes exactly on a Calabi–Yau metric (where $\eta=1$) and is the loss used in all the numerical experiments [@halversonMetricFlowsNeural2024, App. B, p. 30]. With the choice $F(\eta)=(\eta-1)^2$ the gradient flow is $d\varphi/dt=-2(\eta-1)$, a simple ultra-local flow that ends on the Calabi–Yau metric [@halversonMetricFlowsNeural2024, App. B, p. 32, Eqs. B.14, B.21]; the two-derivative functional $\int \mu_{\text{CY}}\,g^{a\bar b}\partial_a\eta\,\partial_{\bar b}\eta$ instead reproduces the Einstein–Hilbert action up to a factor, and is identically zero on a Calabi–Yau metric [@halversonMetricFlowsNeural2024, App. B, pp. 30–31, Eqs. B.15–B.17]. The paper notes two symbol clashes that a reader of the appendix must keep apart: the Kähler-potential correction $\varphi$ is not the dilaton $\phi$, the holomorphic top form $\Omega$ is unrelated to the $\bar\Omega$ of the metric-NTK, and the loss $\sigma$ is unrelated to any Gaussian width [@halversonMetricFlowsNeural2024, App. B, p. 29].
 
 ## Discretisation and numerical Calabi–Yau metric learning
 
-The continuous flow is realised in practice by a first-order backward-Euler step,
+The continuous flow is realised in practice by a first-order backward-Euler step (Eq. 3.5, p. 19),
 
 $$
-g^{(n+1)}_{ij}(x) = g^{(n)}_{ij}(x) - \Delta t\sum_{x'\in B}\Theta_{ijkl}(x,x')\,\frac{\delta\ell(x')}{\delta g^{(n)}_{kl}}, \qquad \text{(Eq. 3.5, p. 19)}
+g^{(n+1)}_{ij}(x) = g^{(n)}_{ij}(x) - \Delta t\sum_{x'\in B}\Theta_{ijkl}(x,x')\,\frac{\delta\ell(x')}{\delta g^{(n)}_{kl}},
 $$
 
 with the step size $\Delta t$ treated as a hyperparameter [@halversonMetricFlowsNeural2024, §3.2, p. 19]. This is exactly the discretised version of Eq. (2.8); feature learning corresponds to the kernel $\Theta$ carrying a time index, as in the original Eq. (2.5).
 
-The benchmark is the Fermat Quintic, the Calabi–Yau threefold $z_0^5+z_1^5+z_2^5+z_3^5+z_4^5=0$ inside $\mathbb{P}^4$ [@halversonMetricFlowsNeural2024, §3, p. 15, Eq. 3.1]. The baseline is a simple finite network — three layers, 64 nodes, ReLU activation, trained for around 50 epochs on 100k points — which gains a factor of 10–100 in overall validation loss [@halversonMetricFlowsNeural2024, §3, p. 15]. The kernel experiments use three kernels: the infinite-width ReLU NTK (via the `neural-tangents` package), a Gaussian kernel
+The benchmark is the Fermat Quintic, the Calabi–Yau threefold $z_0^5+z_1^5+z_2^5+z_3^5+z_4^5=0$ inside $\mathbb{P}^4$ [@halversonMetricFlowsNeural2024, §3, p. 15, Eq. 3.1]. The baseline is a simple finite network — three layers, 64 nodes, ReLU activation, trained for around 50 epochs on 100k points — which gains a factor of 10–100 in overall validation loss [@halversonMetricFlowsNeural2024, §3, p. 15]. The kernel experiments use three kernels: the infinite-width ReLU NTK (via the `neural-tangents` package), a Gaussian kernel (Eq. 3.6, p. 20):
 
 $$
-\Theta_{ijkl}(x,x') = \delta_{ik}\delta_{jl}\,e^{-d(x,x')/2\sigma}, \qquad \text{(Eq. 3.6, p. 20)}
+\Theta_{ijkl}(x,x') = \delta_{ik}\delta_{jl}\,e^{-d(x,x')/2\sigma},
 $$
 
 with $d(x,x')$ the shortest geodesic distance in the ambient Fubini–Study metric and $\sigma$ a hyperparameter, and a "Delta" nearest-neighbour kernel that copies the correction from the closest training point [@halversonMetricFlowsNeural2024, §3.2, pp. 19–20]. Hyperparameters are tuned by Bayesian optimisation, and crucially each optimisation run uses fresh points, because otherwise the optimiser tunes to a particular point set and performs poorly on new data [@halversonMetricFlowsNeural2024, §3.2, p. 19]. (The text layer of Eq. (3.6) is ambiguous between $e^{-d/2\sigma}$ and $e^{-d^2/2\sigma^2}$; the summary flags this.)
@@ -259,14 +259,22 @@ The paper is careful to frame the inference as an attribution rather than a cont
 
 ??? success "Solution"
     The chain rule on the loss gives $\partial L/\partial\theta^I = \sum_{x'\in B}\big(\partial l(x')/\partial g_{kl}(x')\big)\,\partial g_{kl}(x')/\partial\theta^I$, since $l$ depends on $\theta$ only through the metric [@halversonMetricFlowsNeural2024, §2.1, p. 6]. Substituting into the parameter update and then into the flow equation,
-    $$\frac{dg_{ij}(x)}{dt} = -\frac{\partial g_{ij}(x)}{\partial\theta^I}\sum_{x'\in B}\frac{\partial g_{kl}(x')}{\partial\theta^I}\frac{\delta l(x')}{\delta g_{kl}(x')} = -\sum_{x'\in B}\Theta_{ijkl}(x,x')\frac{\delta l(x')}{\delta g_{kl}(x')},$$
+
+    $$
+    \frac{dg_{ij}(x)}{dt} = -\frac{\partial g_{ij}(x)}{\partial\theta^I}\sum_{x'\in B}\frac{\partial g_{kl}(x')}{\partial\theta^I}\frac{\delta l(x')}{\delta g_{kl}(x')} = -\sum_{x'\in B}\Theta_{ijkl}(x,x')\frac{\delta l(x')}{\delta g_{kl}(x')},
+    $$
+
     using the definition of the metric-NTK in Eq. (2.7) [@halversonMetricFlowsNeural2024, §2.1, p. 6]. The continuous version replaces the sum by $\int_X d\mu(x')$ [@halversonMetricFlowsNeural2024, §2.1, p. 6].
 
 **Exercise 4** ★★ (derive). Show that multiplying a network function by a deterministic $h(x)$ multiplies its NTK by $h(x)h(x')$, and explain how choosing $h=\tilde g^{-1/4}$ combines with a Gaussian kernel to produce a local flow.
 
 ??? success "Solution"
     If $\tilde\phi(x)=h(x)\phi(x)$, then $\partial\tilde\phi(x)/\partial\theta^I = h(x)\,\partial\phi(x)/\partial\theta^I$ because $h$ carries no parameters, so
-    $$\Theta_{\tilde\phi}(x,x')=\frac{\partial\tilde\phi(x)}{\partial\theta^I}\frac{\partial\tilde\phi(x')}{\partial\theta^I}=h(x)h(x')\,\Theta_\phi(x,x'),$$
+
+    $$
+    \Theta_{\tilde\phi}(x,x')=\frac{\partial\tilde\phi(x)}{\partial\theta^I}\frac{\partial\tilde\phi(x')}{\partial\theta^I}=h(x)h(x')\,\Theta_\phi(x,x'),
+    $$
+
     which is Eq. (2.16) [@halversonMetricFlowsNeural2024, §2.3.1, p. 9]. For a Gaussian kernel Eq. (2.27), the delta function $\delta(x-x')$ imposes $x=x'$, so the two factors become $h(x)^2$; with $h=\tilde g^{-1/4}$ this contributes $\tilde g(x)^{-1/2}$, which combines with the $\sqrt{\tilde g}$ factor relating the flat delta $\delta_{\mathbb{R}^d}$ to the Riemannian one to give the delta function with respect to the volume measure and hence a local flow [@halversonMetricFlowsNeural2024, §2.3.1, pp. 11–12, Eqs. 2.25–2.29].
 
 **Exercise 5** ★★ (compare). The paper argues that Perelman's Ricci flow is a *non-generic corner* of the space of neural network metric flows. List the assumptions needed to reach it, and say which empirical result the paper uses to argue that leaving them behind helps.

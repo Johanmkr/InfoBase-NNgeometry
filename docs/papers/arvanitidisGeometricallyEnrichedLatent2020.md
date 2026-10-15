@@ -54,50 +54,53 @@ For **deterministic generators** (AE, GAN), the second term of Eq. 7 vanishes an
 
 ## Key equations and definitions
 
-Pull-back metric induced by the generator (Eq. 3, §2.1, p. 3); $J_g(z) \in \R^{D \times d_Z}$ spans $T_{g(z)}\mathcal{M}_Z$:
+Pull-back metric induced by the generator (Eq. 3, §2.1, p. 3); $J_g(z) \in \R^{D \times d_Z}$ spans $T_{g(z)}\mathcal{M}_Z$ (Eq. 3):
 
 $$
-\langle v_x, v_x \rangle_x = \langle v_z, J_g(z)^\top M_X(g(z)) J_g(z)\, v_z \rangle = \langle v_z, M(z) v_z \rangle \qquad \text{(Eq. 3)}
+\langle v_x, v_x \rangle_x = \langle v_z, J_g(z)^\top M_X(g(z)) J_g(z)\, v_z \rangle = \langle v_z, M(z) v_z \rangle
 $$
 
-Curve length under a metric $M(c(t))$; its minimizers are geodesics (Eq. 2, §2):
+Curve length under a metric $M(c(t))$; its minimizers are geodesics (Eq. 2, §2) (Eq. 2):
 
 $$
-\mathrm{length}[\gamma(t)] = \int_0^1 \sqrt{\langle \dot\gamma(t), \dot\gamma(t) \rangle_{\gamma(t)}}\,\mathrm{d}t = \int_0^1 \sqrt{\langle \dot c(t), M(c(t)) \dot c(t) \rangle}\,\mathrm{d}t \qquad \text{(Eq. 2)}
+\mathrm{length}[\gamma(t)] = \int_0^1 \sqrt{\langle \dot\gamma(t), \dot\gamma(t) \rangle_{\gamma(t)}}\,\mathrm{d}t = \int_0^1 \sqrt{\langle \dot c(t), M(c(t)) \dot c(t) \rangle}\,\mathrm{d}t
 $$
 
-Proposed ambient diagonal metric: $h(x) \to 1$ near the data manifold and $\to 0$ away from it (Eq. 6, §3.1):
+Proposed ambient diagonal metric: $h(x) \to 1$ near the data manifold and $\to 0$ away from it (Eq. 6, §3.1) (Eq. 6):
 
 $$
-M_X(x) = (\alpha \cdot h(x) + \varepsilon)^{-1} \cdot I_D \qquad \text{(Eq. 6)}
+M_X(x) = (\alpha \cdot h(x) + \varepsilon)^{-1} \cdot I_D
 $$
 
-Expected Riemannian metric of a VAE with RBF-modelled inverse variance (Eq. 7, §3.2); the second term grows with generator uncertainty:
+Expected Riemannian metric of a VAE with RBF-modelled inverse variance (Eq. 7, §3.2); the second term grows with generator uncertainty (Eq. 7):
 
 $$
-M(z) = \E_{p(\varepsilon)}\big[J_{g_\varepsilon}(z)^\top J_{g_\varepsilon}(z)\big] = J_\mu(z)^\top J_\mu(z) + J_\sigma(z)^\top J_\sigma(z) \qquad \text{(Eq. 7)}
+M(z) = \E_{p(\varepsilon)}\big[J_{g_\varepsilon}(z)^\top J_{g_\varepsilon}(z)\big] = J_\mu(z)^\top J_\mu(z) + J_\sigma(z)^\top J_\sigma(z)
 $$
 
-Stochastic pull-back with ambient metric (Eq. 8, §4), and its cheaper relaxation (Eq. 9, §4, where $\triangleq$ denotes the proposed definition):
+Stochastic pull-back with ambient metric (Eq. 8, §4), and its cheaper relaxation (Eq. 9, §4, where $\triangleq$ denotes the proposed definition) (Eq. 8):
 
 $$
-M_\varepsilon(z) = \big[J_\mu(z) + J_\sigma(z)\varepsilon\big]^\top M_X\big(\mu(z) + \mathrm{diag}(\varepsilon)\sigma(z)\big)\big[J_\mu(z) + J_\sigma(z)\varepsilon\big] \qquad \text{(Eq. 8)}
+M_\varepsilon(z) = \big[J_\mu(z) + J_\sigma(z)\varepsilon\big]^\top M_X\big(\mu(z) + \mathrm{diag}(\varepsilon)\sigma(z)\big)\big[J_\mu(z) + J_\sigma(z)\varepsilon\big]
 $$
 
 $$
-M(z) \triangleq J_\mu(z)^\top M_X(\mu(z)) J_\mu(z) + J_\sigma(z)^\top M_X(\mu(z)) J_\sigma(z) \qquad \text{(Eq. 9)}
+M(z) \triangleq J_\mu(z)^\top M_X(\mu(z)) J_\mu(z) + J_\sigma(z)^\top M_X(\mu(z)) J_\sigma(z)
 $$
 
-Linear-extrapolation deterministic generator with $U$ the top $d$ eigenvectors of the data covariance and $b$ the data mean (Eq. 10, §4):
+Linear-extrapolation deterministic generator with $U$ the top $d$ eigenvectors of the data covariance and $b$ the data mean (Eq. 10, §4) (Eq. 10):
 
 $$
-g(z) = f(z) + U \cdot \mathrm{diag}\big([\sqrt{\lambda_1}, \dots, \sqrt{\lambda_d}]\big) \cdot z + b \qquad \text{(Eq. 10)}
+g(z) = f(z) + U \cdot \mathrm{diag}\big([\sqrt{\lambda_1}, \dots, \sqrt{\lambda_d}]\big) \cdot z + b
 $$
 
-Euler–Lagrange system whose boundary-value solution gives geodesics (Eq. 13, App. A):
+Euler–Lagrange system whose boundary-value solution gives geodesics (Eq. 13, App. A) (Eq. 13):
 
 $$
-\ddot c(t) = -\tfrac{1}{2} M^{-1}(c(t))\Big[2(\dot c(t)^\top \otimes I_d)\tfrac{\partial \mathrm{vec}[M(c(t))]}{\partial c(t)}\dot c(t) - \tfrac{\partial \mathrm{vec}[M(c(t))]}{\partial c(t)}^\top(\dot c(t) \otimes \dot c(t))\Big] \qquad \text{(Eq. 13)}
+\begin{aligned}
+\ddot c(t) = -\tfrac{1}{2} M^{-1}(c(t))\Big[&2(\dot c(t)^\top \otimes I_d)\tfrac{\partial \mathrm{vec}[M(c(t))]}{\partial c(t)}\dot c(t) \\
+&- \tfrac{\partial \mathrm{vec}[M(c(t))]}{\partial c(t)}^\top(\dot c(t) \otimes \dot c(t))\Big]
+\end{aligned}
 $$
 
 | Symbol | Meaning (in this paper) |

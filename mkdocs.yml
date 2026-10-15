@@ -91,6 +91,7 @@ nav:
     - "Carlsson et al. 2017: THE PREIMAGE OF RECTIFIER NETWORK ACTIVITIES": papers/carlssonPREIMAGERECTIFIERNETWORK2017.md
     - "Chazal and Michel 2021: An Introduction to Topological Data Analysis": papers/chazalIntroductionTopologicalData2021.md
     - "Combe et al. 2025: Exploring Information Geometry": papers/combeExploringInformationGeometry2025.md
+    - "Dhayalkar 2025: Discrete Functional Geometry of ReLU Networks via ReLU Transition Graphs": papers/dhayalkarDiscreteFunctionalGeometry2025.md
     - "Fu and Lapata 2022: Latent Topology Induction for Understanding Contextualized Representations": papers/fuLatentTopologyInduction2022.md
     - "Gagneux et al. 2025: How to Improve Expressivity of Convex ReLU Neural Networks?": papers/gagneuxHowImproveExpressivity2025.md
     - "Goujon et al. 2023: On the Number of Regions of Piecewise Linear Neural Networks": papers/goujonNumberRegionsPiecewise2023.md

@@ -146,7 +146,7 @@ No hidden symmetries (Def. F.4, p. 24): $\theta$ has none iff the semigroup gene
 | Symbol | Meaning (in this paper) |
 |---|---|
 | $(n_0,\dots,n_d)$ | architecture: input dim., hidden widths, output dim. |
-| $\Omega=\R^D$, $D=-\n_d+\sum_i n_i(n_{i-1}+1)$ | parameter space and its dimension |
+| $\Omega=\R^D$, $D=-n_d+\sum_i n_i(n_{i-1}+1)$ | parameter space and its dimension |
 | $F_\theta$ | network function determined by $\theta=(W^1,b^1,\dots,W^d)$ |
 | $F^{(\ell)}=F^\ell\circ\dots\circ F^1$ | composed layer maps from the domain |
 | $\hat H^\ell_i$ | bent hyperplane of the $i$th neuron of layer $\ell$ |

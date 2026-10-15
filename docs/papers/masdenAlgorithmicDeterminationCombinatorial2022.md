@@ -48,15 +48,17 @@ The natural labelling by *activation patterns* — binary strings recording whic
 
 ## Method
 
-**Sign sequences and supertransversality.** Writing $F_{ij}$ for the $(i,j)$-th node map (the activation of the $j$-th neuron of layer $i$ pulled back to input space), the *sign sequence* of a cell is
+**Sign sequences and supertransversality.** Writing $F_{ij}$ for the $(i,j)$-th node map (the activation of the $j$-th neuron of layer $i$ pulled back to input space), the *sign sequence* of a cell (Def. 13, App. A.2) is
 
-$$s_{ij}(C) = \mathrm{sgn}(F_{ij}(C)) \qquad \text{(Def. 13, App. A.2)},$$
+$$
+s_{ij}(C) = \mathrm{sgn}(F_{ij}(C)),
+$$
 
 so that $s(C) \in \{-1,0,1\}^N$ with $N$ the number of intermediate neurons, and a zero entry exactly where $C$ lies on a bent hyperplane $F_{ij}^{-1}(0)$. Theorem 14 proves $s$ is well defined and injective on cells of $C(F)$. The results require the network to be *generic* (each layer's hyperplane arrangement is generic) and *supertransversal* — each layer map transverse on cells of the previous arrangement to the interior of all cells of the later-layer complex (Def. 11) — a condition shown to be full measure in parameter space and fibrewise generic in the biases (Lemma 12, App. A.2). For such networks the number of zeros in $s(C)$ equals the codimension of $C$: a $k$-cell has exactly $n_0-k$ zeros (Lemma 16).
 
 **Duality with a cubical complex.** The image $S(F)$ of $s$ is a pure, $n_0$-dimensional subcomplex of the hypercube $[-1,1]^N$ with its product CW structure (Thm. 20): vertices of $C(F)$ correspond to $n_0$-cells (cubes) of $S(F)$, and in general $k$-cells of $S(F)$ to codimension-$k$ cells of $C(F)$. The face poset of $C(F)$ is the *opposite* poset of that of $S(F)$ (Lemma 21). Because $S(F)$ is pure, knowing which $n_0$-cells occur determines every face relation in it; hence *the sign sequences of the vertices of $C(F)$ determine the whole face poset of $C(F)$* (Corollary, §3.2).
 
-**The product.** Sign sequences carry a product compatible with faces (Lemma 18): for cells $C, D$,
+**The product.** Sign sequences carry a product compatible with faces (Lemma 18): for cells $C, D$ (Lemma 18, App. A.2),
 
 $$
 \bigl(S(C)\cdot S(D)\bigr)_{ij} =
@@ -64,7 +66,6 @@ $$
 S(C)_{ij} & \text{if } S(C)_{ij} \neq 0,\\[2pt]
 S(D)_{ij} & \text{otherwise},
 \end{cases}
-\qquad \text{(Lemma 18, App. A.2)}
 $$
 
 which is well defined as a sign sequence of some cell $E$ with $C \le E$, making the sign sequences a semigroup. It yields the face-poset tests of Lemma 19: $C \le D \iff S(C)\cdot S(D) = S(D)$; the product commutes iff $C$ and $D$ have a common coface; and $S(C)\cdot S(D) = S(C)$ iff every bent hyperplane containing $D$ also contains $C$.

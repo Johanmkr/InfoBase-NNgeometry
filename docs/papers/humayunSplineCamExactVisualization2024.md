@@ -62,47 +62,45 @@ The library wraps any PyTorch *sequential* network, takes a polytopal 2-D region
 ## Key equations and definitions
 
 $$
-z^\ell = \sigma\!\left(W^\ell z^{\ell-1} + b^\ell\right), \quad \ell = 1,\dots,L \qquad \text{(Eq. 1, p. 1)}
+z^\ell = \sigma\!\left(W^\ell z^{\ell-1} + b^\ell\right), \quad \ell = 1,\dots,L
 $$
 
-The network is a composition of $L$ layers; $\sigma$ applies an element-wise CPWL activation.
+The network is a composition of $L$ layers; $\sigma$ applies an element-wise CPWL activation (Eq. 1, p. 1).
 
 $$
-S^\ell(x) = \sum_{\omega \in \Omega} \left(A^\ell_\omega x + b^\ell_\omega\right)\mathbb{1}\{x \in \omega\} \qquad \text{(Lemma 1, Eq. 2, p. 3)}
+S^\ell(x) = \sum_{\omega \in \Omega} \left(A^\ell_\omega x + b^\ell_\omega\right)\mathbb{1}\{x \in \omega\}
 $$
 
-The composition of layers $1$ to $\ell$ is an affine map per region $\omega$, written with the indicator $\mathbb{1}\{\cdot\}$ (the paper prints the indicator as ✶). This is what makes the partition the right object: knowing $A^\ell_\omega,b^\ell_\omega$ for all $\omega$ is knowing the function.
+The composition of layers $1$ to $\ell$ is an affine map per region $\omega$, written with the indicator $\mathbb{1}\{\cdot\}$ (the paper prints the indicator as ✶) (Lemma 1, Eq. 2, p. 3); its affine parameters are Eqs. 3–4, p. 3. This is what makes the partition the right object: knowing $A^\ell_\omega,b^\ell_\omega$ for all $\omega$ is knowing the function.
 
 $$
 A^\ell_\omega = \prod_{i=1}^{\ell} \operatorname{diag}(q^\omega_i)\, W^i
-\qquad\text{(Eq. 3, p. 3)}
 $$
 
 $$
 b^\ell_\omega = \operatorname{diag}(q^\omega_\ell)\, b^\ell + \sum_{i=1}^{\ell-1}\left(\prod_{j=i+1}^{\ell}\operatorname{diag}(q^\omega_j)\, W^j\right)\operatorname{diag}(q^\omega_i)\, b^i
-\qquad\text{(Eq. 4, p. 3)}
 $$
 
 Here $q^\omega_i$ is the point-wise derivative of $\sigma$ at the pre-activation $W^i z^{i-1}+b^i$ for region $\omega$; by a result of Balestriero et al. it is unique for any $\omega$ (§2.1, p. 3). The sub/superscript stacking of Eqs. 3–4 is garbled in the extracted text; the forms above are the standard per-region affine parameters and the paper's notation, but the exact index ranges should be checked against the published PDF.
 
 $$
-h^\ell_i \triangleq \left\{z \in \R^{\ell-1} : \langle w^\ell_i, z\rangle + b^\ell_i = 0\right\} \qquad \text{(Eq. 5, p. 3)}
+h^\ell_i \triangleq \left\{z \in \R^{\ell-1} : \langle w^\ell_i, z\rangle + b^\ell_i = 0\right\}
 $$
 
-The hyperplane induced by the $i$-th row $(w^\ell_i,b^\ell_i)$ of layer $\ell$.
+The hyperplane induced by the $i$-th row $(w^\ell_i,b^\ell_i)$ of layer $\ell$ (Eq. 5, p. 3).
 
 $$
-\operatorname{proj}_\omega(h^\ell_i) = \left\{x \in \R^S : \langle w^\ell_i, A^{\ell-1}_\omega x + b^{\ell-1}_\omega\rangle + b^\ell_i = 0\right\} \qquad \text{(Lemma 2, Eq. 6, p. 3)}
+\operatorname{proj}_\omega(h^\ell_i) = \left\{x \in \R^S : \langle w^\ell_i, A^{\ell-1}_\omega x + b^{\ell-1}_\omega\rangle + b^\ell_i = 0\right\}
 $$
 
-Back-projection of a layer-$\ell$ hyperplane onto region $\omega$'s tangent space in the input space.
+Back-projection of a layer-$\ell$ hyperplane onto region $\omega$'s tangent space in the input space (Lemma 2, Eq. 6, p. 3).
 
 **Theorem 1 (§2.2, p. 3).** For a binary classifier with a single output neuron, the decision boundary in $\R^{L-1}$ is the hyperplane $h^L_1$; in the input space it is $\bigcup_{\omega \in \Omega}\{\operatorname{proj}_\omega(h^L_1) \cap \omega\}$. The proof is a repeated application of Lemma 2 back to layer 1.
 
-The supplementary background formalizes each layer as a **max-affine spline operator**:
+The supplementary background formalizes each layer as a **max-affine spline operator** (Eq. 7, p. 11):
 
 $$
-\mathrm{MASO}(v; \{A_r, b_r\}_{r=1}^R) = \max_{r=1,\dots,R} A_r v + b_r \qquad \text{(Eq. 7, p. 11)}
+\mathrm{MASO}(v; \{A_r, b_r\}_{r=1}^R) = \max_{r=1,\dots,R} A_r v + b_r
 $$
 
 | Symbol | Meaning (in this paper) |

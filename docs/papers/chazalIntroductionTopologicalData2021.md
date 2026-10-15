@@ -82,7 +82,11 @@ $Z_k$, $B_k$ are the $k$-cycles and $k$-boundaries; $H_0$ counts connected compo
 The Reconstruction Theorem, whose hypotheses are the regularity condition that makes geometric inference possible (§4.1, Thm. 2, p. 11):
 
 $$
-\|\phi - \psi\|_\infty < \varepsilon,\quad \mathrm{reach}_\alpha(\phi) \ge R \;\Longrightarrow\; \psi_r \simeq \phi_\eta \ \text{ for } r \in [4\varepsilon/\alpha^2,\, R-3\varepsilon],\ \eta \in (0,R),\ \text{ provided } \varepsilon \le \frac{R}{5 + 4/\alpha^2}
+\begin{aligned}
+&\|\phi - \psi\|_\infty < \varepsilon,\quad \mathrm{reach}_\alpha(\phi) \ge R \;\Longrightarrow\; \\
+&\qquad \psi_r \simeq \phi_\eta \ \text{ for } r \in [4\varepsilon/\alpha^2,\, R-3\varepsilon],\ \eta \in (0,R), \\
+&\qquad \text{ provided } \varepsilon \le \frac{R}{5 + 4/\alpha^2}
+\end{aligned}
 $$
 
 where $\phi_r = \phi^{-1}([0,r])$; taking $\phi = d_M$, $\psi = d_{X_n}$ relates the sample's offsets to the unknown support.
@@ -90,7 +94,11 @@ where $\phi_r = \phi^{-1}([0,r])$; taking $\phi = d_M$, $\psi = d_{X_n}$ relates
 Betti numbers from Vietoris–Rips complexes, avoiding the Čech emptiness predicate (§4.2, Thm. 4, pp. 14–15):
 
 $$
-\mathrm{wfs}(M) \ge R > 0,\ d_H(M,X) = \varepsilon < \tfrac{1}{9}\mathrm{wfs}(M),\ r \in [2\varepsilon, \tfrac{1}{4}(\mathrm{wfs}(M)-\varepsilon)] \;\Longrightarrow\; \beta_k(X^\eta) = \mathrm{rk}\big(H_k(Rips_r(X)) \to H_k(Rips_{4r}(X))\big)
+\begin{aligned}
+&\mathrm{wfs}(M) \ge R > 0,\ d_H(M,X) = \varepsilon < \tfrac{1}{9}\mathrm{wfs}(M), \\
+&\qquad r \in [2\varepsilon, \tfrac{1}{4}(\mathrm{wfs}(M)-\varepsilon)] \;\Longrightarrow\; \\
+&\qquad \beta_k(X^\eta) = \mathrm{rk}\big(H_k(Rips_r(X)) \to H_k(Rips_{4r}(X))\big)
+\end{aligned}
 $$
 
 with $X^\eta$ the $\eta$-offset of $X$; the multiscale strategy for choosing $r$ is deferred to Chazal and Oudot (2008, outside the collection).
@@ -98,7 +106,10 @@ with $X^\eta$ the $\eta$-offset of $X$; the multiscale strategy for choosing $r$
 The distance to measure and its stability (§4.4, Eq. 1–2, p. 16):
 
 $$
-d_{P,m,r}(x) := \left(\frac{1}{m}\int_0^m \delta^r_{P,u}(x)\,\mathrm{d}u\right)^{1/r}, \qquad \delta_{P,u}(x) = \inf\{t>0 : P(B(x,t)) \ge u\}
+\begin{aligned}
+d_{P,m,r}(x) &:= \left(\frac{1}{m}\int_0^m \delta^r_{P,u}(x)\,\mathrm{d}u\right)^{1/r}, \\
+&\qquad \delta_{P,u}(x) = \inf\{t>0 : P(B(x,t)) \ge u\}
+\end{aligned}
 $$
 
 $$
@@ -118,9 +129,10 @@ a matching pairs every off-diagonal point of each diagram to a point of the othe
 The persistence landscape tent function and $k$-th landscape (§5.4, Eq. 3–4, p. 23):
 
 $$
-\Lambda_p(t) = \begin{cases} t - b, & t \in [b, \tfrac{b+d}{2}] \\ d - t, & t \in (\tfrac{b+d}{2}, d] \\ 0, & \text{otherwise}\end{cases}
-\qquad
-\lambda_{\mathrm{dgm}}(k,t) = k\text{max}_{r \in \mathrm{dgm}}\, \Lambda_r(t), \quad t \in [0,T],\ k \in \N
+\begin{aligned}
+\Lambda_p(t) &= \begin{cases} t - b, & t \in [b, \tfrac{b+d}{2}] \\ d - t, & t \in (\tfrac{b+d}{2}, d] \\ 0, & \text{otherwise}\end{cases} \\
+\lambda_{\mathrm{dgm}}(k,t) &= k\text{max}_{r \in \mathrm{dgm}}\, \Lambda_r(t), \quad t \in [0,T],\ k \in \N
+\end{aligned}
 $$
 
 $k\text{max}$ is the $k$-th largest value; $\lambda(k,\cdot)$ is 1-Lipschitz, and the diagram-to-landscape map is injective. A linear representation of a diagram sums a vector-valued function of each point (§5.5, Eq. 5, p. 24): $\Psi_k(\mathrm{dgm}_k) = \sum_{p \in \mathrm{dgm}_k} f_k(p)$, with Betti curves, persistence silhouettes and persistence surfaces as special cases.
@@ -136,9 +148,10 @@ for the Vietoris–Rips or Čech filtrations of two compact metric spaces; it de
 The (a,b)-standard assumption on the measure and the minimax rate it yields for diagram estimation (§6.1, Eq. 6, Thm. 10, p. 28):
 
 $$
-\mu(B(x,r)) \ge \min(a r^b, 1) \quad \forall x \in X_\mu,\ r>0
-\qquad\Longrightarrow\qquad
-\sup_{\mu \in \mathcal P} \E\big[d_b\big(\mathrm{dgm}(\mathrm{Filt}(X_\mu)), \mathrm{dgm}(\mathrm{Filt}(X_n))\big)\big] \le C \left(\frac{\log n}{n}\right)^{1/b}
+\begin{aligned}
+&\mu(B(x,r)) \ge \min(a r^b, 1) \quad \forall x \in X_\mu,\ r>0 \qquad\Longrightarrow\qquad \\
+&\qquad \sup_{\mu \in \mathcal P} \E\big[d_b\big(\mathrm{dgm}(\mathrm{Filt}(X_\mu)), \mathrm{dgm}(\mathrm{Filt}(X_n))\big)\big] \le C \left(\frac{\log n}{n}\right)^{1/b}
+\end{aligned}
 $$
 
 with $C$ depending only on $a,b$; the corresponding lower bound holds up to a logarithmic term.

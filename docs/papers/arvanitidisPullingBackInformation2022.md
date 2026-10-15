@@ -62,58 +62,64 @@ The categorical case is worked out in full: the Fisher-Rao matrix on the simplex
 
 ## Key equations and definitions
 
-Latent curve length under the deterministic pullback, and the equivalent energy functional:
+Latent curve length under the deterministic pullback, and the equivalent energy functional (Eq. 1–2, p. 2):
 
 $$
-L(\gamma) = \int_0^1 \sqrt{\dot\gamma(t)^\top J_f(\gamma(t))^\top J_f(\gamma(t))\, \dot\gamma(t)}\,\mathrm{d}t, \qquad
-E(\gamma) = \int_0^1 \dot\gamma(t)^\top M(\gamma(t))\, \dot\gamma(t)\,\mathrm{d}t \qquad \text{(Eq. 1–2, p. 2)}
+\begin{aligned}
+L(\gamma) &= \int_0^1 \sqrt{\dot\gamma(t)^\top J_f(\gamma(t))^\top J_f(\gamma(t))\, \dot\gamma(t)}\,\mathrm{d}t, \\
+&\qquad E(\gamma) = \int_0^1 \dot\gamma(t)^\top M(\gamma(t))\, \dot\gamma(t)\,\mathrm{d}t
+\end{aligned}
 $$
 
 The first defines distance in $Z$ as length measured in $X$; the second is the locally convex functional minimized to find shortest paths.
 
 $$
-M(z) = J_\mu(z)^\top J_\mu(z) + J_\sigma(z)^\top J_\sigma(z) \qquad \text{(Eq. 4, p. 3)}
+M(z) = J_\mu(z)^\top J_\mu(z) + J_\sigma(z)^\top J_\sigma(z)
 $$
 
-The existing Gaussian-VAE metric: distances grow with model uncertainty, so shortest paths avoid low-density regions.
+The existing Gaussian-VAE metric (Eq. 4, p. 3): distances grow with model uncertainty, so shortest paths avoid low-density regions.
 
 $$
-I_H(\eta) = \int_X \big[\nabla_\eta \log p(x|\eta)\, \nabla_\eta \log p(x|\eta)^\top\big]\, p(x|\eta)\,\mathrm{d}x \qquad \text{(Eq. 7, p. 3)}
+I_H(\eta) = \int_X \big[\nabla_\eta \log p(x|\eta)\, \nabla_\eta \log p(x|\eta)^\top\big]\, p(x|\eta)\,\mathrm{d}x
 $$
 
-The Fisher-Rao information matrix; a parameter space equipped with it is a statistical manifold (Def. 3.1, p. 3), a modelling decision tied to the likelihood and not to the data.
+The Fisher-Rao information matrix (Eq. 7, p. 3); a parameter space equipped with it is a statistical manifold (Def. 3.1, p. 3), a modelling decision tied to the likelihood and not to the data.
 
 $$
-\mathrm{KL}\big(p(x|\eta), p(x|\eta + \delta\eta)\big) = \tfrac{1}{2}\, \delta\eta^\top I_H(\eta)\, \delta\eta + o(\delta\eta^2) \qquad \text{(Eq. 8, p. 3)}
+\mathrm{KL}\big(p(x|\eta), p(x|\eta + \delta\eta)\big) = \tfrac{1}{2}\, \delta\eta^\top I_H(\eta)\, \delta\eta + o(\delta\eta^2)
 $$
 
-The local coincidence of KL and Fisher-Rao turns geodesic optimization into a KL-sum problem. The main text calls it a second-order approximation (Prop. 3.1) while the appendix says "first order" (Prop. A.1, p. 11) for the same formula; see the critical assessment.
+The local coincidence of KL and Fisher-Rao turns geodesic optimization into a KL-sum problem (Eq. 8, p. 3). The main text calls it a second-order approximation (Prop. 3.1) while the appendix says "first order" (Prop. A.1, p. 11) for the same formula; see the critical assessment.
 
 $$
-M(z) = J_h(z)^\top I_H(h(z)) J_h(z) \qquad \text{(Prop. 3.2, p. 4)}
+M(z) = J_h(z)^\top I_H(h(z)) J_h(z)
 $$
 
-The central construction: the Fisher-Rao metric of the likelihood parameters pulled back along the decoder. Prop. 3.3 (p. 4) shows it equals the Fisher-Rao metric computed with $z$ itself as parameter.
+The central construction (Prop. 3.2, p. 4): the Fisher-Rao metric of the likelihood parameters pulled back along the decoder. Prop. 3.3 (p. 4) shows it equals the Fisher-Rao metric computed with $z$ itself as parameter.
 
 $$
-E(\gamma) \propto \lim_{N\to\infty} \sum_{n=1}^{N-1} \mathrm{KL}\big(p(x|\gamma(t_n)),\, p(x|\gamma(t_{n+1}))\big), \qquad t_n = \tfrac{n}{N} \qquad \text{(Eq. 10, p. 4)}
+E(\gamma) \propto \lim_{N\to\infty} \sum_{n=1}^{N-1} \mathrm{KL}\big(p(x|\gamma(t_n)),\, p(x|\gamma(t_{n+1}))\big), \qquad t_n = \tfrac{n}{N}
 $$
 
-The energy used in every experiment: only a differentiable KL between neighbouring decoded distributions is needed (Prop. A.2, p. 12, gives $E(\gamma) \approx \tfrac{2}{\delta t} \sum_t \mathrm{KL}(p_t, p_{t+\delta t})$).
+The energy used in every experiment (Eq. 10, p. 4): only a differentiable KL between neighbouring decoded distributions is needed (Prop. A.2, p. 12, gives $E(\gamma) \approx \tfrac{2}{\delta t} \sum_t \mathrm{KL}(p_t, p_{t+\delta t})$).
+
+Finite-difference recovery of the metric tensor from KL evaluations at basis-vector perturbations $\delta e_i = \varepsilon e_i$ (Prop. 3.4, p. 5); it requires only that $h$ be a smooth immersion and the KL differentiable.
 
 $$
-M_{ii} \approx 2\,\mathrm{KL}_z(\delta e_i)/\varepsilon^2, \qquad
-M_{ij} = M_{ji} \approx \big(\mathrm{KL}_z(\delta e_i + \delta e_j) - \mathrm{KL}_z(\delta e_i) - \mathrm{KL}_z(\delta e_j)\big)/\varepsilon^2 \qquad \text{(Prop. 3.4, p. 5)}
+\begin{aligned}
+M_{ii} &\approx 2\,\mathrm{KL}_z(\delta e_i)/\varepsilon^2, \\
+M_{ij} = M_{ji} &\approx \big(\mathrm{KL}_z(\delta e_i + \delta e_j) - \mathrm{KL}_z(\delta e_i) - \mathrm{KL}_z(\delta e_j)\big)/\varepsilon^2
+\end{aligned}
 $$
 
-Finite-difference recovery of the metric tensor from KL evaluations at basis-vector perturbations $\delta e_i = \varepsilon e_i$; it requires only that $h$ be a smooth immersion and the KL differentiable.
-
 $$
-\mathrm{dist}(\eta, \eta') = \arccos\!\big(\sqrt{\eta}^\top \sqrt{\eta'}\big), \qquad
-E(\gamma) = \sum_{n=1}^{N-1}\Big(2 - 2\sqrt{h(\gamma(t_n))}^\top \sqrt{h(\gamma(t_{n+1}))}\Big) \qquad \text{(Eq. 11–12, p. 5)}
+\begin{aligned}
+\mathrm{dist}(\eta, \eta') &= \arccos\!\big(\sqrt{\eta}^\top \sqrt{\eta'}\big), \\
+&\qquad E(\gamma) = \sum_{n=1}^{N-1}\Big(2 - 2\sqrt{h(\gamma(t_n))}^\top \sqrt{h(\gamma(t_{n+1}))}\Big)
+\end{aligned}
 $$
 
-The categorical case: Fisher-Rao distance on the simplex is spherical distance between element-wise square roots, and the energy follows from $\theta^2 \approx 2 - 2\cos\theta$.
+The categorical case (Eq. 11–12, p. 5): Fisher-Rao distance on the simplex is spherical distance between element-wise square roots, and the energy follows from $\theta^2 \approx 2 - 2\cos\theta$.
 
 | Symbol | Meaning (in this paper) |
 |---|---|
@@ -125,7 +131,7 @@ The categorical case: Fisher-Rao distance on the simplex is spherical distance b
 | $J_f, J_h$ | Jacobians of $f$ and of $h$ |
 | $M(z)$ | induced Riemannian metric (pullback) in $Z$ |
 | $I_H(\eta)$ | Fisher-Rao information matrix on $H$ |
-| $p(x\|z) = p(x\|h(z))$ | decoder distribution |
+| $p(x\Vert z) = p(x\Vert h(z))$ | decoder distribution |
 | $\gamma: [0,1] \to Z$ | latent curve; $L(\gamma)$, $E(\gamma)$ its length and energy |
 | $\epsilon \sim \mathcal{N}(0, I_D)$ | Gaussian decoder noise |
 | $\tilde\sigma_\beta(D(z))$ | uncertainty-regularization slider (Eq. 26) |

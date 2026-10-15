@@ -1,21 +1,22 @@
 ---
 chapter: relu-network-geometry
 title: The region complex of a ReLU network
-outline_hash: d1a7923911d5
+outline_hash: 86f79a10804b
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  phuongFunctionalVsParametric2019: 79b70de62319
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
 ---
 
 # The region complex of a ReLU network
@@ -24,7 +25,7 @@ built_from:
     - A ReLU network is a continuous piecewise-affine (CPWA) map, and its input space carries a decomposition into convex polyhedral *linear regions*, each with one affine map.
     - Every region is labelled by an *activation pattern*; the pattern is a combinatorial coordinate, but it does not determine the complex.
     - Region boundaries are *bent hyperplanes*: piecewise-linear sets that change direction only where they cross a boundary laid down by an earlier layer.
-    - The regions and their shared faces form a polyhedral complex, and its *dual graph* (adjacency by shared facets) can be built from the pattern alone.
+    - The regions and their shared faces form a polyhedral complex, and its *dual graph* (adjacency by shared facets) can be built from the pattern alone; asking what *graph invariants* of it — size, degree, entropy, diameter — bound is a natural but, so far, only partially established step.
     - Three algorithms extract the complex exactly, trading stability, dimensionality and hardware; local affine maps give a second geometry that survives even when two networks' complexes differ.
     - Prerequisites: [Polyhedra, arrangements and piecewise-linear maps](polyhedral-foundations.md).
 
@@ -82,7 +83,7 @@ $$
 
 $$
 f(x,y)=\begin{bmatrix}2&-4\end{bmatrix}
-\max\!\left\{\begin{bmatrix}1&1\\1&1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}+\begin{bmatrix}1\\0\end{bmatrix},\ \begin{bmatrix}0\\0\end{bmatrix}\right\}-1,
+\max\!\left\{\begin{bmatrix}1&1\\1&1\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix}+\begin{bmatrix}1\\0\end{bmatrix},\ \begin{bmatrix}0\\0\end{bmatrix}\right\}-1,
 $$
 
 produces three regions [@sattelbergLocallyLinearAttributes2023, Eq. 3, §2.2, p. 4]:
@@ -172,6 +173,25 @@ Three papers in the collection compute $\mathcal{P}(f)$ exactly, and they differ
 
 Taken together, the three methods expose the trade-off: Masden's vertex enumeration gives the richest structure (the full face poset, the decision-boundary topology) at the cost of exponential dependence on $n_0$; Berzins's edge subdivision is the fastest and most parallel but wants low $D$; Liu's traversal is cheapest per region and gives the dual graph directly but only the top-dimensional cells. All three inherit an assumption of a generic arrangement, and Masden shows the excluded set is of measure zero, so genericity is not a practical restriction [@masdenAlgorithmicDeterminationCombinatorial2022, Lemma 12, §3.1, p. 3].
 
+## The transition graph as a capacity object
+
+The dual graph of the previous section is, in itself, just bookkeeping. One paper in the collection gives it a name and asks what its *shape* says about the network: the **ReLU transition graph** (RTG) has the linear regions as its nodes and an edge exactly between regions that differ by one active neuron, i.e. patterns at Hamming distance one [@dhayalkarDiscreteFunctionalGeometry2025, Def. 3, §3.3, p. 3]. This is the same graph that [@liuReLUNeuralNetworks2023, §2.3, p. 4] builds from binary-vector flips; what is new is the claim that graph invariants of it — size, degree distribution, diameter, and the entropy of the region-volume distribution — bound the network's expressivity and generalisation capacity [@dhayalkarDiscreteFunctionalGeometry2025, §1, p. 1].
+
+The definitions are worth having in shared notation. Ordering the regions by volume gives a probability distribution $p_v=\operatorname{Vol}(\mathcal{R}_v)/\sum_{u\in V}\operatorname{Vol}(\mathcal{R}_u)$ over the nodes, and its Shannon entropy is the RTG entropy $H(G)=-\sum_v p_v\log p_v$; low entropy means a skewed partition with a few large regions, high entropy a more uniform one [@dhayalkarDiscreteFunctionalGeometry2025, Def. 4, §3.4, p. 3]. The graph-theoretic quantities the paper relates to it are the average degree $d_{\mathrm{avg}}$ and the diameter $\operatorname{diam}(G)$, the longest shortest path [@dhayalkarDiscreteFunctionalGeometry2025, §4.4–§4.5, pp. 5–6].
+
+Two of the stated results are restatements that the earlier chapters already contain, and the chapter should be explicit about which is which. The **size bound** $|V|\le\bigl(\sum_{i=0}^{d}\binom{n}{i}\bigr)^{L}$ is the per-layer Zaslavsky count raised to the depth, which is the arrangement bound of the counting chapter applied layer by layer; the paper itself calls its contribution a reformulation inside the RTG language [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 1, §4.1, p. 4]. The **adjacency lemma** — one flipped bit gives a shared facet — is the one-bit/facet correspondence established above [@dhayalkarDiscreteFunctionalGeometry2025, Lem. 1, §4.2, p. 4]. The **connectivity theorem** says the RTG of a continuous ReLU network with non-degenerate hyperplanes is connected [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 2, §4.3, p. 4].
+
+The remaining three claims are the ones a reader should treat with care; the paper's own proofs and experiments do not support them to the same degree, and saying so is part of reading this literature.
+
+1. **Entropy versus degree.** $H(G)\ge\log(d_{\mathrm{avg}}+1)$ [@dhayalkarDiscreteFunctionalGeometry2025, Lem. 2, §4.4, p. 5]. The proof (App. A.4, p. 12) argues that a node of degree $d_v$ has about $d_{\mathrm{avg}}+1$ equally sized neighbours, so $p_{\max}\le 1/(d_{\mathrm{avg}}+1)$, and applies $H(p)\ge-\log p_{\max}$. The assumption of equal neighbour volumes is exactly what the entropy is supposed to measure, so the inequality is a statement about the *uniform* case dressed up with an average; the experiment that checks it computes $H(G)=\log|V|$ "assuming a uniform region volume distribution" [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.2, p. 7], which is the same assumption, so it cannot detect a failure.
+2. **Diameter bounds VC-dimension.** $\operatorname{VC}(\mathcal{F})\le\operatorname{diam}(G)$ [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 3, §4.5, p. 5]. This is the paper's most interesting claim, because a bound on capacity coming from the region-adjacency structure rather than from weight norms would be genuinely different. The proof (App. A.5, p. 12) is a sketch: it bounds the number of activation patterns reachable in $D$ flips by $\sum_{k=0}^{D}\binom{nL}{k}$, asserts without derivation that this is "strictly less than $2^N$ unless $D\ge N$ (see Sauer's Lemma)", and concludes. The middle step is not carried out, and the "validation" compares the diameter not with any VC-dimension but with a proxy bounded by 10 — the number of distinct activation patterns seen at 10 sampled points [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.3, p. 7] — which no graph of more than ten nodes can violate.
+3. **Pruning gives a bounded-error compressed network.** Deleting the lowest-degree half of the nodes and replacing the function on the deleted regions by a linear interpolation of neighbouring region outputs is claimed to satisfy $\|f-f_{\mathrm{core}}\|_\infty\le\delta$ while shrinking the graph by a factor $1-\alpha$ [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 4 and App. A.7, pp. 5, 13]. The smoothing is a genuine construction — it is the graph-restricted analogue of the functional-equivalence picture of [@phuongFunctionalVsParametric2019], except that it is allowed to change the function a little — but $\alpha$ is left as "depending on $d_{\mathrm{avg}}$ and the geometry of region overlaps", never instantiated, so the theorem does not predict a compression rate. The experiment prunes 50\% of nodes by degree and reports sup-norm errors of $0.154$ at $(L{=}2,n{=}64)$ and $0.127$ at $(L{=}4,n{=}32)$ [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.5, p. 8]; the numbers are reported only in Fig. 4, without a table.
+
+The empirical picture the paper paints is nonetheless the one this chapter's theory predicts, which is why it is worth a section. The measured region count grows with width and depth but stays far below the arrangement bound — from a mean of $15.5$ regions at $(L{=}2,n{=}4)$ to $7062.5$ at $(L{=}4,n{=}128)$, against bounds from $5.3\times10^{1}$ to $4.36\times10^{15}$ [@dhayalkarDiscreteFunctionalGeometry2025, Tab. 1, App. A.8, p. 13] — the same gap between realised and possible patterns that [@haninDeepReLUNetworks2019, §2.1, p. 3] documents, and the graph is connected in all configurations except the largest one tested, $(L{=}4,n{=}128)$, which averaged $4.40$ components across seeds [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.1, p. 7]. Note also the caveat that applies to the size column of that table: the bound printed beside it was obtained from the correct product form by an invalid inequality, so the comparison is not the one the theory needs. See the summary of [@dhayalkarDiscreteFunctionalGeometry2025] for the detail; the correct object to compare against is the product form in the counting chapter.
+
+!!! warning "A bound is only as good as its proof"
+    A graph invariant of the region complex is an attractive capacity measure because it is computable from sampled data, unlike VC-dimension. But the RTG results above illustrate the failure mode to watch for: restating a known counting bound in new language [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 1, §4.1, p. 4], and testing a theorem against a statistic that cannot falsify it [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.2–§5.3.3, p. 7], both look like evidence and are not. Taken together with the region counts this chapter teaches, the practical rule is to check which of $H(G)$, $d_{\mathrm{avg}}$ or $\operatorname{diam}(G)$ is *defined* without the uniform-volume assumption and which has an argument that does not presuppose its own conclusion; on the material in this collection, only the region count itself is on firm ground [@serraBoundingCountingLinear2018, §3, p. 4; @haninDeepReLUNetworks2019, §2.1, p. 3].
+
 ## Local linear maps and when two networks share a structure
 
 The region complex is one geometry of a network; the affine maps attached to its regions form a second, and it behaves differently.
@@ -198,6 +218,7 @@ Neither notion is the same as *functional* equivalence. Two networks compute the
 - The region complex is a polyhedral complex; its dual graph has an edge per shared facet, and regions are adjacent exactly when their binary vectors differ in one active bit [@liuReLUNeuralNetworks2023, §2.3, p. 4].
 - Hamming distance between patterns is a one-sided proxy for steps in the dual graph, not an equality [@liuIntegratingGeometriesReLU2023a, §3.1, p. 5].
 - Three exact extraction methods work from vertices (Masden), edges (Berzins) or a seed region (Liu), trading full face poset against dimensionality and hardware [@berzinsPolyhedralComplexExtraction2023, §5.1.2, p. 7].
+- The transition graph of the regions — nodes for regions, edges for single-neuron flips — is the dual graph seen as a capacity object; its size bound is again the arrangement bound, and its entropy, degree and diameter claims are established only partially [@dhayalkarDiscreteFunctionalGeometry2025, Thm. 1–3, §4.1–§4.5].
 - The local affine maps form a second geometry in which networks can be clustered and related by affine maps even when their complexes differ [@sattelbergLocallyLinearAttributes2023, §2.4.1, p. 8].
 
 ## Further reading
@@ -209,6 +230,7 @@ Neither notion is the same as *functional* equivalence. Two networks compute the
 - [@liuIntegratingGeometriesReLU2023a]: the binary vector, active bits and traversal-and-pruning; read §2 for the constructions and §3 for the Hamming and Chebyshev analyses.
 - [@haninDeepReLUNetworks2019]: the definition of activation regions and bent hyperplanes, and the average-case count that follows from them.
 - [@liuReLUNeuralNetworks2023]: the dual graph, the one-bit/facet correspondence, and what the Hamming metric does to persistent homology.
+- [@dhayalkarDiscreteFunctionalGeometry2025]: the ReLU transition graph, RTG entropy, the diameter/VC-dimension claim and pruning-based compression; read §3–§4 for the statements and App. A for their proofs, and §5 for the 2D experiments.
 
 ## Exercises
 
@@ -328,3 +350,28 @@ weight matrix $W_i$ in the sense of [@sattelbergLocallyLinearAttributes2023, §2
     establish equality of the complexes, since on MNIST even a successful mapping can
     pair regions belonging to different decompositions, and the mapped function is not
     even continuous [@sattelbergLocallyLinearAttributes2023, §2.4.2, p. 9].
+
+**Exercise 9** ★★★ (critique). A colleague proposes using the entropy $H(G)$ of the transition graph's region-volume distribution as a regulariser, computed on a sample of inputs. Identify the assumption in the proof of $H(G)\ge\log(d_{\mathrm{avg}}+1)$ that makes the inequality hard to falsify, say what a clean experiment to test it would need to measure, and give the analogous worry for the claim $\operatorname{VC}(\mathcal{F})\le\operatorname{diam}(G)$.
+
+??? success "Solution"
+    The proof assumes that a node of degree $d_v$ is surrounded by roughly
+    $d_{\mathrm{avg}}+1$ regions of *equal volume*, giving
+    $p_{\max}\le 1/(d_{\mathrm{avg}}+1)$ and then $H(p)\ge-\log p_{\max}$
+    [@dhayalkarDiscreteFunctionalGeometry2025, App. A.4, p. 12]. Equal volumes are exactly
+    what would make the entropy maximal, so the hypothesis already contains the conclusion's
+    content: a distribution over many regions of wildly different sizes satisfies the same
+    degree bound and can have much lower entropy. The printed verification computes
+    $H(G)=\log|V|$ "assuming a uniform region volume distribution"
+    [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.2, p. 7], i.e. it measures the uniform
+    case as well, so it cannot refute anything. A clean test would *estimate the volumes*
+    of the regions (Monte Carlo sampling per sampled region, or the exact volumes the
+    polyhedral methods of this chapter give in low dimension), form $p_v$ from them, and
+    plot $H(G)$ against $\log(d_{\mathrm{avg}}+1)$ with regions of genuinely unequal size —
+    if any configuration falls below the diagonal, the lemma as stated is false. For the
+    diameter claim the analogous worry is the measure used: VC-dimension is not computed
+    but replaced by "the number of distinct activation patterns observed over 10 randomly
+    sampled input points" [@dhayalkarDiscreteFunctionalGeometry2025, §5.3.3, p. 7], a quantity
+    bounded by 10 by construction and therefore below any diameter of a graph with more than
+    ten nodes. A real test needs either an architecture whose VC-dimension is known exactly,
+    or a lower bound on $\operatorname{VC}(\mathcal{F})$ from an explicit shattered set, and
+    then a comparison with $\operatorname{diam}(G)$ on the *same* network.

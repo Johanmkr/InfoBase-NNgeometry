@@ -100,8 +100,10 @@ $g_{ij}(v)=\tfrac12 \partial^2 F^2/\partial v^i \partial v^j(v)$.
 Closed form for a Gaussian-process decoder, $J \sim \mathcal{N}(\E[J], \Sigma)$ (Proposition 2.3, p. 6):
 
 $$
-\norm{v}_F = \sqrt{2}\,\sqrt{v^\top \Sigma v}\;\frac{\Gamma\!\left(\frac{D}{2}+\frac{1}{2}\right)}{\Gamma\!\left(\frac{D}{2}\right)}\;{}_1F_1\!\left(-\frac{1}{2}, \frac{D}{2}, -\frac{\omega}{2}\right),
-\qquad \omega = (v^\top \Sigma v)^{-1}\,(v^\top \E[J]^\top \E[J]\, v)
+\begin{aligned}
+\norm{v}_F &= \sqrt{2}\,\sqrt{v^\top \Sigma v}\;\frac{\Gamma\!\left(\frac{D}{2}+\frac{1}{2}\right)}{\Gamma\!\left(\frac{D}{2}\right)}\;{}_1F_1\!\left(-\frac{1}{2}, \frac{D}{2}, -\frac{\omega}{2}\right), \\
+\omega &= (v^\top \Sigma v)^{-1}\,(v^\top \E[J]^\top \E[J]\, v)
+\end{aligned}
 $$
 
 because $v^\top G v \sim W_1(D, v^\top\Sigma v, \omega)$ follows a one-dimensional non-central Wishart

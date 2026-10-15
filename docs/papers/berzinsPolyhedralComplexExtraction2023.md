@@ -66,7 +66,7 @@ A by-product is that the sign-vector of a cell is inherited along the subdivisio
 
 ## Key equations and definitions
 
-The sign-vector of a point assigns its position relative to each hyperplane of the arrangement (Eq. 1, §3.3):
+The sign-vector of a point assigns its position relative to each hyperplane of the arrangement (Eq. 1, §3.3) (Eq. 1):
 
 $$
 \sigma_i(x) =
@@ -75,23 +75,22 @@ $$
 0 & \text{if } x \in H_i,\\
 - & \text{if } x \in H_i^{-}.
 \end{cases}
-\qquad \text{(Eq. 1)}
 $$
 
-A cell $C$ of the arrangement equals the intersection of the closed half-spaces selected by its sign-vector $\sigma(C)$; this is how cells are read off combinatorially (Eq. 2, §3.3):
+A cell $C$ of the arrangement equals the intersection of the closed half-spaces selected by its sign-vector $\sigma(C)$; this is how cells are read off combinatorially (Eq. 2, §3.3) (Eq. 2):
 
 $$
-C = \bigcap_{i=1}^{m} H_i^{\sigma_i(C)} =: H_{\sigma(C)}. \qquad \text{(Eq. 2)}
+C = \bigcap_{i=1}^{m} H_i^{\sigma_i(C)} =: H_{\sigma(C)}.
 $$
 
-The network is a composition of $L$ ReLU layers, and its folded hyperplanes are the zero-level sets of the pre-activations, evaluated at the input $x$ through the previous layers (§3.4):
+The network is a composition of $L$ ReLU layers, and its folded hyperplanes are the zero-level sets of the pre-activations, evaluated at the input $x$ through the previous layers (§3.4) (Eqs. 3–4):
 
 $$
-f_\Theta(x) = (f_\Theta^{(L)} \circ \cdots \circ f_\Theta^{(1)})(x), \qquad \text{(Eq. 3)}
+f_\Theta(x) = (f_\Theta^{(L)} \circ \cdots \circ f_\Theta^{(1)})(x),
 $$
 
 $$
-x^{(l)} = f_\Theta^{(l)}(x^{(l-1)}) = \mathrm{ReLU}\!\left(W^{(l)} x^{(l-1)} + b^{(l)}\right). \qquad \text{(Eq. 4)}
+x^{(l)} = f_\Theta^{(l)}(x^{(l-1)}) = \mathrm{ReLU}\!\left(W^{(l)} x^{(l-1)} + b^{(l)}\right).
 $$
 
 The $i$-th neuron of layer $l$ induces the folded hyperplane $H_i^{(l)} := \{\,x \in \R^D \mid W_i^{(l)\top} x^{(l-1)} + b_i^{(l)} = 0\,\}$ (§3.4, unnumbered). The number of parents of a $k$-cell on a bounded domain, $z + 2(D-k-z)$, is the combinatorial engine of the method (§4.1).

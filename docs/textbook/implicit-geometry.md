@@ -3,11 +3,11 @@ chapter: implicit-geometry
 title: Implicit and geometry-informed representations
 outline_hash: f5e764161a21
 built_from:
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  humayunSplineCamExactVisualization2024: 9589eff7767b
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  humayunSplineCamExactVisualization2024: e413cd7b883c
 ---
 
 # Implicit and geometry-informed representations
@@ -39,9 +39,11 @@ The activation function, and not only the architecture, decides what kind of sur
 ## The polyhedral complex induced by a ReLU field
 
 For a ReLU field the level set is governed by the network's own decomposition. Recall from [The region complex of a ReLU network](relu-network-geometry.md) that the $i$-th neuron of layer $l$ induces the *folded hyperplane*
+
 $$
 H_i^{(l)}=\bigl\{x\in\R^D:\ W_i^{(l)\top}x^{(l-1)}+b_i^{(l)}=0\bigr\},
 $$
+
 the zero level set of that neuron's pre-activation seen from the input [@berzinsPolyhedralComplexExtraction2023, §3.4, p. 4]. A finite set of folded hyperplanes forms a folded hyperplane arrangement and induces a polyhedral decomposition of the domain; on each region of that decomposition a folded hyperplane behaves like an ordinary affine hyperplane and does not fold [@berzinsPolyhedralComplexExtraction2023, §3.4, p. 4]. The sign-vector $\sigma_i(x)=\operatorname{sgn}\!\bigl(W_i^{(l)\top}x^{(l-1)}+b_i^{(l)}\bigr)$ records on which side of each folded hyperplane a point lies [@berzinsPolyhedralComplexExtraction2023, §3.4, p. 4].
 
 The consequence for implicit representations is immediate and is the reason this material sits after the region complex. A ReLU network trained as the SDF of a 3-D shape has a zero level set that is a union of cells of the induced polyhedral complex, and the complex itself can be extracted exactly; [@berzinsPolyhedralComplexExtraction2023, Fig. 1, p. 1] shows precisely this for a ReLU network trained on the signed distance field of the Stanford bunny in $D=3$. Because the activation is continuous, a folded hyperplane stays continuous across its folds, and the whole complex is carried by the 1-skeleton together with the sign-vectors of its vertices; perturbation of the sign-vectors then reconstructs the full intersection-poset, including the regions [@berzinsPolyhedralComplexExtraction2023, §4.1, p. 5]. The extraction algorithm and its GPU implementation are the subject of [The region complex of a ReLU network](relu-network-geometry.md); here the point is that the zero set of a ReLU field is a *known, combinatorial* object rather than an implicit one, and can be handed to any downstream algorithm as a mesh.

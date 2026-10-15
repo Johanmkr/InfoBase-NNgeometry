@@ -62,35 +62,31 @@ The proposed source of regularity is the *structure of the physical domain* and 
 
 ## Key equations and definitions
 
-The blueprint as a composition of blocks (the printed form $f = A_J B_J P_{J-1}\cdots P_1 \rho_1 B_1$; written here as an explicit composition):
+The blueprint as a composition of blocks (the printed form $f = A_J B_J P_{J-1}\cdots P_1 \rho_1 B_1$; written here as an explicit composition) (§3.5, p. 29):
 
 $$
 f = A_J \circ B_J \circ P_{J-1} \circ \rho_{J-1} \circ \cdots \circ P_1 \circ \rho_1 \circ B_1
-\qquad \text{(§3.5, p. 29)}
 $$
 
-Deformation stability (approximate invariance), generalising exact $G$-invariance since $c(\tau) = 0$ for $\tau \in G$:
+Deformation stability (approximate invariance), generalising exact $G$-invariance since $c(\tau) = 0$ for $\tau \in G$ (Eq. 4, p. 20):
 
 $$
 \lVert f(\tau \cdot x) - f(x) \rVert \le C\, c(\tau)\, \lVert x \rVert, \qquad \forall x \in X(\Omega)
-\qquad \text{(Eq. 4, p. 20)}
 $$
 
-Stability to domain deformations, with $d_{\mathcal{D}}$ a distance on the space of domains:
+Stability to domain deformations, with $d_{\mathcal{D}}$ a distance on the space of domains (Eq. 5, p. 22):
 
 $$
 \lVert f(x, \Omega) - f(\tilde{x}, \tilde{\Omega}) \rVert \le C \lVert x \rVert\, d_{\mathcal{D}}(\Omega, \tilde{\Omega})
-\qquad \text{(Eq. 5, p. 22)}
 $$
 
-Shift equivariance of convolution, expressed via the shift operator $S$ and a circulant matrix $C(\theta)$; circulant matrices are exactly those commuting with $S$, so "convolution emerges from the first principle of translational symmetry":
+Shift equivariance of convolution, expressed via the shift operator $S$ and a circulant matrix $C(\theta)$; circulant matrices are exactly those commuting with $S$, so "convolution emerges from the first principle of translational symmetry" (§4.2, p. 37):
 
 $$
 S C(\theta) x = C(\theta) S x
-\qquad \text{(§4.2, p. 37)}
 $$
 
-Permutation-equivariant function on a graph, built by applying one shared permutation-invariant local function $\varphi$ to each node and its neighbourhood features $X_{\mathcal{N}_u}$:
+Permutation-equivariant function on a graph, built by applying one shared permutation-invariant local function $\varphi$ to each node and its neighbourhood features $X_{\mathcal{N}_u}$ (Eq. 13, p. 38):
 
 $$
 F(X, A) =
@@ -99,35 +95,30 @@ F(X, A) =
 \vdots \\
 \varphi(x_n, X_{\mathcal{N}_n})
 \end{bmatrix}
-\qquad \text{(Eq. 13, p. 38)}
 $$
 
-Group convolution: matching the signal with the $g$-transformed filter, with values on the group $G$:
+Group convolution: matching the signal with the $g$-transformed filter, with values on the group $G$ (Eq. 14, p. 41):
 
 $$
 (x \star \theta)(g) = \langle x, \rho(g)\theta \rangle = \int_\Omega x(u)\, \theta(g^{-1}u)\, \mathrm{d}u
-\qquad \text{(Eq. 14, p. 41)}
 $$
 
-Spectral convolution on a manifold via a transfer function $\hat{p}$ of the Laplace–Beltrami operator:
+Spectral convolution on a manifold via a transfer function $\hat{p}$ of the Laplace–Beltrami operator (Eq. 18, p. 54):
 
 $$
 (\hat{p}(\Delta) x)(u) = \sum_{k \ge 0} \hat{p}(\lambda_k)\, \langle x, \psi_k \rangle\, \psi_k(u)
-\qquad \text{(Eq. 18, p. 54)}
 $$
 
-Gauge-equivariant convolution on a mesh: messages are parallel-transported by $\rho(g_{v\to u})$ before an anisotropic kernel $\Theta_{\text{neigh}}(\theta_{uv})$ is applied:
+Gauge-equivariant convolution on a mesh: messages are parallel-transported by $\rho(g_{v\to u})$ before an anisotropic kernel $\Theta_{\text{neigh}}(\theta_{uv})$ is applied (Eq. 37, p. 89):
 
 $$
 h_u = \Theta_{\text{self}}\, x_u + \sum_{v \in \mathcal{N}_u} \Theta_{\text{neigh}}(\theta_{uv})\, \rho(g_{v\to u})\, x_v
-\qquad \text{(Eq. 37, p. 89)}
 $$
 
-Time-warping-invariant recurrence: a learnable gate $\beta$ interpolates between the update $R$ and the previous summary (the gated-RNN form):
+Time-warping-invariant recurrence: a learnable gate $\beta$ interpolates between the update $R$ and the previous summary (the gated-RNN form) (Eq. 53, p. 99):
 
 $$
 h^{(t+1)} = \beta(z^{(t+1)}, h^{(t)})\, R(z^{(t+1)}, h^{(t)}) + \bigl(1 - \beta(z^{(t+1)}, h^{(t)})\bigr)\, h^{(t)}
-\qquad \text{(Eq. 53, p. 99)}
 $$
 
 | Symbol | Meaning (in this paper) |

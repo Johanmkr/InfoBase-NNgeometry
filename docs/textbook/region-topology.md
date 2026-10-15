@@ -3,12 +3,12 @@ chapter: region-topology
 title: Topology of regions and of data
 outline_hash: db41df084c9f
 built_from:
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  sattelbergLocallyLinearAttributes2023: 731de219deef
 ---
 
 # Topology of regions and of data

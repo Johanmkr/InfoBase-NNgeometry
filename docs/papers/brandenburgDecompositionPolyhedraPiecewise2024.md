@@ -71,7 +71,7 @@ The framework is then applied: to show pre-existing constructions (hyperplane ex
 The balancing condition that defines a compatible weight function (§2, p. 4):
 
 $$
-\sum_{\substack{\sigma \in P^{n-1}\\ \sigma \supset \tau}} w(\sigma)\cdot e_{\sigma/\tau} = 0 \qquad \text{(§2, p. 4)}
+\sum_{\substack{\sigma \in P^{n-1}\\ \sigma \supset \tau}} w(\sigma)\cdot e_{\sigma/\tau} = 0
 $$
 
 where $e_{\sigma/\tau}$ is the unit normal of the facet $\tau$ pointing into $\sigma$; it holds at every $\tau \in P^{n-2}$.
@@ -87,8 +87,10 @@ It equals $\lVert a_P - a_Q\rVert_2$ at a convex breakpoint and $-\lVert a_P - a
 The decomposition polyhedron and its projection (Def. 3.4 and Thm. 3.5, pp. 5–6):
 
 $$
-DP(f) := \{(g,h) \mid g,h \in \mathcal{V}_P^+,\ f = g - h\}, \qquad
-\pi(DP(f)) = \mathcal{V}_P^+ \cap (\mathcal{V}_P^+ + f) = \mathcal{V}_P^+ \cap (f + \mathcal{V}_P^+).
+\begin{aligned}
+DP(f) &:= \{(g,h) \mid g,h \in \mathcal{V}_P^+,\ f = g - h\}, \\
+\pi(DP(f)) &= \mathcal{V}_P^+ \cap (\mathcal{V}_P^+ + f) = \mathcal{V}_P^+ \cap (f + \mathcal{V}_P^+).
+\end{aligned}
 $$
 
 Under the isomorphism $\mathcal{V}_P \cong W_P$ this reads $\{(w_g, w_h) \in W_P^+ \times W_P^+ \mid w_g - w_h = w_f\}$ and $\{w_g \in W_P^+ \mid w_g \ge w_f\}$ (Remark 3.6, p. 6).
@@ -109,8 +111,11 @@ The *$k$-th order statistic* (Def. 3.17, p. 7) returns the $k$-th largest entry 
 Submodularity (Def. D.6 / Eq. 2, p. 22) and the base polytope (Def. D.11, p. 23):
 
 $$
-F(A) + F(B) \ge F(A\cup B) + F(A\cap B) \ \ \forall A,B \subseteq [n], \qquad
-B(F) := \Big\{x \in \R^n \mid \textstyle\sum_{i\in S} x_i \le F(S)\ \forall S\subset[n],\ \sum_{i\in[n]} x_i = F([n])\Big\}.
+\begin{aligned}
+F(A) + F(B) &\ge F(A\cup B) + F(A\cap B) \ \ \forall A,B \subseteq [n], \\
+B(F) &:= \Big\{x \in \R^n \mid \textstyle\sum_{i\in S} x_i \le F(S)\ \forall S\subset[n],\ \\
+&\qquad\; \sum_{i\in[n]} x_i = F([n])\Big\}.
+\end{aligned}
 $$
 
 For submodular $F$, its Lovász extension is the support function of $B(F)$, and $B(F)$ is the Newton polytope $\mathrm{Newt}(f) = \mathrm{conv}(v_1,\dots,v_k)$ of that extension (pp. 17, 23).

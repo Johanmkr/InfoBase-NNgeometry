@@ -1,46 +1,47 @@
 ---
 title: Notation
 built_from:
-  NIPS2014_fa6f2a46: 74ce28c3ceac
-  alfarraDecisionBoundariesNeural2023: ea6d2e0f5af7
-  arvanitidisGeometricallyEnrichedLatent2020: 2b5378b36bee
-  arvanitidisPullingBackInformation2022: d5884ab455cc
-  averkovEXPRESSIVENESSRATIONALRELU2025: 027dbe2ff0ec
-  balestrieroSplineTheoryDeep2018: 5784cc65e030
-  berzinsGeometryInformedNeuralNetworks2024: a6bc989abbb9
-  berzinsPolyhedralComplexExtraction2023: 208bc568db8f
-  brandenburgDecompositionPolyhedraPiecewise2024: 9b08305343a9
-  bronsteinGeometricDeepLearning: b1bdc405eedd
-  bronsteinGeometricDeepLearning2017: 303af41ca265
-  carlssonPREIMAGERECTIFIERNETWORK2017: eb5f6b84901f
-  chazalIntroductionTopologicalData2021: cef80f43dbc4
-  combeExploringInformationGeometry2025: 415b5fcd4364
-  fuLatentTopologyInduction2022: fc105aa1f4de
-  gagneuxHowImproveExpressivity2025: 22e23b06014b
-  goujonNumberRegionsPiecewise2023: 6a2c48d0f7af
-  grigsbyHiddenSymmetriesReLU: 75ad4d2ba0ce
-  halversonMetricFlowsNeural2024: 699fded4f825
-  haninComplexityLinearRegions2019: 5631df3a9bd2
-  haninDeepReLUNetworks2019: 3f3cf93f5eda
-  humayunSplineCamExactVisualization2024: 9589eff7767b
-  keupOrigamiDimensionsHow2022: 8e2b8597f3f1
-  lewandowskiExploitingSpaceFolding2026: e8cb3171023a
-  lewandowskiSpaceFoldsReLU2024: de2f7efdfad0
-  liuIntegratingGeometriesReLU2023a: 3f2e37aa6990
-  liuReLUNeuralNetworks2023: 7069ff27d8f7
-  masdenAlgorithmicDeterminationCombinatorial2022: ea8fb21c3649
-  meilaManifoldLearningWhat2023: 009a25e9883c
-  nielsenElementaryIntroductionInformation2020: 84c18077962c
-  pakLecturesDiscretePolyhedral: 676ac4afadc7
+  NIPS2014_fa6f2a46: e11f3b75c4ab
+  alfarraDecisionBoundariesNeural2023: a305d52d8025
+  arvanitidisGeometricallyEnrichedLatent2020: 1e269d18ad0c
+  arvanitidisPullingBackInformation2022: b6e2d23bcb04
+  averkovEXPRESSIVENESSRATIONALRELU2025: e57bb3498e66
+  balestrieroSplineTheoryDeep2018: c06113a95fb7
+  berzinsGeometryInformedNeuralNetworks2024: 7622243e3191
+  berzinsPolyhedralComplexExtraction2023: ce2242f7b108
+  brandenburgDecompositionPolyhedraPiecewise2024: 307dddfb6bce
+  bronsteinGeometricDeepLearning: 6abf4c1c9edc
+  bronsteinGeometricDeepLearning2017: c17967a216bb
+  carlssonPREIMAGERECTIFIERNETWORK2017: c2b08537722e
+  chazalIntroductionTopologicalData2021: ac2d04605929
+  combeExploringInformationGeometry2025: f2e5daaa2fa6
+  dhayalkarDiscreteFunctionalGeometry2025: 6c54339045f0
+  fuLatentTopologyInduction2022: c2ba4261ab8e
+  gagneuxHowImproveExpressivity2025: 3626abad8f47
+  goujonNumberRegionsPiecewise2023: fb83a40ca26c
+  grigsbyHiddenSymmetriesReLU: 2b3f7998f609
+  halversonMetricFlowsNeural2024: 2fd2a25dba82
+  haninComplexityLinearRegions2019: 438efc947567
+  haninDeepReLUNetworks2019: d172a42e0d06
+  humayunSplineCamExactVisualization2024: e413cd7b883c
+  keupOrigamiDimensionsHow2022: eb997e66ea80
+  lewandowskiExploitingSpaceFolding2026: 79b187d59987
+  lewandowskiSpaceFoldsReLU2024: c213be11a02d
+  liuIntegratingGeometriesReLU2023a: 74fb72720d6b
+  liuReLUNeuralNetworks2023: 0877601e9e2e
+  masdenAlgorithmicDeterminationCombinatorial2022: 83d84f985dd7
+  meilaManifoldLearningWhat2023: 9d14430d7f11
+  nielsenElementaryIntroductionInformation2020: 68ed040d3708
+  pakLecturesDiscretePolyhedral: b12d340fddd1
   pascanuNumberResponseRegions2013: 3fae3832ff4c
-  phuongFunctionalVsParametric2019: c7324e1a5cb1
-  pouplinIdentifyingLatentDistances2023: 002a4b56f697
-  raghuExpressivePowerDeep2017: b62868fb88f1
-  sattelbergLocallyLinearAttributes2023: 4e0708abcb09
-  serraBoundingCountingLinear2018: e57c5f62b98c
-  villarFullyCovariantMachine2023: 20a7c0430350
-  vincentReachablePolyhedralMarching2021: c4988156c5b8
-  zhangTropicalGeometryDeep: f99703ad8890
+  phuongFunctionalVsParametric2019: 79b70de62319
+  pouplinIdentifyingLatentDistances2023: d11ea5c75a33
+  raghuExpressivePowerDeep2017: effafc1ee765
+  sattelbergLocallyLinearAttributes2023: 731de219deef
+  serraBoundingCountingLinear2018: 9cdce7bede89
+  villarFullyCovariantMachine2023: 206ac70ee271
+  vincentReachablePolyhedralMarching2021: 7fe473aac8ec
+  zhangTropicalGeometryDeep: 56eee67d20f1
 ---
 
 # Notation
@@ -68,12 +69,17 @@ keep each paper's own notation; the last column of every table maps the differen
 | $\odot$ | entrywise (Hadamard) product | $\odot$ [@balestrieroSplineTheoryDeep2018] |
 | $\mathbf{1}[\cdot]$ | indicator of a condition | $\mathbf{1}[\cdot]$; $\mathbb{I}[\cdot]$ |
 
-!!! warning "Clash: $\sigma$ and $N$"
-    $\sigma$ denotes the ReLU activation here. In @balestrieroSplineTheoryDeep2018 $\sigma$
+!!! warning "Clash: $\sigma$, $N$, $G$ and $H$"
+    $\sigma$ denotes the ReLU activation here. In [@balestrieroSplineTheoryDeep2018] $\sigma$
     is the activation function of a generic spline, and in the symmetry literature $\Sigma$
-    is a permutation. For widths this textbook writes $n_l$; @NIPS2014_fa6f2a46 uses $N$
-    for the number of hidden units and @lewandowskiExploitingSpaceFolding2026 uses $N$ both
-    for the network and for a neuron count.
+    is a permutation. For widths this textbook writes $n_l$; [@NIPS2014_fa6f2a46] uses $N$
+    for the number of hidden units, and [@lewandowskiExploitingSpaceFolding2026] uses $N$ both
+    for the network and for a neuron count. $G$ is the transition graph in the notation of
+    [@dhayalkarDiscreteFunctionalGeometry2025] but a group in the symmetry chapter
+    ([@bronsteinGeometricDeepLearning2017; @grigsbyHiddenSymmetriesReLU]); where the two could be
+    confused the group is written $G_{\text{grp}}$. $H(G)$ is the entropy of
+    [@dhayalkarDiscreteFunctionalGeometry2025], $H$ a hidden symmetry in
+    [@grigsbyHiddenSymmetriesReLU] and homology in [@liuReLUNeuralNetworks2023].
 
 ## Linear regions and activation patterns
 
@@ -88,6 +94,11 @@ keep each paper's own notation; the last column of every table maps the differen
 | $\phi^{(l)}$ | a bent hyperplane: the preimage, under the map to layer $l$, of a layer-$l$ hyperplane | $H^{(l)}$ [@masdenAlgorithmicDeterminationCombinatorial2022]; bent hyperplane [@grigsbyHiddenSymmetriesReLU] |
 | $F_i$ | the fold-set of a ReLU unit: where the unit changes sign, folding space | fold-set $F$ [@lewandowskiSpaceFoldsReLU2024] |
 | $d_H$ | Hamming distance on activation patterns | $d_H$ [@masdenAlgorithmicDeterminationCombinatorial2022; @sattelbergLocallyLinearAttributes2023] |
+| $G=(V,E)$ | the ReLU transition graph of $f$: nodes are the regions, edges join regions that share a facet, i.e. patterns at Hamming distance one | $G$ [@dhayalkarDiscreteFunctionalGeometry2025]; dual graph [@liuReLUNeuralNetworks2023]; graph of single-bit flips [@liuIntegratingGeometriesReLU2023a] |
+| $d_{\mathrm{avg}}$ | average degree of the nodes of $G$ | $d_{\mathrm{avg}}$ [@dhayalkarDiscreteFunctionalGeometry2025] |
+| $H(G)$ | entropy of the region-volume distribution $p_v=\operatorname{Vol}(\mathcal{R}_v)/\sum_u\operatorname{Vol}(\mathcal{R}_u)$ | $H(G)$, $p_v$ [@dhayalkarDiscreteFunctionalGeometry2025] |
+| $\operatorname{diam}(G)$ | length of the longest shortest path in $G$ | $\operatorname{diam}(G)$ [@dhayalkarDiscreteFunctionalGeometry2025] |
+| $\operatorname{VC}(\mathcal{F})$ | VC-dimension of the function class $\mathcal{F}$ realised by the network | $\operatorname{VC}(\mathcal{F})$ [@dhayalkarDiscreteFunctionalGeometry2025] |
 
 ## Polyhedral and tropical geometry
 
@@ -114,7 +125,7 @@ keep each paper's own notation; the last column of every table maps the differen
 | $g_{ij}(\theta)$ | Fisher information metric, $g_{ij}=\E[\partial_i\ell\,\partial_j\ell]$, $\ell=\log p_\theta$ | $g$, $\mathcal{I}$ [@nielsenElementaryIntroductionInformation2020]; $\mathbf{F}$ [@arvanitidisPullingBackInformation2022] |
 | $\nabla^{(\alpha)}$ | the $\alpha$-connection on a statistical manifold; $\alpha=\pm1$ are the exponential and mixture connections | $\nabla^{(\alpha)}$ [@nielsenElementaryIntroductionInformation2020]; $\nabla^{(-1)},\nabla^{(1)}$ |
 | $\Gamma_{ijk}$ | Amari–Chentsov cubic tensor, $\E[\partial_i\ell\,\partial_j\ell\,\partial_k\ell]$; determines the torsion of the $\alpha$-connections | $\Gamma$ [@nielsenElementaryIntroductionInformation2020]; $T$ [@combeExploringInformationGeometry2025] |
-| $D_{\mathrm{KL}}(p\,\|\,q)$ | Kullback–Leibler divergence; its Hessian is the Fisher metric | $D_{\mathrm{KL}}$; $\mathrm{KL}$ |
+| $D_{\mathrm{KL}}(p\,\Vert \,q)$ | Kullback–Leibler divergence; its Hessian is the Fisher metric | $D_{\mathrm{KL}}$; $\mathrm{KL}$ |
 | $G(z)$ | metric on the latent space pulled back through a decoder $\phi$: $G(z)=J_\phi(z)^\top G(\phi(z))\,J_\phi(z)$ | $G$ [@arvanitidisGeometricallyEnrichedLatent2020]; $g^E$ [@arvanitidisPullingBackInformation2022] |
 | $J_\phi(z)$ | Jacobian of the decoder at $z$ | $J$ [@arvanitidisGeometricallyEnrichedLatent2020] |
 | $\gamma:[0,1]\to\mathcal{M}$ | a path, usually a shortest (geodesic) one; $\ell(\gamma)$ its length | $\gamma$; $c$ [@arvanitidisPullingBackInformation2022] |

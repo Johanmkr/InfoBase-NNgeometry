@@ -63,17 +63,17 @@ For a multi-level network the same argument is applied layer by layer: a preimag
 Layer map (§1, p. 1, unnumbered):
 
 $$
-x^{(l+1)} = \left[Wx^{(l)} + b\right]^+ \qquad\text{(§1, p. 1, unnumbered)}
+x^{(l+1)} = \left[Wx^{(l)} + b\right]^+
 $$
 
-Preimage of a target activity, in the compact form and the expanded form given in §1:
+Preimage of a target activity, in the compact form and the expanded form given in §1 (§1, p. 1, unnumbered):
 
 $$
-P(x^{(l+1)}) = \left\{x : x^{l+1} = [Wx + b]^+\right\} \qquad\text{(§1, p. 1, unnumbered)}
+P(x^{(l+1)}) = \left\{x : x^{l+1} = [Wx + b]^+\right\}
 $$
 
 $$
-P(x^{(l+1)}) = \left\{x : w_i^T x + b_i = x_i^{l+1}\ \forall x_i^{l+1} > 0,\quad w_i^T x + b_i \le 0\ \forall x_i^{l+1} = 0\right\} \qquad\text{(§1, p. 1, unnumbered)}
+P(x^{(l+1)}) = \left\{x : w_i^T x + b_i = x_i^{l+1}\ \forall x_i^{l+1} > 0,\quad w_i^T x + b_i \le 0\ \forall x_i^{l+1} = 0\right\}
 $$
 
 The constraint system (Eq. 1, p. 1), written for the rectified indices $i_1,\dots,i_p$ with $p+q=n$:
@@ -81,33 +81,43 @@ The constraint system (Eq. 1, p. 1), written for the rectified indices $i_1,\dot
 $$
 w_{i_1}^T x^{(l)} + b_{i_1} \le 0,\; w_{i_2}^T x^{(l)} + b_{i_2} \le 0,\; \dots,\; w_{i_p}^T x^{(l)} + b_{i_p} \le 0
 $$
+
 $$
-w_{j_1}^T x^{(l)} + b_{j_1} > 0,\; w_{j_2}^T x^{(l)} + b_{j_2} > 0,\; \dots,\; w_{j_q}^T x^{(l)} + b_{j_q} > 0 \qquad\text{(Eq. 1, p. 1)}
+w_{j_1}^T x^{(l)} + b_{j_1} > 0,\; w_{j_2}^T x^{(l)} + b_{j_2} > 0,\; \dots,\; w_{j_q}^T x^{(l)} + b_{j_q} > 0
 $$
 
 Nullspace hyperplanes and the reciprocal basis (§1, pp. 1–2, unnumbered, printed as $\Pi_i$ and $\pi_i$):
 
 $$
-\Pi_i = \left\{x : w_i^T x + b_i = 0,\ i = 1\dots n\right\}, \qquad
-\pi_i = \Pi_1 \cap \Pi_2 \cap \dots \cap \Pi_{i-1} \cap \Pi_{i+1} \cap \dots \cap \Pi_n
+\begin{aligned}
+\Pi_i &= \left\{x : w_i^T x + b_i = 0,\ i = 1\dots n\right\}, \\
+\pi_i &= \Pi_1 \cap \Pi_2 \cap \dots \cap \Pi_{i-1} \cap \Pi_{i+1} \cap \dots \cap \Pi_n
+\end{aligned}
 $$
 
 Normalisation of the basis and the coordinate identity (§1, p. 2, unnumbered):
 
 $$
-w_i^T e_i = 1, \qquad w_j^T e_i = 0 \ (i \ne j), \qquad x = \sum_{i=1}^{n} \alpha_i e_i, \qquad w_j^T x = \sum_{i} \alpha_i w_j^T e_i = \alpha_j
+\begin{aligned}
+w_i^T e_i = 1, \qquad w_j^T e_i = 0 \ (i \ne j), &\qquad x = \sum_{i=1}^{n} \alpha_i e_i, \\
+&\qquad w_j^T x = \sum_{i} \alpha_i w_j^T e_i = \alpha_j
+\end{aligned}
 $$
 
 The activity of output unit $j$ (Eq. 2, p. 2):
 
 $$
-x_j^{(l+1)} = \left[w_j^T x^{(l)} + b_j\right]^+ \qquad\text{(Eq. 2, p. 2)}
+x_j^{(l+1)} = \left[w_j^T x^{(l)} + b_j\right]^+
 $$
 
 The preimage manifold (§1, p. 2, unnumbered; printed as $x = \alpha_{i_1}e_{i_1} + \alpha_{i_2}e_{i_2} + \dots \alpha_{i_p}e_{i_p} - \alpha_{j_1}e_{j_1} - \alpha_{j_2}e_{j_2} - \dots \alpha_{j_q}e_{j_q}$, "where all $\alpha_i \ge 0$"):
 
 $$
-x = \alpha_{i_1}e_{i_1} + \alpha_{i_2}e_{i_2} + \dots + \alpha_{i_p}e_{i_p} - \alpha_{j_1}e_{j_1} - \alpha_{j_2}e_{j_2} - \dots - \alpha_{j_q}e_{j_q}, \qquad \alpha_i \ge 0 \quad\text{(sic; subscripts as printed, see below)}
+\begin{aligned}
+x &= \alpha_{i_1}e_{i_1} + \alpha_{i_2}e_{i_2} + \dots + \alpha_{i_p}e_{i_p} \\
+&\quad - \alpha_{j_1}e_{j_1} - \alpha_{j_2}e_{j_2} - \dots - \alpha_{j_q}e_{j_q}, \\
+&\quad \alpha_i \ge 0 \quad\text{(sic; subscripts as printed, see below)}
+\end{aligned}
 $$
 
 | Symbol | Meaning (in this paper) |

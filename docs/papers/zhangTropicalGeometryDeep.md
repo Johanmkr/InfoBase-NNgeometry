@@ -53,52 +53,73 @@ The method is then a layer-wise induction: split each integer weight matrix as $
 
 ## Key equations and definitions
 
-Tropical arithmetic (Def. 2.1):
+Tropical arithmetic (Def. 2.1) (Def. 2.1, §2):
 
 $$
-x \oplus y := \max\{x,y\}, \qquad x \odot y := x + y, \qquad x \oslash y := x - y \qquad \text{(Def. 2.1, §2)}
+x \oplus y := \max\{x,y\}, \qquad x \odot y := x + y, \qquad x \oslash y := x - y
 $$
 
-A tropical polynomial is a finite tropical sum of monomials, and a tropical rational function a tropical quotient of two:
+A tropical polynomial is a finite tropical sum of monomials, and a tropical rational function a tropical quotient of two (Defs. 2.3–2.4, §2):
+
 $$
-f(x) = c_1 x^{\alpha_1} \oplus \cdots \oplus c_r x^{\alpha_r}, \qquad f \oslash g = f \odot g^{\odot(-1)} \qquad \text{(Defs. 2.3–2.4, §2)}
+f(x) = c_1 x^{\alpha_1} \oplus \cdots \oplus c_r x^{\alpha_r}, \qquad f \oslash g = f \odot g^{\odot(-1)}
 $$
+
 so that every network is $F \oslash G = F \odot G^{\odot(-1)}$ with $F,G$ tropical polynomial maps (Thm. 5.2).
 
-The tropical hypersurface of $f$ is where the maximum is attained by two or more monomials, i.e. where $f$ is not linear:
+The tropical hypersurface of $f$ is where the maximum is attained by two or more monomials, i.e. where $f$ is not linear (Def. 3.1, §3):
+
 $$
-T(f) := \left\{ x \in \R^d : c_i x^{\alpha_i} = c_j x^{\alpha_j} = f(x) \ \text{for some } i \neq j \right\} \qquad \text{(Def. 3.1, §3)}
+T(f) := \left\{ x \in \R^d : c_i x^{\alpha_i} = c_j x^{\alpha_j} = f(x) \ \text{for some } i \neq j \right\}
 $$
+
 It divides $\R^d$ into convex polyhedral cells on which $f$ is linear; the number of linear regions is thus bounded by the number of vertices of the dual subdivision.
 
 The polytope $P(f)$ is the convex hull of the lifted exponents, and this lift generates the dual subdivision of the Newton polygon (Eq. 1, §3):
+
 $$
-P(f) := \operatorname{Conv}\{ (\alpha_i, c_i) \in \R^d \times \R : i = 1,\dots,r \} \qquad \text{(Eq. 1, §3)}
+P(f) := \operatorname{Conv}\{ (\alpha_i, c_i) \in \R^d \times \R : i = 1,\dots,r \}
 $$
+
 with $P(f^{\odot a}) = aP(f)$ for $a \in \N$ (Prop. 3.1) and, for $f,g$ tropical polynomials, $P(f \odot g) = P(f) + P(g)$ and $P(f \oplus g) = \operatorname{Conv}\{V(P(f)) \cup V(P(g))\}$ (Prop. 3.2).
 
-The layer-wise recursion, in the non-tropical form of Prop. 5.1 (with $t := t^{(l+1)}$ and writing $F^{(l)}, G^{(l)}$ for the layer's tropical polynomial maps):
+The layer-wise recursion, in the non-tropical form of Prop. 5.1, §5 (with $t := t^{(l+1)}$ and writing $F^{(l)}, G^{(l)}$ for the layer's tropical polynomial maps):
+
 $$
-F^{(l+1)}(x) = \max\{H^{(l+1)}(x),\, G^{(l+1)}(x) + t\},\quad
-G^{(l+1)}(x) = A_+ G^{(l)}(x) + A_- F^{(l)}(x),
+\begin{aligned}
+F^{(l+1)}(x) &= \max\{H^{(l+1)}(x),\, G^{(l+1)}(x) + t\}, \\
+&\quad G^{(l+1)}(x) = A_+ G^{(l)}(x) + A_- F^{(l)}(x),
+\end{aligned}
 $$
+
 $$
-H^{(l+1)}(x) = A_+ F^{(l)}(x) + A_- G^{(l)}(x) + b \qquad \text{(Prop. 5.1, §5)}
+H^{(l+1)}(x) = A_+ F^{(l)}(x) + A_- G^{(l)}(x) + b
 $$
+
 In tropical arithmetic the coordinate form (Eq. 2, §5) is
+
 $$
 f_i^{(l+1)} = h_i^{(l+1)} \oplus \bigl(g_i^{(l+1)} \odot t_i^{(l+1)}\bigr),
 $$
+
 $$
-g_i^{(l+1)} = \Bigl(\bigodot_{j=1}^{n_l} (g_j^{(l)})^{\odot a_{ij}^+}\Bigr) \odot \Bigl(\bigodot_{j=1}^{n_l} (f_j^{(l)})^{\odot a_{ij}^-}\Bigr),\quad
-h_i^{(l+1)} = \Bigl(\bigodot_{j=1}^{n_l} (f_j^{(l)})^{\odot a_{ij}^+}\Bigr) \odot \Bigl(\bigodot_{j=1}^{n_l} (g_j^{(l)})^{\odot a_{ij}^-}\Bigr) \odot b_i^{(l+1)} \qquad \text{(Eq. 2, §5)}
+\begin{aligned}
+g_i^{(l+1)} &= \Bigl(\bigodot_{j=1}^{n_l} (g_j^{(l)})^{\odot a_{ij}^+}\Bigr) \odot \Bigl(\bigodot_{j=1}^{n_l} (f_j^{(l)})^{\odot a_{ij}^-}\Bigr),\\
+h_i^{(l+1)} &= \Bigl(\bigodot_{j=1}^{n_l} (f_j^{(l)})^{\odot a_{ij}^+}\Bigr) \odot \Bigl(\bigodot_{j=1}^{n_l} (g_j^{(l)})^{\odot a_{ij}^-}\Bigr) \odot b_i^{(l+1)}
+\end{aligned}
 $$
+
 (The extracted text garbles the operators and exponent signs of Eq. 2; the form above is the one consistent with the unambiguous non-tropical statement of Prop. 5.1.)
 
-Decision boundary: if $\nu = f \oslash g$ and $s$ is injective with decision threshold $c$, the boundary is contained in a tropical hypersurface,
+Decision boundary: if $\nu = f \oslash g$ and $s$ is injective with decision threshold $c$, the boundary is contained in a tropical hypersurface (Eq. 3, §6.1),
+
 $$
-B \subseteq T\bigl(s^{-1}(c) \odot g \ominus f\bigr), \qquad \text{where } s^{-1}(c) \odot g(x) \ominus f(x) = \max\{f(x),\, g(x) + s^{-1}(c)\} \qquad \text{(Eq. 3, §6.1)}
+\begin{aligned}
+B &\subseteq T\bigl(s^{-1}(c) \odot g \ominus f\bigr), \\
+&\text{where } s^{-1}(c) \odot g(x) \ominus f(x) = \max\{f(x),\, g(x) + s^{-1}(c)\}
+\end{aligned}
 $$
+
 the containment being strict in general because $T$ may further split a positive or negative region into several linear regions.
 
 | Symbol | Meaning (in this paper) |
@@ -126,10 +147,15 @@ the containment being strict in general because $T$ may further split a positive
 
 **Zonotopes as building blocks (Lemma 6.2).** $P(g_i^{(1)})$ and $P(h_i^{(1)})$ are points, $P(f_i^{(1)})$ is a line segment, and the $P(g_i^{(2)}), P(h_i^{(2)})$ of the second layer are zonotopes; from layer 2 on, $P(g_i^{(l+1)})$ and $P(h_i^{(l+1)})$ are weighted Minkowski sums of the previous layer's polytopes plus $\{b_i e\}$. Hence zonotopes are the geometric building blocks, connecting networks to the extensive convex-geometry literature on zonotopes and hyperplane arrangements.
 
-**Deep vs shallow (Thm. 6.3).** For an $L$-layer network with $t^{(L)} = -\infty$ and $n_l \ge d$ for $l = 1,\dots,L-1$, the number of linear regions is at most
+**Deep vs shallow (Thm. 6.3, §6.3).** For an $L$-layer network with $t^{(L)} = -\infty$ and $n_l \ge d$ for $l = 1,\dots,L-1$, the number of linear regions is at most
+
 $$
-\prod_{l=1}^{L-1} \sum_{i=0}^{d} \binom{n_l}{i} \quad\text{linear regions, and in particular } O\bigl(n^{d(L-1)}\bigr) \text{ when } n_1 = \cdots = n_{L-1} = n \ge d \qquad \text{(Thm. 6.3, §6.3)}
+\begin{aligned}
+&\prod_{l=1}^{L-1} \sum_{i=0}^{d} \binom{n_l}{i} \quad\text{linear regions,} \\
+&\text{and in particular } O\bigl(n^{d(L-1)}\bigr) \text{ when } n_1 = \cdots = n_{L-1} = n \ge d
+\end{aligned}
 $$
+
 The proof for $L = 2$ follows from Lemma 6.2 and Cor. 3.4 (zonotope vertex bound), with $L \ge 3$ deferred to Section D.7 of the supplement. The paper states explicitly that this bound does *not* improve on that of [@raghuExpressivePowerDeep2017] and is more restrictive (it applies only to (a)–(c)); the point is that tropical geometry recovers it. It notes this closely matches the lower bound $(n/d)^{d(L-1)} n^d$ of (Montúfar et al., 2014, Cor. 5) when all widths equal $n \ge d$, leading to the conclusion that the number of linear regions grows polynomially in the width $n$ and exponentially in the depth $L$.
 
 ## Limitations stated by the authors

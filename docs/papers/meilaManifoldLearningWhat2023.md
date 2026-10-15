@@ -62,46 +62,46 @@ The survey is an organising review rather than a new algorithm. Its structure is
 
 ## Key equations and definitions
 
-An embedding $F$ is an **isometry** iff it preserves the metric at every point:
+An embedding $F$ is an **isometry** iff it preserves the metric at every point (Eq. 1, p. 6):
 
 $$
-\langle v_1, v_2\rangle_{g(p)} = \langle dF_p(v_1), dF_p(v_2)\rangle_{h(F(p))}, \quad \forall p\in M,\ v_1,v_2\in T_pM \qquad \text{(Eq. 1, p. 6)}
+\langle v_1, v_2\rangle_{g(p)} = \langle dF_p(v_1), dF_p(v_2)\rangle_{h(F(p))}, \quad \forall p\in M,\ v_1,v_2\in T_pM
 $$
 
-The neighborhood graph is weighted by a kernel, almost always Gaussian $K(u)=\exp(-u^2)$, whose width $h$ effectively sets a radius $r\propto h$:
+The neighborhood graph is weighted by a kernel, almost always Gaussian $K(u)=\exp(-u^2)$, whose width $h$ effectively sets a radius $r\propto h$ (Eq. 2, p. 7):
 
 $$
-K_{ij} := \begin{cases} K\!\left(\dfrac{\lVert x_i - x_j\rVert}{h}\right), & x_j \in N_i,\\[6pt] 0, & \text{otherwise.}\end{cases} \qquad \text{(Eq. 2, p. 7)}
+K_{ij} := \begin{cases} K\!\left(\dfrac{\lVert x_i - x_j\rVert}{h}\right), & x_j \in N_i,\\[6pt] 0, & \text{otherwise.}\end{cases}
 $$
 
-PCA is the reconstruction-error problem solved by the leading singular vectors of $X$:
+PCA is the reconstruction-error problem solved by the leading singular vectors of $X$ (Eq. 4, p. 10):
 
 $$
-\min_{T\in\R^{D\times d},\ T^\top T = I_d} \sum_{i=1}^n \lVert x_i - TT^\top x_i\rVert^2 \;=\; \min_{T\in\R^{D\times d},\ T^\top T = I_d} \lVert X - XTT^\top\rVert_F^2 \qquad \text{(Eq. 4, p. 10)}
+\min_{T\in\R^{D\times d},\ T^\top T = I_d} \sum_{i=1}^n \lVert x_i - TT^\top x_i\rVert^2 \;=\; \min_{T\in\R^{D\times d},\ T^\top T = I_d} \lVert X - XTT^\top\rVert_F^2
 $$
 
-t-SNE's objective is a cross-entropy between data similarities $V$ and embedding similarities $W$:
+t-SNE's objective is a cross-entropy between data similarities $V$ and embedding similarities $W$ (Eq. 7, p. 13):
 
 $$
-L_{t\text{-SNE}} = -\sum_{i,j} \frac{1}{n} V_{ij} \ln W_{ij} + \ln \sum_{ij} W_{ij} \qquad \text{(Eq. 7, p. 13)}
+L_{t\text{-SNE}} = -\sum_{i,j} \frac{1}{n} V_{ij} \ln W_{ij} + \ln \sum_{ij} W_{ij}
 $$
 
-whose gradient exposes the attraction-repulsion mechanism, with $\rho$ the trade-off parameter:
+whose gradient exposes the attraction-repulsion mechanism, with $\rho$ the trade-off parameter (Eq. 8, p. 14):
 
 $$
-\frac{\partial L_{t\text{-SNE}}}{\partial y_i} = -\sum_{ij} V_{ij} W_{ij}(y_i - y_j) + \frac{n}{\rho}\sum_{ij} \frac{W_{ij}}{w_{tot}}(y_i - y_j) \qquad \text{(Eq. 8, p. 14)}
+\frac{\partial L_{t\text{-SNE}}}{\partial y_i} = -\sum_{ij} V_{ij} W_{ij}(y_i - y_j) + \frac{n}{\rho}\sum_{ij} \frac{W_{ij}}{w_{tot}}(y_i - y_j)
 $$
 
-Intrinsic dimension via the correlation dimension (slope of $\log k_{i,r}$ against $\log r$):
+Intrinsic dimension via the correlation dimension (slope of $\log k_{i,r}$ against $\log r$) (Eq. 10, p. 20):
 
 $$
-\hat{d}_C = \lim_{r\to 0} \frac{\log \frac{1}{n}\sum_{i \neq i'} \mathbf{1}_{\lVert x_i - x_{i'}\rVert \le r}}{\log r} \qquad \text{(Eq. 10, p. 20)}
+\hat{d}_C = \lim_{r\to 0} \frac{\log \frac{1}{n}\sum_{i \neq i'} \mathbf{1}_{\lVert x_i - x_{i'}\rVert \le r}}{\log r}
 $$
 
-Distortion can be removed by endowing the image with the **push-forward metric** of $F$, using the pseudoinverse $dF_p^{\dagger}$:
+Distortion can be removed by endowing the image with the **push-forward metric** of $F$, using the pseudoinverse $dF_p^{\dagger}$ (Eqs. 12–13, p. 23):
 
 $$
-\langle u, v\rangle_{\tilde{g}(Fp)} \equiv \langle dF_p^{\dagger}(u),\, dF_p^{\dagger}(v)\rangle_{g(p)}, \qquad \tilde{g}(Fp) \equiv \big((dF_p)^T\big)^{\dagger}\, g(p)\, (dF_p)^{\dagger} \qquad \text{(Eqs. 12–13, p. 23)}
+\langle u, v\rangle_{\tilde{g}(Fp)} \equiv \langle dF_p^{\dagger}(u),\, dF_p^{\dagger}(v)\rangle_{g(p)}, \qquad \tilde{g}(Fp) \equiv \big((dF_p)^T\big)^{\dagger}\, g(p)\, (dF_p)^{\dagger}
 $$
 
 | Symbol | Meaning (in this paper) |

@@ -54,18 +54,18 @@ Experiments sweep circular trajectories between MNIST and CIFAR-10 datapoints th
 
 ## Key equations and definitions
 
-A trajectory is a curve $x(t)$, $t\in[0,1]$, with $x(0)=x_0$, $x(1)=x_1$; the paper's examples are the line $x(t)=tx_1+(1-t)x_0$ and the circular arc (used in all experiments)
+A trajectory is a curve $x(t)$, $t\in[0,1]$, with $x(0)=x_0$, $x(1)=x_1$; the paper's examples are the line $x(t)=tx_1+(1-t)x_0$ and the circular arc (used in all experiments) (§2, p. 2).
 
 $$
-x(t) = \cos\!\left(\tfrac{\pi t}{2}\right) x_0 + \sin\!\left(\tfrac{\pi t}{2}\right) x_1 \qquad \text{(§2, p. 2)}
+x(t) = \cos\!\left(\tfrac{\pi t}{2}\right) x_0 + \sin\!\left(\tfrac{\pi t}{2}\right) x_1
 $$
 
 The activation pattern of a network is a string over $\{0,1\}^{\text{num neurons}}$ (ReLU) or $\{-1,0,1\}^{\text{num neurons}}$ (hard tanh) recording the linear region of every neuron's activation function, for input $x$ and weights $W$ (§2.1, p. 3).
 
-Trajectory length is the standard arc length of the curve (integrated over $t\in[0,1]$):
+Trajectory length is the standard arc length of the curve (integrated over $t\in[0,1]$) (§2.2, p. 4):
 
 $$
-l(x(t)) = \int \left\lvert \frac{dx(t)}{dt} \right\rvert \, dt \qquad \text{(§2.2, p. 4)}
+l(x(t)) = \int \left\lvert \frac{dx(t)}{dt} \right\rvert \, dt
 $$
 
 **Theorem 1** (upper bound on activation patterns, §2.1, p. 3; proof by induction on regions of a hyperplane arrangement, given in the Appendix, which is not part of this file). For a fully connected network with $n$ hidden layers of width $k$ and inputs in $\R^m$,
@@ -93,7 +93,10 @@ $$
 **Theorem 4** (transitions proportional to trajectory length, §2.2, p. 5). For a hard-tanh network, under the assumption that during the sweep all neurons are saturated except at rapidly crossed saturation endpoints,
 
 $$
-g(k,\sigma_w,\sigma_b,n) = O\!\left( \left( \frac{\sqrt{k}}{\sqrt{1 + \sigma_b^2/\sigma_w^2}} \right)^{\!n} \right), \qquad T(F_{A_{n,k}}(x(t);W)) = O(g(k,\sigma_w,\sigma_b,n))
+\begin{aligned}
+g(k,\sigma_w,\sigma_b,n) &= O\!\left( \left( \frac{\sqrt{k}}{\sqrt{1 + \sigma_b^2/\sigma_w^2}} \right)^{\!n} \right), \\
+T(F_{A_{n,k}}(x(t);W)) &= O(g(k,\sigma_w,\sigma_b,n))
+\end{aligned}
 $$
 
 The paper notes that $g$ coincides with the expression of Theorem 3 when $\sigma_w$ is large and dominates $\sigma_b$.

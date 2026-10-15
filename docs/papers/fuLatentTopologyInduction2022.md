@@ -96,41 +96,36 @@ over-clusters (§4, p. 5).
 $$
 \log \phi(x_t, z_t) = r_t^{\top} s_{z_t}, \qquad
 \log \psi(z_{t-1}, z_t) = s_{z_{t-1}}^{\top} s_{z_t}
-\qquad \text{(Eq. 1, p. 3)}
 $$
 
 The emission potential scores how well state $z_t$ summarises token $x_t$; the transition
-potential scores the affinity between consecutive states. Both use the dot product, "the
+potential scores the affinity between consecutive states (Eq. 1, p. 3). Both use the dot product, "the
 common practice of fine-tuning contextualized representations" (§3, p. 3).
 
 $$
 q(z \mid x) = \frac{1}{Z} \prod_{t=1}^{T} \psi(z_{t-1}, z_t)\, \phi(x_t, z_t)
-\qquad \text{(Eq. 2, p. 3)}
 $$
 
-Posterior of a state sequence given a sentence; $Z$ is the partition function.
+Posterior of a state sequence given a sentence (Eq. 2, p. 3); $Z$ is the partition function.
 
 $$
 p(x, z) = \prod_{t} p(x_t \mid z_{1:t})\, p(z_t \mid z_{1:t-1}),
 \qquad h_t = \mathrm{Dec}(s_{z_{t-1}}, h_{t-1})
-\qquad \text{(Eq. 3, p. 3)}
 $$
 
 $$
 p(z_t \mid z_{1:t-1}) = \mathrm{softmax}\big(\mathrm{FF}([s_{z_t}; h_t])\big), \qquad
 p(x_t \mid z_{1:t}) = \mathrm{softmax}\big(\mathrm{FF}(h_t)\big)
-\qquad \text{(Eq. 4, p. 3)}
 $$
 
-Generative model; $\mathrm{Dec}$ is an LSTM, $\mathrm{FF}$ a feed-forward network, $\theta$
+Generative model (Eqs. 3–4, p. 3); $\mathrm{Dec}$ is an LSTM, $\mathrm{FF}$ a feed-forward network, $\theta$
 the decoder parameters (§3, p. 3).
 
 $$
 \mathcal{L}_{\text{ELBO}} = \E_{q(z \mid x)}\big[\log p(x, z)\big] + H\big(q(z \mid x)\big)
-\qquad \text{(Eq. 5, p. 3)}
 $$
 
-Training objective; the entropy term $H$ is what is reweighted to prevent posterior collapse
+Training objective (Eq. 5, p. 3); the entropy term $H$ is what is reweighted to prevent posterior collapse
 (§4, p. 5). (The sign of the $H$ term is not recoverable from the file's extracted text — see
 critical assessment.)
 

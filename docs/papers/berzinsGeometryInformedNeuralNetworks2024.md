@@ -61,46 +61,46 @@ Data-driven shape generation is limited by the scarcity of large shape datasets 
 
 The shape is the sub-level set $\Omega = \{x \in X \mid f(x) \le 0\}$ with $\partial\Omega = \{x \in X \mid f(x) = 0\}$, and the SDF is $f(x) = d(x, \partial\Omega)$ for $x \in \Omega^c$ and $f(x) = -d(x,\partial\Omega)$ for $x \in \Omega$ (Eq. 21, p. 28).
 
-Generative GINN problem — find a diverse near-optimal solution set:
+Generative GINN problem — find a diverse near-optimal solution set (Eq. 1, p. 4):
 
 $$
-\min_{\substack{S \subset K \\ \delta(S) \ge \delta_{\min}}} O(S) \qquad \text{(Eq. 1, p. 4)}
+\min_{\substack{S \subset K \\ \delta(S) \ge \delta_{\min}}} O(S)
 $$
 
 $O(S)$ aggregates the objectives $o(f)$ over all solutions $f \in S$, and $\delta$ is a set-level diversity (§3.2, p. 5).
 
-Diversity as minimal aggregation (the $p = 1/2$ instance of the general form Eq. 26):
+Diversity as minimal aggregation (the $p = 1/2$ instance of the general form Eq. 26) (Eq. 2, p. 6):
 
 $$
-\delta(S) = \left( \sum_i \left( \min_{j \neq i} d(f_i, f_j) \right)^{1/2} \right)^{2} \qquad \text{(Eq. 2, p. 6)}
+\delta(S) = \left( \sum_i \left( \min_{j \neq i} d(f_i, f_j) \right)^{1/2} \right)^{2}
 $$
 
-Geometric shape distance, integrating each field's square only over the other shape's boundary:
+Geometric shape distance, integrating each field's square only over the other shape's boundary (Eq. 3, p. 6):
 
 $$
-d(f_i, f_j) = \sqrt{ \int_{\partial\Omega_i} f_j(x)^2 \, \mathrm{d}x + \int_{\partial\Omega_j} f_i(x)^2 \, \mathrm{d}x } \qquad \text{(Eq. 3, p. 6)}
+d(f_i, f_j) = \sqrt{ \int_{\partial\Omega_i} f_j(x)^2 \, \mathrm{d}x + \int_{\partial\Omega_j} f_i(x)^2 \, \mathrm{d}x }
 $$
 
 The distance is closely related to the chamfer discrepancy when the fields are SDFs; it is not a metric on functions, but the paper aims at the geometries they represent (§3.2, p. 6).
 
-Adaptive augmented Lagrangian objective (minimized over $\theta$, maximized over $\lambda$):
+Adaptive augmented Lagrangian objective (minimized over $\theta$, maximized over $\lambda$) (Eq. 4, p. 7):
 
 $$
-L(\theta, \lambda, \mu) := O(S_k(\theta)) + \sum_{i=1}^{m+1} \lambda_i C_i(S_k(\theta)) + \frac{1}{2} \sum_{i=1}^{m+1} \mu_i C_i(S_k(\theta))^2 \qquad \text{(Eq. 4, p. 7)}
+L(\theta, \lambda, \mu) := O(S_k(\theta)) + \sum_{i=1}^{m+1} \lambda_i C_i(S_k(\theta)) + \frac{1}{2} \sum_{i=1}^{m+1} \mu_i C_i(S_k(\theta))^2
 $$
 
 with $C_{m+1}(S_k) = \max(\delta(S_k) - \delta_{\min}, 0)$ the diversity constraint, $\mu_i$ updated by RMSprop (Eqs. 18–20, pp. 24–25) and $\lambda_{t,i} \leftarrow \lambda_{t-1,i} + \mu_{t,i} C_i(\theta_t)$ (Eq. 20, Alg. 1, p. 25).
 
-Differentiable connectedness loss, pushing down all but the most persistent component at iso-level $a_0$ (with deaths at grid coordinates $x^{0d_i}, y^{0d_i}, z^{0d_i}$):
+Differentiable connectedness loss, pushing down all but the most persistent component at iso-level $a_0$ (with deaths at grid coordinates $x^{0d_i}, y^{0d_i}, z^{0d_i}$) (Eq. 24, p. 29):
 
 $$
-L_{cc} = \sum_{i=2}^{M} \left( a_0 - f_\theta(x^{0d_i}, y^{0d_i}, z^{0d_i}) \right)^2 \qquad \text{(Eq. 24, p. 29)}
+L_{cc} = \sum_{i=2}^{M} \left( a_0 - f_\theta(x^{0d_i}, y^{0d_i}, z^{0d_i}) \right)^2
 $$
 
-Surface-strain metric used for the smoothness ablation, with the clip $\kappa_{\max} = 10^6$:
+Surface-strain metric used for the smoothness ablation, with the clip $\kappa_{\max} = 10^6$ (Eq. 10, p. 22):
 
 $$
-E_{\text{strain}}(\Omega) = \frac{1}{N} \sum_{i \in [N]} \min\!\left( \operatorname{div}^2\!\left( \nabla \frac{f(x_i)}{\lvert f(x) \rvert} \right), \kappa_{\max} \right) \qquad \text{(Eq. 10, p. 22)}
+E_{\text{strain}}(\Omega) = \frac{1}{N} \sum_{i \in [N]} \min\!\left( \operatorname{div}^2\!\left( \nabla \frac{f(x_i)}{\lvert f(x) \rvert} \right), \kappa_{\max} \right)
 $$
 
 | Symbol | Meaning (in this paper) |

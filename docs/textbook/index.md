@@ -10,9 +10,9 @@ Read a piecewise-linear map as a polyhedral object: state what a polyhedral comp
 
 ## 2. [The region complex of a ReLU network](relu-network-geometry.md)
 
-Decompose the input space of a ReLU network into linear regions, label each region by its activation pattern, and describe the region complex, its boundaries and its dual graph. The reader can compute the local affine map of any region and say when two parametrisations give the same region structure.
+Decompose the input space of a ReLU network into linear regions, label each region by its activation pattern, and describe the region complex, its boundaries and its transition graph. The reader can compute the local affine map of any region, state what the transition graph's size, degree and diameter do and do not bound, and say when two parametrisations give the same region structure.
 
-*Sources:* [Liu et al. 2023](../papers/liuIntegratingGeometriesReLU2023a.md), [Sattelberg et al. 2023](../papers/sattelbergLocallyLinearAttributes2023.md), [Masden 2022](../papers/masdenAlgorithmicDeterminationCombinatorial2022.md), [Serra et al. 2018](../papers/serraBoundingCountingLinear2018.md), [Berzins 2023](../papers/berzinsPolyhedralComplexExtraction2023.md)
+*Sources:* [Liu et al. 2023](../papers/liuIntegratingGeometriesReLU2023a.md), [Sattelberg et al. 2023](../papers/sattelbergLocallyLinearAttributes2023.md), [Masden 2022](../papers/masdenAlgorithmicDeterminationCombinatorial2022.md), [Serra et al. 2018](../papers/serraBoundingCountingLinear2018.md), [Berzins 2023](../papers/berzinsPolyhedralComplexExtraction2023.md), [Dhayalkar 2025](../papers/dhayalkarDiscreteFunctionalGeometry2025.md)
 
 ## 3. [Counting linear regions](counting-regions.md)
 

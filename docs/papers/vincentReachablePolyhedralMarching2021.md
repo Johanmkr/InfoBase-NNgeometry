@@ -56,31 +56,35 @@ Reachability then reuses this enumeration. For forward reachability each cell's 
 
 ## Key equations and definitions
 
-Affine map of a cell and its governing constraints:
+Affine map of a cell (Eqs. 8a–8b, p. 3) and its governing constraints (Eqs. 9–10, p. 3):
 
 $$
-C_i,d_i = \tilde W_n \prod_{i=1}^{n-1}\tilde W^c_i, \qquad \tilde W^c_i(x) = \operatorname{diag}(AP_i(x))\,\tilde W_i \qquad \text{(Eqs. 8a–8b, p. 3)}
+C_i,d_i = \tilde W_n \prod_{i=1}^{n-1}\tilde W^c_i, \qquad \tilde W^c_i(x) = \operatorname{diag}(AP_i(x))\,\tilde W_i
 $$
 
 $$
 [a_{ij}\ -b_{ij}] = \tilde W_i[j,:]\prod_{l=1}^{i-1}\tilde W_l, \qquad
-\begin{cases} a_{ij}^\top x\ge b_{ij} & AP_{ij}=1\\ a_{ij}^\top x\le b_{ij} & AP_{ij}=0\end{cases} \qquad \text{(Eqs. 9–10, p. 3)}
+\begin{cases} a_{ij}^\top x\ge b_{ij} & AP_{ij}=1\\ a_{ij}^\top x\le b_{ij} & AP_{ij}=0\end{cases}
 $$
 
 The first line builds the affine map of a cell by zeroing the rows of each hidden weight matrix whose neuron is inactive; the second gives, for a single neuron, the halfspace that bounds its cell. Note the paper writes the constraint as $a_{ij}^\top x \ge b_{ij}$; carrying the sign into $b_{ij}$ gives the form $a_{ij}^\top x\le b_{ij}$ used for the H-representation.
 
-$$
-PH = \{x\in\R^d \mid Ax\le b\} \qquad \text{(Eq. 11, Def. 2, p. 3)}
-$$
+H-representation of a cell (Eq. 11, Def. 2, p. 3):
 
 $$
-\max_x a_i^\top x \quad \text{subject to } \tilde A x \le \tilde b \qquad \text{(Eq. 13, p. 3)}
+PH = \{x\in\R^d \mid Ax\le b\}
 $$
 
-Constraint $i$ is redundant if this optimum is $\le b_i$ (Def. 4). The neighbour condition over $c\cap c'$:
+Each constraint is tested for redundancy by a linear program (Eq. 13, p. 3):
 
 $$
-a_{ij}^\top(x)\,x = b_{ij}(x)\ \ (ij\in\text{Type 1}), \qquad a_{ij}^\top(x)\,x = b_{ij}(x)\ \ (ij\in\text{Type 2}) \qquad \text{(Eqs. 14a–14b, p. 4)}
+\max_x a_i^\top x \quad \text{subject to } \tilde A x \le \tilde b
+$$
+
+Constraint $i$ is redundant if this optimum is $\le b_i$ (Def. 4). The neighbour condition over $c\cap c'$ (Eqs. 14a–14b, p. 4):
+
+$$
+a_{ij}^\top(x)\,x = b_{ij}(x)\ \ (ij\in\text{Type 1}), \qquad a_{ij}^\top(x)\,x = b_{ij}(x)\ \ (ij\in\text{Type 2})
 $$
 
 | Symbol | Meaning (in this paper) |

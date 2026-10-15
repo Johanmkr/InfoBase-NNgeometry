@@ -43,9 +43,11 @@ No nontrivial compact Calabi-Yau (CY) metric is known in closed form: Calabi and
 
 ## Method
 
-The metric $g_{ij}(x)$ on a manifold $X$ is represented by a deep network with parameters $\theta^I$, $I=1,\dots,N$ (§2.1, p. 5). Gradient descent on a scalar loss $L[g]$ induces a metric flow through the chain rule, Eqs. (2.1)–(2.2); a batch loss or a measure-weighted loss gives Eqs. (2.5)–(2.8). All contain the distinguished object
+The metric $g_{ij}(x)$ on a manifold $X$ is represented by a deep network with parameters $\theta^I$, $I=1,\dots,N$ (§2.1, p. 5). Gradient descent on a scalar loss $L[g]$ induces a metric flow through the chain rule, Eqs. (2.1)–(2.2); a batch loss or a measure-weighted loss gives Eqs. (2.5)–(2.8). All contain the distinguished object (Eq. 2.7, p. 6):
 
-$$\Theta_{ijkl}(x,x') := \frac{\partial g_{ij}(x)}{\partial\theta^I}\frac{\partial g_{kl}(x')}{\partial\theta^I}, \qquad \text{(Eq. 2.7, p. 6)}$$
+$$
+\Theta_{ijkl}(x,x') := \frac{\partial g_{ij}(x)}{\partial\theta^I}\frac{\partial g_{kl}(x')}{\partial\theta^I}
+$$
 
 the *metric-NTK*. It is not a 4-tensor: the $(ij)$ indices transform at $x$, the $(kl)$ at $x'$, and invariance of updates under $x'$-diffeomorphisms requires an invariant measure (§2.1, p. 7). The general flow is complicated in three ways: the kernel evolves in time, it is non-local (updating $g_{ij}(x)$ from $g_{kl}(y)$ at distant $y$), and it mixes metric components (§2.1, p. 7).
 
@@ -60,52 +62,52 @@ Metric flows of the form $dg_{ij}/dt=-u_{ij}(x)$ (Eq. 2.38), in particular Ricci
 ## Key equations and definitions
 
 $$
-\frac{dg_{ij}(x)}{dt} = \frac{dg_{ij}(x)}{d\theta^I}\frac{d\theta^I}{dt}, \qquad \frac{d\theta^I}{dt} = -\frac{\partial L[g]}{\partial\theta_I} \qquad \text{(Eqs. 2.1–2.2, p. 5)}
+\frac{dg_{ij}(x)}{dt} = \frac{dg_{ij}(x)}{d\theta^I}\frac{d\theta^I}{dt}, \qquad \frac{d\theta^I}{dt} = -\frac{\partial L[g]}{\partial\theta_I}
 $$
 
-Training is equivalent to flowing the metric; Einstein summation is implied.
+Training is equivalent to flowing the metric (Eqs. 2.1–2.2, p. 5); Einstein summation is implied.
 
 $$
-\frac{dg_{ij}(x)}{dt} = -\int d\mu(x')\,\Theta_{ijkl}(x,x')\frac{\delta l(x')}{\delta g_{kl}(x')} \qquad \text{(Eq. 2.8, p. 6)}
+\frac{dg_{ij}(x)}{dt} = -\int d\mu(x')\,\Theta_{ijkl}(x,x')\frac{\delta l(x')}{\delta g_{kl}(x')}
 $$
 
-The general flow with a continuous (full-manifold) loss; the batch version replaces $\int d\mu(x')$ by $\sum_{x'\in B}$ (Eq. 2.5).
+The general flow with a continuous (full-manifold) loss (Eq. 2.8, p. 6); the batch version replaces $\int d\mu(x')$ by $\sum_{x'\in B}$ (Eq. 2.5).
 
 $$
-\bar\Theta_{ijkl}(x,x') = \delta(x-x')\delta_{ik}\delta_{jl}\bar\Omega(x) \qquad \text{(Eq. 2.13, p. 9)}
+\bar\Theta_{ijkl}(x,x') = \delta(x-x')\delta_{ik}\delta_{jl}\bar\Omega(x)
 $$
 
-The locality-and-no-mixing condition on the frozen metric-NTK; when it holds the flow collapses to the local gradient flow $\dfrac{dg_{ij}(x)}{dt} = -\bar\Omega(x)\dfrac{\delta l(x)}{\delta g_{ij}(x)}$ (Eq. 2.14).
+The locality-and-no-mixing condition on the frozen metric-NTK (Eq. 2.13, p. 9); when it holds the flow collapses to the local gradient flow $\dfrac{dg_{ij}(x)}{dt} = -\bar\Omega(x)\dfrac{\delta l(x)}{\delta g_{ij}(x)}$ (Eq. 2.14).
 
 $$
-\bar\Theta(x,x') = \frac{A^2}{2}\exp\left(-\frac{1}{2}\frac{\sigma_w^2}{d}\,\lvert x-x'\rvert^2\right), \qquad \sigma = \frac{\sqrt{d}}{\sigma_w} \qquad \text{(Eqs. 2.35, 2.37, pp. 13–14)}
+\bar\Theta(x,x') = \frac{A^2}{2}\exp\left(-\frac{1}{2}\frac{\sigma_w^2}{d}\,\lvert x-x'\rvert^2\right), \qquad \sigma = \frac{\sqrt{d}}{\sigma_w}
 $$
 
-The frozen NTK of the cosine-activation architecture of Eq. (2.32); it is Gaussian, and $\sigma_w\to\infty$ makes it a (normalized) delta function.
+The frozen NTK of the cosine-activation architecture of Eq. (2.32) (Eqs. 2.35, 2.37, pp. 13–14); it is Gaussian, and $\sigma_w\to\infty$ makes it a (normalized) delta function.
 
 $$
-\frac{dg_{ij}}{dt} = \frac{\delta F[\phi,g]}{\delta g_{ij}(x)} = -2\left[R_{ij} + \nabla_i\nabla_j\phi\right], \qquad F[\phi,g] = \int_X \left(R + \lvert\nabla\phi\rvert^2\right)e^{-\phi}\,dV \qquad \text{(Eqs. 2.40–2.41, pp. 14–15)}
+\frac{dg_{ij}}{dt} = \frac{\delta F[\phi,g]}{\delta g_{ij}(x)} = -2\left[R_{ij} + \nabla_i\nabla_j\phi\right], \qquad F[\phi,g] = \int_X \left(R + \lvert\nabla\phi\rvert^2\right)e^{-\phi}\,dV
 $$
 
-Perelman's gradient-flow formulation of Ricci flow, made a neural network metric flow by the loss choice $l(x) = -F[\phi,g]/\bar\Omega(x)$ (Eq. 2.42). $R_{ij}$ is the Ricci tensor, $\phi$ the dilaton.
+Perelman's gradient-flow formulation of Ricci flow (Eqs. 2.40–2.41, pp. 14–15), made a neural network metric flow by the loss choice $l(x) = -F[\phi,g]/\bar\Omega(x)$ (Eq. 2.42). $R_{ij}$ is the Ricci tensor, $\phi$ the dilaton.
 
 $$
-g^{(n+1)}_{ij}(x) = g^{(n)}_{ij}(x) - \Delta t\sum_{x'\in B}\Theta_{ijkl}(x,x')\frac{\delta\ell(x')}{\delta g^{(n)}_{kl}} \qquad \text{(Eq. 3.5, p. 19)}
+g^{(n+1)}_{ij}(x) = g^{(n)}_{ij}(x) - \Delta t\sum_{x'\in B}\Theta_{ijkl}(x,x')\frac{\delta\ell(x')}{\delta g^{(n)}_{kl}}
 $$
 
-The first-order backward-Euler discretization of the flow used in the numerical experiments; $\Delta t$ is a hyperparameter.
+The first-order backward-Euler discretization of the flow used in the numerical experiments (Eq. 3.5, p. 19); $\Delta t$ is a hyperparameter.
 
 $$
-\Theta_{ijkl}(x,x') = \delta_{ik}\delta_{jl}\,e^{-d(x,x')/2\sigma} \qquad \text{(Eq. 3.6, p. 20)}
+\Theta_{ijkl}(x,x') = \delta_{ik}\delta_{jl}\,e^{-d(x,x')/2\sigma}
 $$
 
-The Gaussian kernel used in the experiments; $d(x,x')$ is the shortest geodesic distance in the ambient Fubini-Study metric and $\sigma$ a hyperparameter. (The PDF text layer is ambiguous between $-d/2\sigma$ and $-d^2/2\sigma^2$.)
+The Gaussian kernel used in the experiments (Eq. 3.6, p. 20); $d(x,x')$ is the shortest geodesic distance in the ambient Fubini-Study metric and $\sigma$ a hyperparameter. (The PDF text layer is ambiguous between $-d/2\sigma$ and $-d^2/2\sigma^2$.)
 
 $$
-\sigma := \lvert 1-\eta\rvert, \qquad \eta = \frac{J^n}{\kappa\lvert\Omega\rvert^2} \qquad \text{(Eq. B.11, p. 30)}
+\sigma := \lvert 1-\eta\rvert, \qquad \eta = \frac{J^n}{\kappa\lvert\Omega\rvert^2}
 $$
 
-The *sigma loss* used as $\ell$: the CY metric has $\eta=1$ and $\sigma=0$; $\Omega$ is the holomorphic top form and $J$ the Kähler form.
+The *sigma loss* used as $\ell$ (Eq. B.11, p. 30): the CY metric has $\eta=1$ and $\sigma=0$; $\Omega$ is the holomorphic top form and $J$ the Kähler form.
 
 | Symbol | Meaning (in this paper) |
 |---|---|
