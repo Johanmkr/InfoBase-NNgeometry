@@ -1,0 +1,14 @@
+# Site build environment. `uv run mkdocs serve` creates .venv and uv.lock from this.
+# requirements.txt lists the same packages for a plain pip/venv setup; keep them in sync.
+[project]
+name = "literature-textbook"
+version = "0.0.0"
+requires-python = ">=3.10"
+dependencies = [
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.5,<10",
+    "pyyaml>=6",
+]
+
+[tool.uv]
+package = false

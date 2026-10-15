@@ -1,0 +1,6 @@
+# literature skills
+NN-geometry.bib
+site/
+*.tmp
+.venv/
+__pycache__/

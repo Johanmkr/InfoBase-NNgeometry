@@ -1,0 +1,5 @@
+# Fallback for pip (python3 -m venv .venv && .venv/bin/pip install -r requirements.txt).
+# The primary setup is uv with pyproject.toml; keep the two in sync.
+mkdocs>=1.6,<2
+mkdocs-material>=9.5,<10
+pyyaml>=6

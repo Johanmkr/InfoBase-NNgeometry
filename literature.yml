@@ -1,0 +1,6 @@
+# Read by the literature skills (see the academic-md-conventions skill).
+title: "Neural Network Geometry"
+bib: "NN-geometry.bib"            # raw Better BibTeX export (git-ignored), relative to this folder
+site_url: ""
+repo_url: ""
+author: "Johan Kroken"
